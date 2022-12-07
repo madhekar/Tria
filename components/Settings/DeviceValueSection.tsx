@@ -59,56 +59,32 @@ import DeviceValueProps from './types';
 import device_bg from  '../../assets/bgs/bg_image1.png';
 import MaskInput from 'react-native-mask-input';
 
-
+import { addDevice, updateDevice } from '../State/device-list/deviceSlice';
+import { useAppDispatch, useAppSelector  } from '../State/hooks';
 const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
-  
+
+   const device = useAppSelector((state) => state.device.deviceList.find((device) => device.id === id));
+   const dispatch = useAppDispatch();
+
+
     const [id, setId] = useState(props.id);
-    const [deviceNo, setDeviceNo] = useState(props.deviceNo);
-    const [alias, setAlias] = useState(props.alias);
-    const [highValue, setHighValue] = useState(props.highValue);
-    const [lowValue, setLowValue] = useState(props.lowValue);
-    const [accuracy, setAccuracy] = useState(props.accuracy);
-
-    const useSharedTriaSettings = () => useBetween(TriaSettings);
-
+    const [deviceNo, setDeviceNo] = useState( props.deviceNo || device?.deviceNo);
+    const [alias, setAlias] = useState(props.alias || device?.alias);
+    const [highValue, setHighValue] = useState(props.highValue || device?.highValue);
+    const [lowValue, setLowValue] = useState(props.lowValue || device?.lowValue);
+    const [accuracy, setAccuracy] = useState(props.accuracy || device?.accuracy);
+ 
     const navigation = useNavigation<HomeProps['navigation']>();
 
-    const {
-      triaAqHiChange,
-      setTriaAqHiChange,
-      triaAqLoChange,
-      setTriaAqLoChange,
-      triaHumHiChange,
-      setTriaHumHiChange,
-      triaHumLoChange, 
-      setTriaHumLoChange,
-      triaTempHiChange,
-      setTriaTempHiChange,
-      triaTempLoChange,
-      setTriaTempLoChange,
-    } = useSharedTriaSettings();
-
-    useEffect(() => 
-    {
-      if(props.id === 0){
-        setTriaTempHiChange(highValue); 
-      } else if(props.id === 1){
-        setTriaHumHiChange(highValue); 
-      } else if(props.id === 2){
-        setTriaAqHiChange(highValue);
-      }
-    }, [highValue]);
-
-    useEffect(() => {
-      if(props.id === 0){
-        setTriaTempLoChange(lowValue); 
-      } else if(props.id === 1){
-        setTriaHumLoChange(lowValue); 
-      } else if(props.id === 2){
-        setTriaAqLoChange(lowValue);
-      }
-    }, [lowValue]);
-
+     const handleSubmit = () => {
+      dispatch(updateDevice({
+        id, deviceNo, alias, highValue, lowValue, accuracy,
+        art: {
+          icon: '',
+          background: ''
+        }
+      }));
+     };
 
   return (
 
@@ -180,10 +156,4 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
 
 
 export default DeviceValueSection;
-
-
-
-function handleSubmit(): void {
-  throw new Error('Function not implemented.');
-}
 

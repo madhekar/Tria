@@ -1,6 +1,8 @@
+ 
+
  export default interface DeviceValueProps{
     id: number;
-    deviceNo: string;
+    deviceNo: string; 
     alias: string;
     highValue: string;
     lowValue: string;

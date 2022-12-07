@@ -10,6 +10,10 @@ import usFonts from './components/Custom/LoadFonts';
 //react navigation
 import RootStack from './navigators/RootStack';
 import Welcome from './screens/Welcome';
+//import { Provider } from 'react-native-paper';
+
+import { Provider } from 'react-redux';
+import { store } from './components/State/store';
 
 /* export default function App() {
 
@@ -111,7 +115,9 @@ import Welcome from './screens/Welcome';
        <ActivityIndicator />);
      } 
     return(
-      <RootStack />
+      <Provider store = {store} >
+        <RootStack />
+      </Provider>
     );
   }
 }  

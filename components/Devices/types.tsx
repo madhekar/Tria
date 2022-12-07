@@ -5,8 +5,7 @@ export interface DeviceProps {
     alias: string;
     highValue: string;
     lowValue: string;
-    accuracy: string;   
-    // onSubmitData: (id:number, deviceNo: string, alias: string, highValue: string, lowValue: string, accuracy: string) => void;
+    accuracy: string;
     art: {
         icon: string;
         background: string;

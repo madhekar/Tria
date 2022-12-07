@@ -17,13 +17,6 @@ import  DeviceItem from '../Devices/DeviceItem';
 import { DeviceSectionProps } from './types';
 
 const DeviceSection: FunctionComponent<DeviceSectionProps> = (props) => {
-
-  function updateSettings(id: number, alias: string, nhigh: string, nlow: string ){
-    props.data[id].alias = alias;
-    props.data[id].highValue = nhigh;
-
-    Alert.alert('updating with new values ' + id.toString() +' :' + alias +' :' + nhigh +' :' + nlow);
-}
   return (
     <DeviceList
        data={props.data}
@@ -34,7 +27,7 @@ const DeviceSection: FunctionComponent<DeviceSectionProps> = (props) => {
           alignItems: "center",
        }}
        keyExtractor={({id}: any) => id.toString()}
-       renderItem={({item}: any) => <DeviceItem {...item} updateDevice= {updateSettings}/>}
+       renderItem={({item}: any) => <DeviceItem {...item}/>}
     />
 
   );

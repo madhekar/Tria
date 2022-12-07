@@ -2,8 +2,6 @@ import React, {FunctionComponent, useCallback, useEffect, useRef, useState} from
 import { StatusBar } from 'expo-status-bar';
 import styled from 'styled-components';
 import moment from 'moment';
-/* import { useBetween } from 'use-between';
-import { TriaState } from '../components/Connection/TriaState'; */
 
 //custom components
 import { Container } from '../components/shared';
@@ -11,10 +9,6 @@ import { colors } from '../components/colors';
 import DeviceSection from '../components/Devices/DeviceSection';
 import InputSection  from '../components/Inputs/InputSection';
 import OutputSection from '../components/Outputs/OutputSection';
-
-
-
-//import TriaProvider from './TriaConnect';
 
 const HomeContainer = styled(Container)`
     background-color: ${colors.graylite};
@@ -27,15 +21,13 @@ import { RootStackParamList } from "../navigators/RootStack";
 import { StackScreenProps } from "@react-navigation/stack";
 import TriaConnect from './TriaConnect';
 import LoadDefault from '../components/Custom/LoadDefault';
-import { Alert } from 'react-native';
-import { Value } from 'react-native-reanimated';
 export type props = StackScreenProps<RootStackParamList, 'Home'>;
 
 
 const Home: FunctionComponent = () => {
 
     var dt = moment().format("MM/DD/YYYY HH:mm:ss");
-/*     const useSharedTriaState = () => useBetween(TriaState);  
+/*  const useSharedTriaState = () => useBetween(TriaState);  
     const {triaDeviceData, 
        triaDeviceStatus, 
        triaDeviceTimestamp,
@@ -45,8 +37,6 @@ const Home: FunctionComponent = () => {
     
    var data = LoadDefault.prepareDeviceSettings();
              
-  // Alert.alert(data);
-       // deviceSettings
     const deviceData = [
         {
             id: 1,
@@ -182,17 +172,15 @@ const Home: FunctionComponent = () => {
       }
     ];
 
-
-    
   return (
   <HomeContainer>
-    <StatusBar style='dark'/>
-    <TriaConnect /> 
-    <DeviceSection data={deviceData}  />
-    <InputSection data={inputData} />
-    <OutputSection data={outputData} />
+      <StatusBar style='dark'/>
+      <TriaConnect /> 
+      <DeviceSection data={deviceData}  />
+      <InputSection data={inputData} />
+      <OutputSection data={outputData} />
   </HomeContainer>
-  );
+  )
 };
 export default Home;
 

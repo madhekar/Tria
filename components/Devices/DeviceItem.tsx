@@ -59,31 +59,21 @@ import device_bg from  '../../assets/bgs/bg_image1.png';
 
 // types
 import { DeviceProps } from './types';
-//import { Value } from 'react-native-reanimated';
-//const Triacontext = createContext("TRIA");
+import { useAppSelector } from '../State/hooks';
 
 const DeviceItem: FunctionComponent<DeviceProps> = (props) => {
 
+  const device = useAppSelector((state) => state.device.deviceList[props.id]);
+  //console.log(device.accuracy);
   const navigation = useNavigation<HomeProps['navigation']>();
-
 
    // move to device setting page
    const handleImgPress = () =>{
     navigation.navigate("Settings",
-      props    
+      props,    
     );
    };
 
-   const [defaultData, setDefaultData] = useState({
-    id: props.id,
-    deviceNo: props.deviceNo,
-    alias: props.alias,
-    highValue: props.highValue,
-    lowValue: props.lowValue,
-    accuracy: props.accuracy,
-   });
-
-  //setDefaultData(highValue, "80.56");
 
   return (
     <DeviceBackground source = {device_bg}>
@@ -93,10 +83,10 @@ const DeviceItem: FunctionComponent<DeviceProps> = (props) => {
           <DeviceRow> 
           <View style={{flex: 2}}>
             <BigText textStyles={{ marginBottom: 1, color: colors.accent}}>
-              {defaultData.alias}
+              {props.alias}
             </BigText>
             <SmallText textStyles={{ marginBottom: 10, color: colors.accent}}>
-              Device Type: {defaultData.deviceNo}
+              Device Type: {props.deviceNo}
             </SmallText>
            </View>
           </DeviceRow>
@@ -104,15 +94,15 @@ const DeviceItem: FunctionComponent<DeviceProps> = (props) => {
             <View style={{flex: 3}}>
               <SmallText 
               textStyles={{marginBottom: 0, color: colors.accent}} >
-                High: {defaultData.highValue}
+                High: {props.highValue}
               </SmallText>
               <SmallText 
               textStyles={{marginBottom: 0, color: colors.accent}} >
-                Low: {defaultData.lowValue}
+                Low: {props.lowValue}
               </SmallText>
               <SmallText
               textStyles={{marginBottom: 0, color: colors.accent}} >
-                Accuracy: {defaultData.accuracy}
+                Accuracy: {props.accuracy}
               </SmallText>
             </View>
             <DeviceAvi
