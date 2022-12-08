@@ -63,29 +63,25 @@ import { addDevice, updateDevice } from '../State/device-list/deviceSlice';
 import { useAppDispatch, useAppSelector  } from '../State/hooks';
 const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
 
-   const device = useAppSelector((state) => state.device.deviceList.find((device) => device.id === id));
-   const dispatch = useAppDispatch();
-
-
+    const dispatch = useAppDispatch();
+  
     const [id, setId] = useState(props.id);
-    const [deviceNo, setDeviceNo] = useState( props.deviceNo || device?.deviceNo);
-    const [alias, setAlias] = useState(props.alias || device?.alias);
-    const [highValue, setHighValue] = useState(props.highValue || device?.highValue);
-    const [lowValue, setLowValue] = useState(props.lowValue || device?.lowValue);
-    const [accuracy, setAccuracy] = useState(props.accuracy || device?.accuracy);
- 
-    const navigation = useNavigation<HomeProps['navigation']>();
+    const [deviceNo, setDeviceNo] = useState( props.deviceNo );
+    const [alias, setAlias] = useState(props.alias );
+    const [highValue, setHighValue] = useState(props.highValue);
+    const [lowValue, setLowValue] = useState(props.lowValue );
+    const [accuracy, setAccuracy] = useState(props.accuracy );
 
-     const handleSubmit = () => {
-      dispatch(updateDevice({
-        id, deviceNo, alias, highValue, lowValue, accuracy,
-        art: {
-          icon: '',
-          background: ''
-        }
-      }));
-     };
+    const handleSubmit = ({}) => {
+        
+        dispatch(updateDevice({
+          id: id, deviceNo: deviceNo, alias: alias, highValue: highValue, lowValue: lowValue, accuracy: accuracy,
+          art: { icon: '', background: '' }
+        })
+        )
+      };
 
+  const navigation = useNavigation<HomeProps['navigation']>();
   return (
 
     <DeviceBackground source = {device_bg}>
@@ -119,16 +115,16 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
     <MaskInput style={{padding: 8}}
        placeholder={highValue}
        value={highValue}
-       mask={[/\d/, /\d/,".",/\d/, /\d/]}
+       mask={[/\d/,/\d/, /\d/,".",/\d/]}
        onChangeText={txt => setHighValue(txt)}
     /> 
 </View>
 <View style={{ margin: 1, padding: 10, backgroundColor: colors.accent}}>
   <Text style={{ color: colors.graydark, borderColor: colors.graydark, fontSize: 12}}>Low Value</Text>
     <MaskInput style={{padding: 8}}
-       placeholder={highValue}
+       placeholder={lowValue}
        value={lowValue}
-       mask={[/\d/, /\d/,".",/\d/, /\d/]}
+       mask={[/\d/,/\d/, /\d/,".",/\d/]}
        onChangeText={txt => setLowValue(txt)}
     /> 
 </View>
@@ -144,16 +140,15 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
 </View>      
   </View>
 </DeviceRow>  
-     <DeviceRow>
-        <Button onPress={() => navigation.goBack()} style={{backgroundColor: colors.graydark}} mode='contained' uppercase={false}>Save</Button>   
-        <Button onPress={()=> handleSubmit()} style={{backgroundColor: colors.graydark}} mode='contained' uppercase={false}>Cancel</Button>     
+     <DeviceRow> 
+      <Button onPress={()=> handleSubmit({})} style={{backgroundColor: colors.graydark}} mode='contained' uppercase={false}>Save</Button>     
+      <Button onPress={() => navigation.goBack()} style={{backgroundColor: colors.graydark}} mode='contained' uppercase={false}>Cancel</Button>   
      </DeviceRow> 
 </TouchableView>
 </DeviceTouchable>
 </DeviceBackground>
   );
 }
-
 
 export default DeviceValueSection;
 

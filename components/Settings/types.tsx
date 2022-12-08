@@ -1,4 +1,3 @@
- 
 
  export default interface DeviceValueProps{
     id: number;
@@ -7,4 +6,8 @@
     highValue: string;
     lowValue: string;
     accuracy: string;
+    art: {
+        icon: string;
+        background: string;
+    };
 };

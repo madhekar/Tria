@@ -14,7 +14,7 @@ export type Device = {
 };
 
 export type initialStateType = {
-    deviceList: Device[];
+    deviceList: Device[]
  }
  
 export const deviceList : Device[] = 
@@ -70,7 +70,7 @@ export const deviceList : Device[] =
      ];
  
  
- export const initialState : initialStateType = {
+ export const initialState  = {
      deviceList,
  };
 

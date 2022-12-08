@@ -10,6 +10,9 @@ import DeviceSection from '../components/Devices/DeviceSection';
 import InputSection  from '../components/Inputs/InputSection';
 import OutputSection from '../components/Outputs/OutputSection';
 
+import { addDevice, updateDevice } from '../components/State/device-list/deviceSlice';
+import { useAppDispatch, useAppSelector  } from '../components/State/hooks';
+
 const HomeContainer = styled(Container)`
     background-color: ${colors.graylite};
     width: 100%;
@@ -21,6 +24,7 @@ import { RootStackParamList } from "../navigators/RootStack";
 import { StackScreenProps } from "@react-navigation/stack";
 import TriaConnect from './TriaConnect';
 import LoadDefault from '../components/Custom/LoadDefault';
+import { AppState } from 'react-native';
 export type props = StackScreenProps<RootStackParamList, 'Home'>;
 
 
@@ -35,60 +39,10 @@ const Home: FunctionComponent = () => {
        setTriaDeviceStatus,
        setTriaDeviceTimestamp } = useSharedTriaState(); */
     
-   var data = LoadDefault.prepareDeviceSettings();
-             
-    const deviceData = [
-        {
-            id: 1,
-            deviceNo: "Tria9X99",
-            alias: "Temperature",
-            highValue: '80',
-            lowValue: '75',
-            accuracy: '0.01',
-            art: {
-                icon: "thermometer",
-                background: colors.accent,
-            },
-        },       
-        {
-            id: 2,
-            deviceNo: 'Tria10X01',
-            alias: 'Humidity',
-            highValue: '65',
-            lowValue: '45',
-            accuracy: '0.01',
-            art: {
-                icon: "droplet",
-                background: colors.accent,
-            },
-        },
-        {
-            id: 3,
-            deviceNo: "Tria9X98",
-            alias: "Air Quality",
-            highValue: '3000',
-            lowValue: '0',
-            accuracy: '0.01',
-            art: {
-                icon: "wind",
-                background: colors.accent,
-            },
-        },
-        {
-            id: 4,
-            deviceNo: "Tria10X08",
-            alias: "Hazard Gases",
-            highValue: '300',
-            lowValue: '0',
-            accuracy: '0.01',
-            art: {
-                icon: "wind",
-                background: colors.accent,
-            },
-        },
-    ];
+   // var data = LoadDefault.prepareDeviceSettings();
+   var deviceList = useAppSelector((state) => state.device.deviceList);
 
-    // deviceData
+    // deviceData current
     const inputData =[
         {
             id: 1,
@@ -176,7 +130,7 @@ const Home: FunctionComponent = () => {
   <HomeContainer>
       <StatusBar style='dark'/>
       <TriaConnect /> 
-      <DeviceSection data={deviceData}  />
+      <DeviceSection data={deviceList}  />
       <InputSection data={inputData} />
       <OutputSection data={outputData} />
   </HomeContainer>
