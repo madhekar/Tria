@@ -12,11 +12,6 @@ import DeviceAvi from './DeviceAvi';
 
 import { useNavigation } from '@react-navigation/native';
 import {props as HomeProps} from '../../screens/Home';
-import Settings from '../../screens/Settings';
-
-import { useBetween } from 'use-between';
-import { TriaSettings } from '../Connection/TriaState';
-
 
 const DeviceBackground = styled(ImageBackground)`
   height: 95%;
@@ -63,8 +58,6 @@ import { useAppSelector } from '../State/hooks';
 
 const DeviceItem: FunctionComponent<DeviceProps> = (props) => {
 
-  const device = useAppSelector((state) => state.device.deviceList[props.id]);
-  //console.log(device.accuracy);
   const navigation = useNavigation<HomeProps['navigation']>();
 
    // move to device setting page

@@ -34,8 +34,6 @@ export type RootStackParamList = {
 const Stack = createStackNavigator<RootStackParamList>();
 
 
-
-
 const RootStack: FunctionComponent = () => {
     return (
     <NavigationContainer>

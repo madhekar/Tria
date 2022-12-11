@@ -59,12 +59,13 @@ import DeviceValueProps from './types';
 import device_bg from  '../../assets/bgs/bg_image1.png';
 import MaskInput from 'react-native-mask-input';
 
-import { addDevice, updateDevice } from '../State/device-list/deviceSlice';
+import { updateDevice } from '../State/device-list/deviceSlice';
 import { useAppDispatch, useAppSelector  } from '../State/hooks';
-const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
 
+const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
+    // redux dispatch
     const dispatch = useAppDispatch();
-  
+    // local state
     const [id, setId] = useState(props.id);
     const [deviceNo, setDeviceNo] = useState( props.deviceNo );
     const [alias, setAlias] = useState(props.alias );
@@ -73,7 +74,6 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
     const [accuracy, setAccuracy] = useState(props.accuracy );
 
     const handleSubmit = ({}) => {
-        
         dispatch(updateDevice({
           id: id, deviceNo: deviceNo, alias: alias, highValue: highValue, lowValue: lowValue, accuracy: accuracy,
           art: { icon: '', background: '' }
