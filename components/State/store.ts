@@ -1,13 +1,17 @@
 
 import {  configureStore } from '@reduxjs/toolkit'
-import { deviceSlice } from './device-list/deviceSlice'
+
+import { deviceSlice } from './triaSlice/deviceSlice'
+import { messageSlice } from './triaSlice/messageSlice';
 
 import { persistStore, persistReducer, FLUSH } from 'redux-persist';
 import { processColor } from 'react-native-reanimated';
 
+
 export const store = configureStore({
 reducer: {
         device: deviceSlice.reducer,
+        message: messageSlice.reducer
   }, 
 });
 

@@ -10,7 +10,7 @@ import DeviceSection from '../components/Devices/DeviceSection';
 import InputSection  from '../components/Inputs/InputSection';
 import OutputSection from '../components/Outputs/OutputSection';
 
-import { addDevice, updateDevice } from '../components/State/device-list/deviceSlice';
+import { addDevice, updateDevice } from '../components/State/triaSlice/deviceSlice';
 import { useAppDispatch, useAppSelector  } from '../components/State/hooks';
 
 const HomeContainer = styled(Container)`

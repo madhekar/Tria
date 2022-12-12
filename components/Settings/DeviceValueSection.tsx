@@ -55,12 +55,14 @@ const Logo = styled(Image)`
 
 //type
 import DeviceValueProps from './types';
+import { Message } from '../State/types';
 // images
 import device_bg from  '../../assets/bgs/bg_image1.png';
 import MaskInput from 'react-native-mask-input';
 
-import { updateDevice } from '../State/device-list/deviceSlice';
+import { updateDevice } from '../State/triaSlice/deviceSlice';
 import { useAppDispatch, useAppSelector  } from '../State/hooks';
+import { addMessage } from '../State/triaSlice/messageSlice';
 
 const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
     // redux dispatch
@@ -72,6 +74,23 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
     const [highValue, setHighValue] = useState(props.highValue);
     const [lowValue, setLowValue] = useState(props.lowValue );
     const [accuracy, setAccuracy] = useState(props.accuracy );
+
+    useEffect(() => {
+      setDeviceSetting(highValue.trim(), 'H');
+    }, [highValue]);
+    useEffect(() => {
+      setDeviceSetting(highValue.trim(),'L');
+    }, [lowValue]);
+
+    const  setDeviceSetting = (sv: string, hl: string) =>{
+      if (id == 1) {
+        dispatch(addMessage({id: id, msg: 'T' + hl + sv, sent: false}));
+      }else if (id == 2){
+        dispatch(addMessage({id: id, msg: 'H' + hl + sv, sent: false}));
+      } else if (id == 3){
+        dispatch(addMessage({id: id, msg: 'A' + hl + sv, sent: false}));
+      }
+    }
 
     const handleSubmit = ({}) => {
         dispatch(updateDevice({

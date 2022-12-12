@@ -13,9 +13,24 @@ export type Device = {
     },
 };
 
+export type Message = {
+    id: number,
+    msg: string,
+    sent: boolean,
+};
+
+
 export type initialStateType = {
-    deviceList: Device[]
- }
+    deviceList: Device[],
+    messageList: Message[],
+};
+
+export type initiatMsgStateType = {
+    message : Message[]
+}
+
+export const messageList : Message[] = 
+[]
  
 export const deviceList : Device[] = 
      [
@@ -69,8 +84,11 @@ export const deviceList : Device[] =
          },
      ];
  
- 
  export const initialState  = {
      deviceList,
+     messageList,
  };
+
+
+
 

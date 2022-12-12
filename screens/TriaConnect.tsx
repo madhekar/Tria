@@ -4,8 +4,6 @@ import { useBetween } from 'use-between';
 import DeviceModal from  '../components/Connection/DeviceConnectionModel';
 import UseBLE from '../components/Connection/UseBLE';
 import {Device} from 'react-native-ble-plx';
-import RegularText from '../components/Texts/RegularText';
-import SmallText from '../components/Texts/SmallText';
 import { ScreenWidth, ScreenHeight } from '../components/shared';
 import { TriaState, TriaSettings } from '../components/Connection/TriaState';
 
@@ -54,7 +52,7 @@ const TriaConnect: FunctionComponent = () => {
   } = UseBLE();
 
 const useSharedTriaState = () => useBetween(TriaState);  
-const useSharedTriaSettings = () => useBetween(TriaSettings);
+//const useSharedTriaSettings = () => useBetween(TriaSettings);
 
 const {
   triaDeviceData,
@@ -65,7 +63,7 @@ const {
   setTriaDeviceStatus,
 } = useSharedTriaState();
 
-const {
+/* const {
   triaAqHiChange,
   setTriaAqHiChange,
   triaAqLoChange,
@@ -78,19 +76,11 @@ const {
   setTriaTempHiChange,
   triaTempLoChange,
   setTriaTempLoChange,
-} = useSharedTriaSettings();
+} = useSharedTriaSettings(); */
 
-useEffect(() => {
-  setTriaDeviceData(triaData.trim());
-}, [triaData]);
-
-useEffect(() => {
-  setTriaDeviceTimestamp(timestamp.trim());
-}, [timestamp]);
-
-useEffect(() => {
-  setTriaDeviceStatus(triaStatus.trim());
-},[triaStatus]);
+useEffect(() => { setTriaDeviceData(triaData.trim());       }, [triaData]);
+useEffect(() => { setTriaDeviceTimestamp(timestamp.trim()); }, [timestamp]);
+useEffect(() => { setTriaDeviceStatus(triaStatus.trim());   }, [triaStatus]);
 
 //setTriaDeviceData(triaData.trim);
 
@@ -111,62 +101,34 @@ const openModal = async () => {
   })
 }
 
-  const updateTriaSettings = () => {
+  /* const updateTriaSettings = () => {
     useEffect(() => {processSettingsData(triaTempHiChange); }, [triaTempHiChange]);
     useEffect(() => {processSettingsData(triaTempLoChange); }, [triaTempLoChange]);
     useEffect(() => {processSettingsData(triaTempHiChange); }, [triaHumHiChange]);
     useEffect(() => {processSettingsData(triaTempLoChange); }, [triaHumLoChange]);
     useEffect(() => {processSettingsData(triaAqHiChange); }, [triaAqHiChange]);
     useEffect(() => {processSettingsData(triaAqLoChange); }, [triaAqLoChange]);
-  }
+  } */
 
   const processSettingsData = (sData: string) =>{
     writeSettingsToTria(sData.toString());
   }
 
   return (
-      
-      //<SafeAreaView style={styles.container}>
       <InputSectionBackground>
-
-      
-{/*         <View style={styles.triaTitleWrapper}>
-          <Text style={styles.roomAttributesText}>Bluetooth</Text>
-          {connectedDevice ? (
-            <>
-                <SmallText>Tria Connected..</SmallText>
-             <SmallText>DST {triaData}: {triaStatus} : {timestamp}</SmallText>
-            </>
-          ) : (
-            <Text style={styles.roomAttributesText}>
-              Connect to Bluetooth Tria Controller!
-            </Text>
-          )}
-        </View> */}
-
-
         <TouchableOpacity onPress={openModal}
           style={styles.ctaButton}>
           <Text style={styles.ctaButtonText}>
             {connectedDevice ? 'Disconnect' : 'Connect'}
           </Text>
         </TouchableOpacity>
-
-{/*         <TouchableOpacity onPress={writeSettingsToTria}
-          style={styles.ctaButton}>
-          <Text style={styles.ctaButtonText}>
-            Send To Tria
-          </Text>
-        </TouchableOpacity> */}
-
-
         <DeviceModal
           closeModal={hideModal}
           visible={isModalVisible}
           connectToPeripheral={connectToDevice}
           devices={allDevices} />
       </InputSectionBackground>
-);
+    );
 };
 
 const styles = StyleSheet.create({
@@ -204,8 +166,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: colors.black,
   },
- 
-}
+ }
 );
 
 export default TriaConnect ;
