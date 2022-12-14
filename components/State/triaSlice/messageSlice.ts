@@ -13,11 +13,11 @@ export const messageSlice = createSlice({
         },
         updateMessage: (state, action: PayloadAction<Message>) => {
             const {
-                payload: {id, msg, sent},
+                payload: {id, msgh, msgl, sent},
             } = action;
 
             state.messageList = state.messageList.map((message) => 
-               message.id === id ? {...message, sent, msg} : message,
+               message.id === id ? {...message, sent, msgh, msgl} : message,
             );
         },
         removeMessage: (state, acton: PayloadAction<{id: number}>) => {

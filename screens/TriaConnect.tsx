@@ -7,6 +7,9 @@ import {Device} from 'react-native-ble-plx';
 import { ScreenWidth, ScreenHeight } from '../components/shared';
 import { TriaState, TriaSettings } from '../components/Connection/TriaState';
 
+import { useAppDispatch, useAppSelector  } from '../components/State/hooks';
+import { addMessage } from '../components/State/triaSlice/messageSlice';
+
 import {
   Alert,
   SafeAreaView,
@@ -23,6 +26,7 @@ import {
 
 import { colors } from '../components/colors';
 import { Value } from 'react-native-reanimated';
+import { RootState } from '../components/State/store';
 
 const InputSectionBackground = styled(View)`
    padding-horizontal: 20px;
@@ -52,6 +56,9 @@ const TriaConnect: FunctionComponent = () => {
   } = UseBLE();
 
 const useSharedTriaState = () => useBetween(TriaState);  
+// redux dispatch
+const dispatch = useAppDispatch();
+const mList = useAppSelector((state: RootState) => state.message.messageList );
 //const useSharedTriaSettings = () => useBetween(TriaSettings);
 
 const {
@@ -82,11 +89,10 @@ useEffect(() => { setTriaDeviceData(triaData.trim());       }, [triaData]);
 useEffect(() => { setTriaDeviceTimestamp(timestamp.trim()); }, [timestamp]);
 useEffect(() => { setTriaDeviceStatus(triaStatus.trim());   }, [triaStatus]);
 
-//setTriaDeviceData(triaData.trim);
+  //setTriaDeviceData(triaData.trim);
+ //const [tData, setTData] = useState<String>("");
 
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
-
-  //const [tData, setTData] = useState<String>("");
 
   const hideModal = () => {
     setIsModalVisible(false);
@@ -119,7 +125,7 @@ const openModal = async () => {
         <TouchableOpacity onPress={openModal}
           style={styles.ctaButton}>
           <Text style={styles.ctaButtonText}>
-            {connectedDevice ? 'Disconnect' : 'Connect'}
+            {connectedDevice ? 'Disconnect' : 'Connect'} 
           </Text>
         </TouchableOpacity>
         <DeviceModal
@@ -127,6 +133,10 @@ const openModal = async () => {
           visible={isModalVisible}
           connectToPeripheral={connectToDevice}
           devices={allDevices} />
+         <TouchableOpacity>
+          <Text style={styles.ctaButtonText}>
+          </Text>
+          </TouchableOpacity> 
       </InputSectionBackground>
     );
 };

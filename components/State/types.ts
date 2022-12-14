@@ -15,7 +15,8 @@ export type Device = {
 
 export type Message = {
     id: number,
-    msg: string,
+    msgh: string,
+    msgl: string,
     sent: boolean,
 };
 
@@ -30,7 +31,26 @@ export type initiatMsgStateType = {
 }
 
 export const messageList : Message[] = 
-[]
+[
+    {
+        id:   1,
+        msgh: '80',  //high
+        msgl: '70',
+        sent: false
+    },
+    {
+        id:   3,
+        msgh: '60.5',  //high
+        msgl: '50',    //low
+        sent: false
+    },
+    {
+        id:   5,
+        msgh: '300',  //high
+        msgl: '0',     //low
+        sent: false
+    }
+];
  
 export const deviceList : Device[] = 
      [
@@ -51,7 +71,7 @@ export const deviceList : Device[] =
              deviceNo: 'Tria10X01',
              alias: 'Humidity',
              highValue: '65',
-             lowValue: '45',
+             lowValue: '50',
              accuracy: '0.01',
              art: {
                  icon: "droplet",

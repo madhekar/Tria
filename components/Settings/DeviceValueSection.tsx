@@ -7,6 +7,7 @@ import { ScreenWidth } from '../shared';
 import { useBetween } from 'use-between';
 import { TriaSettings } from '../Connection/TriaState';
 
+
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import {props as HomeProps} from '../../screens/Home';
 
@@ -62,7 +63,7 @@ import MaskInput from 'react-native-mask-input';
 
 import { updateDevice } from '../State/triaSlice/deviceSlice';
 import { useAppDispatch, useAppSelector  } from '../State/hooks';
-import { addMessage } from '../State/triaSlice/messageSlice';
+import { addMessage, updateMessage } from '../State/triaSlice/messageSlice';
 
 const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
     // redux dispatch
@@ -75,36 +76,34 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
     const [lowValue, setLowValue] = useState(props.lowValue );
     const [accuracy, setAccuracy] = useState(props.accuracy );
 
-    useEffect(() => {
-      setDeviceSetting(highValue.trim(), 'H');
-    }, [highValue]);
-    useEffect(() => {
-      setDeviceSetting(highValue.trim(),'L');
-    }, [lowValue]);
+    useEffect(() => {  setDeviceSetting(id, highValue.trim(), lowValue.trim())}, [highValue]);
+    useEffect(() => {  setDeviceSetting(id, highValue.trim(), lowValue.trim())}, [lowValue]);
 
-    const  setDeviceSetting = (sv: string, hl: string) =>{
-      if (id == 1) {
-        dispatch(addMessage({id: id, msg: 'T' + hl + sv, sent: false}));
-      }else if (id == 2){
-        dispatch(addMessage({id: id, msg: 'H' + hl + sv, sent: false}));
-      } else if (id == 3){
-        dispatch(addMessage({id: id, msg: 'A' + hl + sv, sent: false}));
-      }
+    const  setDeviceSetting = (index: number, hv: string, lv:string) =>{
+      if (id == 1) { dispatch(updateMessage({id: id, msgh: 'TH' + hv, msgl: 'TL' + lv, sent: false}));
+      } else if (id == 2){ dispatch(updateMessage({id: id, msgh: 'HH' + hv, msgl: 'HL' + lv, sent: false}));
+      } else if (id == 3){ dispatch(updateMessage({id: id, msgh: 'AH' + hv, msgl: 'AL' + lv, sent: false}));
     }
+  }
+    //for testing
+    let mList = useAppSelector((state) => state.message.messageList);
+    Alert.alert(mList.map(v => Object.values(v).join(':')).join(','));
 
     const handleSubmit = ({}) => {
         dispatch(updateDevice({
           id: id, deviceNo: deviceNo, alias: alias, highValue: highValue, lowValue: lowValue, accuracy: accuracy,
           art: { icon: '', background: '' }
         })
-        )
+        );
+        navigation.goBack();
       };
-
+ 
   const navigation = useNavigation<HomeProps['navigation']>();
   return (
 
     <DeviceBackground source = {device_bg}>
       <DeviceTouchable underlayColor= {colors.secondary}>
+        
         <TouchableView>
               <Text style={{color: colors.black, padding: 5 , backgroundColor: colors.accent ,borderRadius: 10}}>
                   Device ID:  {props.id}
@@ -119,6 +118,7 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
                 maxLength={9}
                 autoCapitalize='none'
                 label= 'Device Number' 
+                autoFocus
                  />
      <TextInput
                 style={{ margin: 1, borderColor: colors.graydark, fontSize: 12, backgroundColor: colors.accent}}
@@ -134,7 +134,7 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
     <MaskInput style={{padding: 8}}
        placeholder={highValue}
        value={highValue}
-       mask={[/\d/,/\d/, /\d/,".",/\d/]}
+       mask={[/\d/,/\d/,/\d/,".",/\d/]}
        onChangeText={txt => setHighValue(txt)}
     /> 
 </View>
@@ -143,7 +143,7 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
     <MaskInput style={{padding: 8}}
        placeholder={lowValue}
        value={lowValue}
-       mask={[/\d/,/\d/, /\d/,".",/\d/]}
+       mask={[/\d/,/\d/,/\d/,".",/\d/]}
        onChangeText={txt => setLowValue(txt)}
     /> 
 </View>
@@ -153,7 +153,7 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
     <MaskInput style={{padding: 8, shadowColor: colors.accent}}
        placeholder={accuracy}
        value={accuracy}
-       mask={[/\d/,".",/\d/, /\d/]}
+       mask={[/\d/,".",/\d/,/\d/]}
        onChangeText={txt => setAccuracy(txt)}
     /> 
 </View>      
