@@ -8,7 +8,7 @@ import { ScreenWidth, ScreenHeight } from '../components/shared';
 import { TriaState, TriaSettings } from '../components/Connection/TriaState';
 
 import { useAppDispatch, useAppSelector  } from '../components/State/hooks';
-import { addMessage } from '../components/State/triaSlice/messageSlice';
+import { addMessage, updateMessage } from '../components/State/triaSlice/messageSlice';
 
 import {
   Alert,
@@ -27,6 +27,7 @@ import {
 import { colors } from '../components/colors';
 import { Value } from 'react-native-reanimated';
 import { RootState } from '../components/State/store';
+import { Message } from '../components/State/types';
 
 const InputSectionBackground = styled(View)`
    padding-horizontal: 20px;
@@ -58,7 +59,8 @@ const TriaConnect: FunctionComponent = () => {
 const useSharedTriaState = () => useBetween(TriaState);  
 // redux dispatch
 const dispatch = useAppDispatch();
-const mList = useAppSelector((state: RootState) => state.message.messageList );
+const mList = useAppSelector((state: RootState) => state.message.messageList);
+//Alert.alert(mList.map(v => Object.values(v).join(':')).join('\n'));
 //const useSharedTriaSettings = () => useBetween(TriaSettings);
 
 const {
@@ -70,27 +72,25 @@ const {
   setTriaDeviceStatus,
 } = useSharedTriaState();
 
-/* const {
-  triaAqHiChange,
-  setTriaAqHiChange,
-  triaAqLoChange,
-  setTriaAqLoChange,
-  triaHumHiChange,
-  setTriaHumHiChange,
-  triaHumLoChange, 
-  setTriaHumLoChange,
-  triaTempHiChange,
-  setTriaTempHiChange,
-  triaTempLoChange,
-  setTriaTempLoChange,
-} = useSharedTriaSettings(); */
 
 useEffect(() => { setTriaDeviceData(triaData.trim());       }, [triaData]);
 useEffect(() => { setTriaDeviceTimestamp(timestamp.trim()); }, [timestamp]);
 useEffect(() => { setTriaDeviceStatus(triaStatus.trim());   }, [triaStatus]);
 
-  //setTriaDeviceData(triaData.trim);
- //const [tData, setTData] = useState<String>("");
+
+useEffect(() => sendStatus(mList), [mList]);
+
+const sendStatus = (mList : Message[]) => {
+  if (mList.map(md => Object.values(md).some(d => false))) {
+     const writeTria = mList.filter((md) => md.sent == false).map(({id,msg,sent}) => ({id, msg,sent}));
+     if (writeTria.length > 0){
+      writeTria.map((d)=>{
+          writeSettingsToTria(d.msg);
+          dispatch(updateMessage( {id: d.id , msg: d.msg, sent: true}))
+         });
+     }
+  }
+}
 
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
 
@@ -106,15 +106,6 @@ const openModal = async () => {
     }
   })
 }
-
-  /* const updateTriaSettings = () => {
-    useEffect(() => {processSettingsData(triaTempHiChange); }, [triaTempHiChange]);
-    useEffect(() => {processSettingsData(triaTempLoChange); }, [triaTempLoChange]);
-    useEffect(() => {processSettingsData(triaTempHiChange); }, [triaHumHiChange]);
-    useEffect(() => {processSettingsData(triaTempLoChange); }, [triaHumLoChange]);
-    useEffect(() => {processSettingsData(triaAqHiChange); }, [triaAqHiChange]);
-    useEffect(() => {processSettingsData(triaAqLoChange); }, [triaAqLoChange]);
-  } */
 
   const processSettingsData = (sData: string) =>{
     writeSettingsToTria(sData.toString());

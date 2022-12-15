@@ -1,5 +1,5 @@
-import React,{FunctionComponent, useState, useEffect, useReducer, useContext} from 'react';
-import { View, StyleSheet, Dimensions, Alert, ImageBackground, TouchableHighlight, Image} from 'react-native';
+import React,{FunctionComponent, useState, useEffect, useReducer, useContext, useRef} from 'react';
+import { View, ImageBackground, TouchableHighlight, Image, Keyboard, Alert} from 'react-native';
 import { Text, TextInput, Provider as PaperProvider, Card, Button, DarkTheme } from 'react-native-paper';
 import styled from 'styled-components';
 import { colors } from '../colors';
@@ -64,8 +64,11 @@ import MaskInput from 'react-native-mask-input';
 import { updateDevice } from '../State/triaSlice/deviceSlice';
 import { useAppDispatch, useAppSelector  } from '../State/hooks';
 import { addMessage, updateMessage } from '../State/triaSlice/messageSlice';
+import { styles } from 'react-native-floating-label-input/src/styles';
 
 const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
+    const _highValue = useRef(props.highValue);
+    const _lowValue = useRef(props.lowValue);
     // redux dispatch
     const dispatch = useAppDispatch();
     // local state
@@ -76,20 +79,26 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
     const [lowValue, setLowValue] = useState(props.lowValue );
     const [accuracy, setAccuracy] = useState(props.accuracy );
 
-    useEffect(() => {  setDeviceSetting(id, highValue.trim(), lowValue.trim())}, [highValue]);
-    useEffect(() => {  setDeviceSetting(id, highValue.trim(), lowValue.trim())}, [lowValue]);
+    // useEffect(() => {  setDeviceSetting(id, highValue.trim(), 'H') }, [highValue]);
+    // useEffect(() => {  setDeviceSetting(id, lowValue.trim(), 'L' ) }, [lowValue]);
 
-    const  setDeviceSetting = (index: number, hv: string, lv:string) =>{
-      if (id == 1) { dispatch(updateMessage({id: id, msgh: 'TH' + hv, msgl: 'TL' + lv, sent: false}));
-      } else if (id == 2){ dispatch(updateMessage({id: id, msgh: 'HH' + hv, msgl: 'HL' + lv, sent: false}));
-      } else if (id == 3){ dispatch(updateMessage({id: id, msgh: 'AH' + hv, msgl: 'AL' + lv, sent: false}));
+    const  setDeviceSetting = (index: number, v: string, hl: string) =>{
+      if (id == 1 && hl == 'H') { dispatch(updateMessage({id: id, msg: 'SET THI ' + v, sent: false}));
+      } else if (id == 1 && hl == 'L') { dispatch(updateMessage({id: id + 1, msg: 'SET TLO ' + v, sent: false}));
+      } else if (id == 2 && hl == 'H'){ dispatch(updateMessage({id: id + 1, msg: 'SET HHI ' + v,  sent: false}));
+      } else if (id == 2 && hl == 'L'){ dispatch(updateMessage({id: id + 2, msg: 'SET HLO ' + v,  sent: false}));
+      } else if (id == 3 && hl == 'H'){ dispatch(updateMessage({id: id + 2, msg: 'SET AHI ' + v, sent: false}));
+      } else if (id == 3 && hl == 'L'){ dispatch(updateMessage({id: id + 3, msg: 'SET ALO ' + v, sent: false}));
     }
   }
-    //for testing
-    let mList = useAppSelector((state) => state.message.messageList);
-    Alert.alert(mList.map(v => Object.values(v).join(':')).join(','));
+    // for testing
+    //let mList = useAppSelector((state) => state.message.messageList);
+    //Alert.alert(mList.map(v => Object.values(v).join(':')).join(','));
 
     const handleSubmit = ({}) => {
+      if(highValue != _highValue.current){ setDeviceSetting(id, highValue.trim(), 'H'); };
+      if(lowValue  != _lowValue.current) { setDeviceSetting(id, lowValue.trim(), 'L' ); };
+
         dispatch(updateDevice({
           id: id, deviceNo: deviceNo, alias: alias, highValue: highValue, lowValue: lowValue, accuracy: accuracy,
           art: { icon: '', background: '' }
@@ -112,7 +121,10 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
            <View style={{flexDirection: 'column' ,flex: 4, justifyContent: 'space-between', paddingBottom: 15}} >
     <TextInput
                 style={{ margin: 1, borderColor: colors.graydark, fontSize: 12, backgroundColor: colors.accent}}
-                onChangeText={text => setDeviceNo(text)}
+                //onChangeText={text => setDeviceNo(text)}
+                multiline = {false}
+                onEndEditing = {(e) => setDeviceNo(e.nativeEvent.text)}
+                onBlur={Keyboard.dismiss}
                 value={deviceNo}
                 placeholder = {deviceNo}
                 maxLength={9}
@@ -124,6 +136,7 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
                 style={{ margin: 1, borderColor: colors.graydark, fontSize: 12, backgroundColor: colors.accent}}
                 label= 'Alias'
                 onChangeText={text => setAlias(text)}
+                //onEndEditing = {(e:any) => setAlias( e.nativeEvent.text)}
                 value={alias}
                 placeholder = {alias}
                 maxLength={9}
@@ -136,6 +149,7 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
        value={highValue}
        mask={[/\d/,/\d/,/\d/,".",/\d/]}
        onChangeText={txt => setHighValue(txt)}
+       //onEndEditing={txt => setHighValue(txt.nativeEvent.text)}
     /> 
 </View>
 <View style={{ margin: 1, padding: 10, backgroundColor: colors.accent}}>
@@ -145,6 +159,7 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
        value={lowValue}
        mask={[/\d/,/\d/,/\d/,".",/\d/]}
        onChangeText={txt => setLowValue(txt)}
+       //onEndEditing={txt => setLowValue(txt.nativeEvent.text)}
     /> 
 </View>
 
@@ -155,6 +170,7 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
        value={accuracy}
        mask={[/\d/,".",/\d/,/\d/]}
        onChangeText={txt => setAccuracy(txt)}
+       //onEndEditing={txt => setAccuracy(txt.nativeEvent.text)}
     /> 
 </View>      
   </View>

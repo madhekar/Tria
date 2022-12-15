@@ -15,8 +15,7 @@ export type Device = {
 
 export type Message = {
     id: number,
-    msgh: string,
-    msgl: string,
+    msg: string,
     sent: boolean,
 };
 
@@ -34,21 +33,33 @@ export const messageList : Message[] =
 [
     {
         id:   1,
-        msgh: '80',  //high
-        msgl: '70',
-        sent: false
+        msg: '80',  //Temp desc
+        sent: true
+    },
+    {
+        id:   2,
+        msg: '72',  //Temp high
+        sent: true
     },
     {
         id:   3,
-        msgh: '60.5',  //high
-        msgl: '50',    //low
-        sent: false
+        msg: '60.5',  // humidity high
+        sent: true
+    },
+    {
+        id:   4,
+        msg: '50',  //humidity low
+        sent: true
     },
     {
         id:   5,
-        msgh: '300',  //high
-        msgl: '0',     //low
-        sent: false
+        msg: '300',  //airquaity high
+        sent: true
+    },
+    {
+        id:   6,
+        msg: '0',  //airquaity low
+        sent: true
     }
 ];
  
