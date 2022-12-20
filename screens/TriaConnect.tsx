@@ -82,6 +82,7 @@ useEffect(() => sendStatus(mList), [mList]);
 
 const sendStatus = (mList : Message[]) => {
   if (mList.map(md => Object.values(md).some(d => false))) {
+     Alert.alert(mList.map(v => Object.values(v).join(':')).join('\n'));
      const writeTria = mList.filter((md) => md.sent == false).map(({id,msg,sent}) => ({id, msg,sent}));
      if (writeTria.length > 0){
       writeTria.map((d)=>{

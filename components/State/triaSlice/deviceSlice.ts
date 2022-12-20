@@ -1,5 +1,6 @@
 
-import {  Device ,  initialState } from "../types";
+import {  initialState } from "../types";
+import { DeviceProps as Device} from '../../Devices/types'
 import { createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 let lastId = 0;

@@ -12,6 +12,12 @@ import DeviceAvi from './DeviceAvi';
 
 import { useNavigation } from '@react-navigation/native';
 import {props as HomeProps} from '../../screens/Home';
+// images
+import device_bg from  '../../assets/bgs/bg_image1.png';
+
+// types
+import { DeviceProps } from './types';
+import { useAppSelector } from '../State/hooks';
 
 const DeviceBackground = styled(ImageBackground)`
   height: 95%;
@@ -49,13 +55,6 @@ const Logo = styled(Image)`
   flex: 1;
 `;
 
-// images
-import device_bg from  '../../assets/bgs/bg_image1.png';
-
-// types
-import { DeviceProps } from './types';
-import { useAppSelector } from '../State/hooks';
-
 const DeviceItem: FunctionComponent<DeviceProps> = (props) => {
 
   const navigation = useNavigation<HomeProps['navigation']>();
@@ -66,7 +65,6 @@ const DeviceItem: FunctionComponent<DeviceProps> = (props) => {
       props,    
     );
    };
-
 
   return (
     <DeviceBackground source = {device_bg}>
@@ -100,8 +98,7 @@ const DeviceItem: FunctionComponent<DeviceProps> = (props) => {
             </View>
             <DeviceAvi
                 background={props.art.background}
-                icon={props.art.icon}
-        />
+                icon={props.art.icon} />
           </DeviceRow>
         </TouchableView>
       </DeviceTouchable>

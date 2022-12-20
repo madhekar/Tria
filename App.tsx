@@ -1,15 +1,13 @@
-import React, {useEffect, useCallback, useState} from 'react';
-import {View, StyleSheet, Text, ActivityIndicator, Alert} from 'react-native';
+import React, {} from 'react';
+import {ActivityIndicator} from 'react-native';
+//import {PersistGate} from 'redux-persist/integration/react';
 //custom font
 //import { AppLoading} from "expo-app-loading";
-import  {useFonts} from "expo-font";
 //import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
-import usFonts from './components/Custom/LoadFonts';
 
 //react navigation
 import RootStack from './navigators/RootStack';
-import Welcome from './screens/Welcome';
 //import { Provider } from 'react-native-paper';
 
 import { Provider } from 'react-redux';
@@ -121,6 +119,9 @@ import { store } from './components/State/store';
     );
   }
 }  
+       /* <PersistGate loading={<Text>Leoading...</Text>} persistor={persistor}> 
+          <RootStack />
+        </PersistGate> */
 
 /* export default function App() {
   const [IsReady, SetIsReady] = useState(false);

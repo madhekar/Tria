@@ -1,17 +1,5 @@
 import { colors } from "../colors";
-
-export type Device = {
-    id: number;
-    deviceNo: string;
-    alias: string;
-    highValue: string;
-    lowValue: string;
-    accuracy: string;
-    art: {
-        icon: string,
-        background: string,
-    },
-};
+import {DeviceProps as Device} from '../Devices/types';
 
 export type Message = {
     id: number,
@@ -119,7 +107,5 @@ export const deviceList : Device[] =
      deviceList,
      messageList,
  };
-
-
 
 

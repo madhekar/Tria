@@ -30,8 +30,10 @@ const Settings: FunctionComponent<props> = ({ route })=> {
           alias={route.params.alias}
           highValue={route.params.highValue}
           lowValue={route.params.lowValue}
-          accuracy={route.params.accuracy} 
-            />
+          accuracy={route.params.accuracy} art={{
+            icon: '',
+            background: ''
+          }}            />
       </SettingsContainer>
     )
   }
