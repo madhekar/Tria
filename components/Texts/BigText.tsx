@@ -18,5 +18,4 @@ import { TextProps } from "./types";
 const BigText : FunctionComponent<TextProps> = (props) => {
     return <StyledText style={props.textStyles}> { props.children }</StyledText>;
 };
-
 export default BigText;

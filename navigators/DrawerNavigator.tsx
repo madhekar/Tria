@@ -10,7 +10,7 @@ const DrawerNavigator = () => {
   return (
         <Drawer.Navigator>
             <Drawer.Screen name="Home" component={Home} options={{headerShown: false}} />
-            <Drawer.Screen name="TriaConnect" component={TriaConnect} options={{headerShown: false}} />
+            {/* <Drawer.Screen name="TriaConnect" component={TriaConnect} options={{headerShown: false}} /> */}
         </Drawer.Navigator>
   )
 }

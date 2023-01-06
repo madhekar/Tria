@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { useBetween } from 'use-between';
 import DeviceModal from  '../components/Connection/DeviceConnectionModel';
 import UseBLE from '../components/Connection/UseBLE';
-import {Device} from 'react-native-ble-plx';
 import { ScreenWidth, ScreenHeight } from '../components/shared';
-import { TriaState, TriaSettings } from '../components/Connection/TriaState';
+import { TriaState } from '../components/Connection/TriaState';
 
 import { useAppDispatch, useAppSelector  } from '../components/State/hooks';
 import { addMessage, updateMessage } from '../components/State/triaSlice/messageSlice';
+import { Tdata, Tstatus} from '../components/State/types';
 
 import {
   Alert,
@@ -21,6 +21,7 @@ import {
   View,
   TouchableOpacity,
   TextInput,
+  Switch
 } from 'react-native';
 
 
@@ -28,6 +29,9 @@ import { colors } from '../components/colors';
 import { Value } from 'react-native-reanimated';
 import { RootState } from '../components/State/store';
 import { Message } from '../components/State/types';
+import { addTdata } from '../components/State/triaSlice/tdataSlice';
+import { addTstatus } from '../components/State/triaSlice/tstatusSlice';
+import { transformer } from '../metro.config';
 
 const InputSectionBackground = styled(View)`
    padding-horizontal: 20px;
@@ -36,9 +40,9 @@ const InputSectionBackground = styled(View)`
 `;
 
 const ButtonWeapper = styled(View)`
-padding-horizontal: px,
-width: ${ScreenWidth*.99}px;
-flex: .5;
+padding-horizontal: .5px,
+width: ${ScreenWidth*.1}px;
+flex: .4;
 `;
 
 const TriaConnect: FunctionComponent = () => {
@@ -72,17 +76,18 @@ const {
   setTriaDeviceStatus,
 } = useSharedTriaState();
 
-
 useEffect(() => { setTriaDeviceData(triaData.trim());       }, [triaData]);
 useEffect(() => { setTriaDeviceTimestamp(timestamp.trim()); }, [timestamp]);
-useEffect(() => { setTriaDeviceStatus(triaStatus.trim());   }, [triaStatus]);
+useEffect(() => { setTriaDeviceStatus(triaStatus.trim());   }, [triaStatus]); 
 
-
+/* useEffect(() => { dispatch(addTdata({tv: triaData.trim(), ts: timestamp.trim()}))},[triaData]);
+   useEffect(() => { dispatch(addTstatus({tsv: triaStatus.trim()}))},[triaStatus]); 
+*/
 useEffect(() => sendStatus(mList), [mList]);
 
 const sendStatus = (mList : Message[]) => {
   if (mList.map(md => Object.values(md).some(d => false))) {
-     Alert.alert(mList.map(v => Object.values(v).join(':')).join('\n'));
+     //Alert.alert(mList.map(v => Object.values(v).join(':')).join('\n'));
      const writeTria = mList.filter((md) => md.sent == false).map(({id,msg,sent}) => ({id, msg,sent}));
      if (writeTria.length > 0){
       writeTria.map((d)=>{
@@ -93,11 +98,9 @@ const sendStatus = (mList : Message[]) => {
   }
 }
 
-  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
 
-  const hideModal = () => {
-    setIsModalVisible(false);
-  }
+const hideModal = () => { setIsModalVisible(false); }
 
 const openModal = async () => {
   requestPermissions((isGranted: boolean) => {
@@ -114,11 +117,24 @@ const openModal = async () => {
 
   return (
       <InputSectionBackground>
+      <TouchableOpacity style={styles.ctaButton}>
+        <Switch 
+              onValueChange={openModal}
+              value={connectedDevice ? true : false} 
+              thumbColor={connectedDevice ? colors.teagreen : colors.redlite}
+              trackColor={{true: colors.accent, false: colors.graylite}}
+              ios_backgroundColor={colors.graylite}
+              style={{}}
+              >
+        </Switch>
+    </TouchableOpacity>
+
         <TouchableOpacity onPress={openModal}
           style={styles.ctaButton}>
-          <Text style={styles.ctaButtonText}>
+            
+{/*           <Text style={styles.ctaButtonText}>
             {connectedDevice ? 'Disconnect' : 'Connect'} 
-          </Text>
+          </Text> */}
         </TouchableOpacity>
         <DeviceModal
           closeModal={hideModal}
@@ -155,13 +171,14 @@ const styles = StyleSheet.create({
     marginTop: 1,
   },
   ctaButton: {
-    backgroundColor: colors.accent,
+    backgroundColor: colors.graylite,
     justifyContent: 'center',
     alignItems: 'center',
-    height: 15,
-    marginHorizontal: 140,
-    marginBottom: 5,
-    borderRadius: 8,
+    size: .5,
+    height: 25,
+    marginHorizontal: 0,
+    marginBottom: 1,
+    borderRadius: 1,
   },
   ctaButtonText: {
     fontSize: 10,

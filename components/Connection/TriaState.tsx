@@ -15,7 +15,8 @@ export const TriaState = () => {
   };
 };
 
-export const TriaSettings = () => {
+/* 
+  export const TriaSettings = () => {
    const[triaTempHiChange, setTriaTempHiChange] =useState("");
    const[triaTempLoChange, setTriaTempLoChange] =useState("");
    const[triaHumHiChange, setTriaHumHiChange] =useState("");
@@ -37,5 +38,6 @@ export const TriaSettings = () => {
     triaAqLoChange,
     setTriaAqLoChange,
    };
-};
+  }; 
+*/
 

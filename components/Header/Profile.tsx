@@ -14,17 +14,17 @@ const StyledView = styled(TouchableOpacity)`
     flex-direction: column;
     height: 45px;
     width: 45px;
-    border-radius: 15px;
+    border-radius: 5px;
 `;
 
 const StyledImage = styled(Image)`
 resize-mode: cover;
 height: 100%;
 width: 100%;
-boder-radius: 15px;
+boder-radius: 5px;
 `;
 
-interface ProfileProps{
+interface ProfileProps {
     img: ImageSourcePropType;
     imgStyle?: StyleProp<ImageStyle>;
     imgContainerStyle?: StyleProp<ViewStyle>;

@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useRef, useMemo} from 'react';
+import React, {FunctionComponent, useRef, useMemo, useEffect} from 'react';
 import { View, FlatList , TouchableOpacity, Alert} from 'react-native';
 import styled from 'styled-components';
 import BottomSheet  from 'reanimated-bottom-sheet';
@@ -13,7 +13,8 @@ import SmallText from '../Texts/SmallText';
 import OutputItem from './OutputItem';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Icon } from 'react-native-paper/lib/typescript/components/Avatar/Avatar';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, EvilIcons } from '@expo/vector-icons';
+
 
 const OutputSectionBackground = styled(View)`
 width: 100%;
@@ -46,43 +47,48 @@ const OutputSection: FunctionComponent<OutputSectionProps> = (props) => {
 
    const snapPoints = useMemo(() => ['25%', '6%'], []);
 
+
    const renderContent = () =>{
+
     return (
     <OutputSectionBackground style={{backgroundColor: colors.white}}>
+
        <OutputRow style={{marginBottom: 10}}>
-            <Ionicons name='caret-up' size={18} color={colors.graydark} onPress={() => sheetRef.current.snapTo(0)}/>
-            <RegularText textStyles={{fontSize: 15, color: colors.secondary}}>
-                Appliances
-            </RegularText>
-            <Ionicons name='caret-down' size={18} color={colors.graydark} onPress={() => sheetRef.current.snapTo(1)}/>
+            <Ionicons name='caret-up' size={20} color={colors.graydark} onPress={() => sheetRef.current?.snapTo(0)}/>
+              <EvilIcons name='gear' size={20} color={colors.graydark}/>
+            {/*   <RegularText textStyles={{fontSize: 15, color: colors.secondary}}>Appliances</RegularText>  */}
+            <Ionicons name='caret-down' size={20} color={colors.graydark} onPress={() => sheetRef.current?.snapTo(1)}/>
       </OutputRow>
+
       <OutputList 
         data = {props.data}
         contentContainerStyle={{
             alignItems: "flex-start",
-            marginTop: 10
-        }}
+            marginTop: 10 }}
             horizontal={false}
             showsVerticalScrollIndicator={false}
             numColumns={3}
             keyExtractor={({id}: any) => id.toString()}
             renderItem={({item}: any) => <OutputItem {...item} />}
         />  
+
     </OutputSectionBackground>
     );
    };
 
   return (
     <GestureHandlerRootView style={{alignItems: 'center', height: '10%'}}>
-  <BottomSheet
-   ref={sheetRef}
-   snapPoints={snapPoints}
- 
-   borderRadius={25}
-  initialSnap={1}
-  enabledContentGestureInteraction={true}
-  renderContent={renderContent}
-  /></GestureHandlerRootView>
+     <BottomSheet
+       //animateOnMount={true}
+       ref={sheetRef}
+       snapPoints={snapPoints}
+       borderRadius={25}
+       initialSnap={1}
+       enabledContentGestureInteraction={true}
+       enabledGestureInteraction={false}
+       renderContent={renderContent}
+      />
+    </GestureHandlerRootView>
   );
 };
 

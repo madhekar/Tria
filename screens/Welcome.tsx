@@ -10,13 +10,13 @@ const WelcomeContainer = styled(Container)`
 background-color: ${colors.accent};
 justify-content: space-between;
 width:100%;
-height: 100%;
+height: 80%;
 `;
 
 const TopSection = styled(View)`
 width: 100%;
 flex: 1;
-max-height: 100%
+max-height: 80%
 `;
 
 const BottomSection = styled(View)`
@@ -24,12 +24,14 @@ const BottomSection = styled(View)`
   padding: 20px;
   flex: .2;
   justify-content: flex-end;
+  borderTobLeftRadius: 75px;
 `;
 
 const TopImage =  styled(Image)`
-width: 100%
-height: 100%
+width: 100%;
+height: 100%;
 resize-mode: cover;
+borderBottomRightRadius: 75px;
 `;
 // image 
 import background from "./../assets/bgs/stream-stones-trees.png";
@@ -56,11 +58,11 @@ const Welcome : FunctionComponent<Props> = ({navigation}) => {
                 <TopImage source={background} />
             </TopSection>
             <BottomSection>
-                <BigText textStyles= {{width: "90%", marginBottom: 20,fontWeight: 'bold', color: colors.black }}>
+                <BigText textStyles= {{width: "90%", marginBottom: 20, fontWeight: 'bold', color: colors.black }}>
                   Tria: Room climate controller
                 </BigText>
                 <SmallText textStyles= {{width: "90%", marginBottom: 30, color: colors.black, fontWeight: 'bold'}}>
-              Best climet control for good night sleep.  
+                  Best climet control for good night sleep.  
                 </SmallText>
                 <RegularButton textStyles={{color: colors.black, marginTop: 8}} onPress={() => {navigation.navigate('Home')}}>
                     Get Started...

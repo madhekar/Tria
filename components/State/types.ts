@@ -1,5 +1,6 @@
 import { colors } from "../colors";
 import {DeviceProps as Device} from '../Devices/types';
+import { RingBuffer } from '../Custom/RingBuffer'; 
 
 export type Message = {
     id: number,
@@ -7,15 +8,21 @@ export type Message = {
     sent: boolean,
 };
 
+export type Tdata = {
+    ts: string,
+    tv: string
+};
+
+export type Tstatus = {
+    tsv: string
+};
 
 export type initialStateType = {
     deviceList: Device[],
     messageList: Message[],
+    tstatusList: RingBuffer<Tstatus>,
+    tdataList: RingBuffer<Tdata>,
 };
-
-export type initiatMsgStateType = {
-    message : Message[]
-}
 
 export const messageList : Message[] = 
 [
@@ -102,10 +109,17 @@ export const deviceList : Device[] =
              },
          },
      ];
+
+ const tdataList : RingBuffer<Tdata> =  new RingBuffer<Tdata>(100);
+ tdataList.add({tv:"89.9:56.8:304", ts:"ts" });
+
+const tstatusList: RingBuffer<Tstatus> = new RingBuffer<Tstatus>(100);
  
  export const initialState  = {
      deviceList,
      messageList,
+     tstatusList,
+     tdataList,
  };
 
 

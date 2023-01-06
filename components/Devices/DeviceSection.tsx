@@ -23,6 +23,7 @@ const DeviceSection: FunctionComponent<DeviceSectionProps> = (props) => {
        horizontal={true}
        showsHorizontalScrollIndicator={false}
        contentContainerStyle={{
+          paddingTop: 10,
           paddingRight: 25,
           alignItems: "center",
        }}

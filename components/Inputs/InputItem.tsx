@@ -1,8 +1,10 @@
 import React,{FunctionComponent} from 'react'
 import styled from 'styled-components';
-import {View} from 'react-native';
+import {Alert, View} from 'react-native';
 import { useBetween } from 'use-between';
 import { TriaState } from '../Connection/TriaState';
+import {useAppSelector} from '../State/hooks';
+import { Tdata } from '../State/types';
 
 //colors
 import { colors } from '../colors';
@@ -33,14 +35,23 @@ const RightView = styled(View)`
 //types
 import {InputProps} from './types';
 import UseBLE from '../Connection/UseBLE';
+import { RingBuffer } from '../Custom/RingBuffer';
+import { RootState } from '../State/store';
+import getStorage from 'redux-persist/es/storage/getStorage';
+import { tdataSlice } from '../State/triaSlice/tdataSlice';
+import { isEqualIcon } from 'react-native-paper/lib/typescript/components/Icon';
 
 const InputItem:FunctionComponent<InputProps> = (props) => {
 
-  const useSharedTriaState = () => useBetween(TriaState);  
-  const {triaDeviceData, 
-        triaDeviceTimestamp,
-        } = useSharedTriaState();
 
+  const useSharedTriaState = () => useBetween(TriaState);  
+  const {triaDeviceData, triaDeviceTimestamp } = useSharedTriaState();  
+
+/*         const mapStateToProps = (state: { get: (arg0: string) => any; }) => ({
+         triaData: state.get('triadata')
+       });      
+  const {tv, ts} =  useAppSelector((state: RootState) =>  state.triadata.tdataList.getLast(), isEqualIcon);   */   
+ 
   return (
     <InputRow>
     <LeftView>

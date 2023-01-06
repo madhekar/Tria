@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { colors } from '../colors';
 import { ScreenWidth } from '../shared';
 import { useBetween } from 'use-between';
-import { TriaSettings } from '../Connection/TriaState';
 
 
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
@@ -83,12 +82,12 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
     // useEffect(() => {  setDeviceSetting(id, lowValue.trim(), 'L' ) }, [lowValue]);
 
     const  setDeviceSetting = (index: number, v: string, hl: string) =>{
-      if (id == 1 && hl == 'H') { dispatch(updateMessage({id: id, msg: 'SET THI ' + v, sent: false}));
-      } else if (id == 1 && hl == 'L') { dispatch(updateMessage({id: id + 1, msg: 'SET TLO ' + v, sent: false}));
-      } else if (id == 2 && hl == 'H'){ dispatch(updateMessage({id: id + 1, msg: 'SET HHI ' + v,  sent: false}));
-      } else if (id == 2 && hl == 'L'){ dispatch(updateMessage({id: id + 2, msg: 'SET HLO ' + v,  sent: false}));
-      } else if (id == 3 && hl == 'H'){ dispatch(updateMessage({id: id + 2, msg: 'SET AHI ' + v, sent: false}));
-      } else if (id == 3 && hl == 'L'){ dispatch(updateMessage({id: id + 3, msg: 'SET ALO ' + v, sent: false}));
+      if (id == 1 && hl == 'H') { dispatch(updateMessage({id: id, msg: 'S:TH:' + v, sent: false}));
+      } else if (id == 1 && hl == 'L') { dispatch(updateMessage({id: id + 1, msg: 'S:TL:' + v, sent: false}));
+      } else if (id == 2 && hl == 'H'){ dispatch(updateMessage({id: id + 1, msg: 'S:HH:' + v,  sent: false}));
+      } else if (id == 2 && hl == 'L'){ dispatch(updateMessage({id: id + 2, msg: 'S:HL:' + v,  sent: false}));
+      } else if (id == 3 && hl == 'H'){ dispatch(updateMessage({id: id + 2, msg: 'S:AH:' + v, sent: false}));
+      } else if (id == 3 && hl == 'L'){ dispatch(updateMessage({id: id + 3, msg: 'S:AL:' + v, sent: false}));
     }
   }
     // for testing

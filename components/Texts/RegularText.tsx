@@ -5,7 +5,7 @@ import styled from "styled-components";
 import  { colors } from "../colors"
 
 const StyledText = styled(Text)`
-   font-size: 15px;
+   font-size: 14px;
    color: ${colors.black};
    text-align: left;
    font-family: Lato-Bold;

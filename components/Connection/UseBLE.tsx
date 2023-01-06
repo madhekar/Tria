@@ -106,7 +106,7 @@ export default function UseBLE(): BluetoothLowEnergyApi{
         }
         const rawData = atob(characteristic.value)
         var stok = rawData.split(':');
-        if (stok[0].startsWith("TS>")){
+        if (stok[0].startsWith(">")){
             let strOut = 'S: ' + stok[0] + ' A: ' + stok[1] + ' R: ' + stok[2];
             setTriaStatus(strOut);
         }else {

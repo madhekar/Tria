@@ -71,10 +71,11 @@ const RootStack: FunctionComponent = () => {
             component={Welcome}
             options={{headerShown: false}}
             />
+
              {/* Home stack screen */}
             <Stack.Screen 
                 name='Home' 
-                component={DrawerNavigator} 
+                component={Home} 
                 options={{
                   headerTitle: (props) => (
                     <Greeting
@@ -106,6 +107,7 @@ const RootStack: FunctionComponent = () => {
                 },
             })}
             />
+            
         </Stack.Navigator>
     </NavigationContainer>
     );

@@ -11,7 +11,7 @@ export const colors = {
     gray: "#d1d5db",
     graylite: "#F3F4F6",
     graydark: "#4B5563",
-    accent: '#F7D88A',//"#fdfa72",
+    accent: '#F7D88A',
     brickred: "#AA4A44",
     black: "#000",
     teagreen: '#C7F6B6',
