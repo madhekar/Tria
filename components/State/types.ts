@@ -37,14 +37,14 @@ export const deviceList : Device[] =
      ];
 
  const settingList : Settings[] =
-     [  {id: 1, title: 'user name' , subTitle: 'bhalchandra'},
-        {id: 2, title: 'avatar/ image' , subTitle: null},
-        {id: 3, title: 'city' , subTitle: 'san diego'},
-        {id: 4, title: 'state' , subTitle: 'california'},
-        {id: 5, title: 'country' , subTitle: 'United States'},
-        {id: 6, title: 'operation start time' , subTitle: '1800'},
-        {id: 7, title: 'operation end time' , subTitle: '0800'},
-        {id: 8, title: 'use ML' , subTitle: 'true'}
+     [  {id: 1, title: 'User Name' , subTitle: 'Bhalchandra'},
+        {id: 2, title: 'Avatar/ Image' , subTitle: null},
+        {id: 3, title: 'City' , subTitle: 'San diego'},
+        {id: 4, title: 'State' , subTitle: 'California'},
+        {id: 5, title: 'Country' , subTitle: 'United States'},
+        {id: 6, title: 'Operation window start time' , subTitle: '1800'},
+        {id: 7, title: 'Operation window end time' , subTitle: '0800'},
+        {id: 8, title: 'Use ML' , subTitle: 'True'}
      ];    
 
  const tdataList : RingBuffer<Tdata> =  new RingBuffer<Tdata>(100);

@@ -7,6 +7,8 @@ import styled from 'styled-components';
 import RegularText from '../Texts/RegularText';
 import SmallText from '../Texts/SmallText';
 import { colors } from '../colors';
+import { useAppSelector } from '../State/hooks';
+import { RootState } from '../State/store';
 
 const StyledView = styled(View)`
     flex-direction: column;
@@ -22,30 +24,18 @@ interface GreetingProps {
 }
 
 const Greeting: FunctionComponent<GreetingProps> = (props) => {
+
+  const sList = useAppSelector((state: RootState) => state.setting.settingList);  
+  
   return (
     <StyledView>
         <RegularText
-        textStyles={[
-            {
-                color: colors.secondary,
-                fontSize: 15,
-                textAlign: 'left',
-            },
-            props.mainTextStyles,    
-        ]}
-        >
-        {props.mainText}
+           textStyles={[ { color: colors.secondary, fontSize: 15,textAlign: 'left'} , props.mainTextStyles ]} >
+           {props.mainText} {sList.find(o => o.id == 1).subTitle}
         </RegularText>
         <SmallText
-        textStyles ={[
-            {
-                color: colors.graydark,
-                textAlign: 'left',
-            },
-            props.subTextStyles,
-        ]}
-        >
-            {props.subText}
+            textStyles ={ [{ color: colors.graydark, textAlign: 'left'} ,props.subTextStyles ]} >
+            {props.subText} 
         </SmallText>
     </StyledView>
   );

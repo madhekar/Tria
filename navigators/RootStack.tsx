@@ -5,8 +5,6 @@ import Welcome from './../screens/Welcome';
 import Home from './../screens/Home';
 import Settings from '../screens/Settings';
 import DrawerNav from './DrawerNav';
-
-
 import { DeviceProps } from '../components/Devices/types';
 
 //custom components
@@ -15,14 +13,17 @@ import {colors} from "../components/colors";
 // react navigation
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import {createDrawerNavigator} from '@react-navigation/drawer';
 import Greeting from '../components/Header/Greeting';
 import Profile from '../components/Header/Profile';
-import TriaConnect from '../screens/TriaConnect';
-import Avi from "../assets/avi/avatar.png";
-import GAppSetting from '../screens/GAppSetting';
+import avatar from "../assets/avi/avatar.png";
+import boy from "../assets/avi/boy.png";
+import man from "../assets/avi/man.png";
+import woman from "../assets/avi/woman.png";
 
 import { Ionicons } from "@expo/vector-icons";
+import { useAppSelector } from '../components/State/hooks';
+import { RootState } from '../components/State/store';
+import { ImageSourcePropType } from 'react-native';
 
 
 
@@ -36,6 +37,8 @@ export type RootStackParamList = {
 
 const Stack = createStackNavigator<RootStackParamList>();
 const RootStack: FunctionComponent = () => {
+    const sList = useAppSelector((state: RootState) => state.setting.settingList); 
+    const sv = sList.find(o => o.id == 2).subTitle;
     return (
     <NavigationContainer>
         <Stack.Navigator
@@ -56,16 +59,14 @@ const RootStack: FunctionComponent = () => {
                 paddingLeft: 10,
             },
             headerRight: () => (
-                <Profile 
-                img={Avi}
+               <Profile 
+                img= {man}
                 imgContainerStyle={{
                     backgroundColor: colors.tertiary,
                 }} />
             ),
             }}
-             
-             initialRouteName='Welcome'
-            >
+             initialRouteName='Welcome'>
             {/* inital web=lcome screen    */}
             <Stack.Screen  
             name='Welcome'
@@ -80,7 +81,7 @@ const RootStack: FunctionComponent = () => {
                 options={{
                   headerTitle: (props) => (
                     <Greeting
-                    mainText='Hey Bhal!'
+                    mainText='Hey'
                     subText='Welcome Back...'
                     {...props}
                     />
@@ -109,7 +110,6 @@ const RootStack: FunctionComponent = () => {
                 },
             })}
             />
-            
         </Stack.Navigator>
     </NavigationContainer>
     );

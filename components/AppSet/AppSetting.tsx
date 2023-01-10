@@ -24,8 +24,7 @@ padding-bottom: 37px;
 
 const AppSetting: FunctionComponent<SettingPropsList> = (props) => {
   return (
-    <SettingPropsBackground>
-
+  <SettingPropsBackground>
     <SettingList 
     data={props.data}
     showsVerticalScrollIndicator={false}
@@ -35,9 +34,7 @@ const AppSetting: FunctionComponent<SettingPropsList> = (props) => {
        alignItems: "center"
     }}
     keyExtractor={({id}: any) => id.toString()}
-    renderItem={({item}: any) => <AppSettingItem {...item} />}
-    />
-
+    renderItem={({item}: any) => <AppSettingItem {...item} />} />
   </SettingPropsBackground>
   );
 };

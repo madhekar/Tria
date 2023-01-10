@@ -1,7 +1,9 @@
+import { ImageSourcePropType } from "react-native";
+
 export interface SettingProps {
     id: number;
     title: string;
-    subTitle: string;
+    subTitle: string| undefined;
     // onPress: () => void;
 }
 

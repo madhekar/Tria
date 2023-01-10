@@ -1,10 +1,12 @@
-import React, { FunctionComponent } from 'react';
-import { View, TouchableHighlight , ViewPagerAndroidOnPageScrollEventData} from 'react-native';
+import React, { FunctionComponent, useState } from 'react';
+import { View, TouchableHighlight , ViewPagerAndroidOnPageScrollEventData, Keyboard, TextInput} from 'react-native';
 import styled from 'styled-components';
 import { SettingProps } from './types';
 import { colors } from '../colors';
 import BigText from '../Texts/BigText';
 import RegularText from '../Texts/SmallText';
+import { updateSetting } from '../State/triaSlice/settingsSlice';
+import { useAppDispatch, useAppSelector  } from '../State/hooks';
 
 
 const SettingTouchable = styled(TouchableHighlight)`
@@ -41,25 +43,36 @@ const RightView = styled(View)`
 
 const AppSettingItem: FunctionComponent<SettingProps>  = (props) => {
 
+  const dispatch = useAppDispatch();
+  const [subTitle, setSubTitle] = useState(props.subTitle );
+
+
+  function handleSubmit(arg0: {}) {
+    throw new Error('Function not implemented.');
+  }
+
   return (
     <SettingRow>
       <LeftView>
-        <View style={{marginLeft: 2}}> 
-          <BigText textStyles={{
-             color: colors.secondary,
-             textAlign: 'left'
-            }}>
+        <View style={{ marginLeft: 2 }}>
+          <RegularText textStyles={{ color: colors.secondary, textAlign: 'left', fontSize: 14 }}>
             {props.title}
-          </BigText>
-          <RegularText textStyles={{
-            color: colors.graydark,
-            textAlign: 'left',
-            }}>
-            {props.subTitle}
           </RegularText>
+          <TextInput
+            style={{ margin: 1, borderColor: colors.graydark, fontSize: 12,fontWeight: '300', backgroundColor: colors.accent }}
+            onChangeText={text => {setSubTitle(text); dispatch(updateSetting({id: props.id, title: props.title, subTitle: subTitle}))}}
+            multiline={false}
+            onEndEditing={(e) => setSubTitle(e.nativeEvent.text)}
+            onBlur={Keyboard.dismiss}
+            value={subTitle}
+            placeholder={props.subTitle}
+            maxLength={30}
+            autoCapitalize='none'
+            autoFocus />
         </View>
       </LeftView>
     </SettingRow>
+    
   )
 };
 

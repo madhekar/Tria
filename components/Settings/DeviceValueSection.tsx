@@ -101,8 +101,7 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
         dispatch(updateDevice({
           id: id, deviceNo: deviceNo, alias: alias, highValue: highValue, lowValue: lowValue, accuracy: accuracy,
           art: { icon: '', background: '' }
-        })
-        );
+        }));
         navigation.goBack();
       };
  
@@ -118,7 +117,7 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
               </Text>
         <DeviceRow> 
            <View style={{flexDirection: 'column' ,flex: 4, justifyContent: 'space-between', paddingBottom: 15}} >
-    <TextInput
+        <TextInput
                 style={{ margin: 1, borderColor: colors.graydark, fontSize: 12, backgroundColor: colors.accent}}
                 //onChangeText={text => setDeviceNo(text)}
                 multiline = {false}
@@ -131,7 +130,7 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
                 label= 'Device Number' 
                 autoFocus
                  />
-     <TextInput
+        <TextInput
                 style={{ margin: 1, borderColor: colors.graydark, fontSize: 12, backgroundColor: colors.accent}}
                 label= 'Alias'
                 onChangeText={text => setAlias(text)}
