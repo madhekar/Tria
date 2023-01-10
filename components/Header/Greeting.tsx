@@ -28,7 +28,7 @@ const Greeting: FunctionComponent<GreetingProps> = (props) => {
         textStyles={[
             {
                 color: colors.secondary,
-                fontSize: 18,
+                fontSize: 15,
                 textAlign: 'left',
             },
             props.mainTextStyles,    

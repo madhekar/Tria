@@ -1,6 +1,10 @@
 import React, { FunctionComponent } from 'react';
-import { Alert, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import styled from 'styled-components';
+//components
+import  DeviceItem from '../Devices/DeviceItem';
+//types
+import { DeviceSectionProps } from './types';
 
 const DeviceList = styled(FlatList)`
 width: 100%;
@@ -9,12 +13,7 @@ padding-left: 37px;
 padding-bottom: 37px;
 `;
 
-//components
-import  DeviceItem from '../Devices/DeviceItem';
 
-
-//types
-import { DeviceSectionProps } from './types';
 
 const DeviceSection: FunctionComponent<DeviceSectionProps> = (props) => {
   return (

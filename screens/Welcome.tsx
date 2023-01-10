@@ -24,7 +24,6 @@ const BottomSection = styled(View)`
   padding: 20px;
   flex: .2;
   justify-content: flex-end;
-  borderTobLeftRadius: 75px;
 `;
 
 const TopImage =  styled(Image)`
@@ -64,8 +63,9 @@ const Welcome : FunctionComponent<Props> = ({navigation}) => {
                 <SmallText textStyles= {{width: "90%", marginBottom: 30, color: colors.black, fontWeight: 'bold'}}>
                   Best climet control for good night sleep.  
                 </SmallText>
-                <RegularButton textStyles={{color: colors.black, marginTop: 8}} onPress={() => {navigation.navigate('Home')}}>
-                    Get Started...
+                <RegularButton textStyles={{textAlign: 'center', justifyContent: 'space-around', color: colors.black
+                , fontWeight:'bold', marginTop: 8}} onPress={() => {navigation.navigate('DrawerNav')}}>
+                    Get Started
                 </RegularButton>
             </BottomSection>
           </WelcomeContainer>

@@ -8,6 +8,7 @@ import { messageSlice } from './triaSlice/messageSlice';
 import persistCombineReducers from 'redux-persist/es/persistCombineReducers';
 import { tdataSlice } from './triaSlice/tdataSlice';
 import { tstatusSlice } from './triaSlice/tstatusSlice';
+import { settingSlice} from './triaSlice/settingsSlice';
 
  /* export const persistConfig = {
   key: 'tria',
@@ -44,7 +45,8 @@ reducer: {
         device: deviceSlice.reducer,
         message: messageSlice.reducer,
         triadata: tdataSlice.reducer,
-        triastautus: tstatusSlice.reducer
+        triastautus: tstatusSlice.reducer,
+        setting: settingSlice.reducer
   }, 
 middleware: getDefaultMiddleware =>
     getDefaultMiddleware({serializableCheck: false})

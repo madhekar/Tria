@@ -1,15 +1,32 @@
 import React, { FunctionComponent } from 'react';
-import { View } from 'react-native';
+import { View, TouchableHighlight , ViewPagerAndroidOnPageScrollEventData} from 'react-native';
 import styled from 'styled-components';
-import { SettingProps } from '../../settings/types';
+import { SettingProps } from './types';
+import { colors } from '../colors';
+import BigText from '../Texts/BigText';
+import RegularText from '../Texts/SmallText';
 
-const SetingRow = styled(View)`
+
+const SettingTouchable = styled(TouchableHighlight)`
+  height: 100%;
+  border-radius: 20px;
+`;  
+
+const TouchableView = styled(View)`
+  flex-direction: row;
+  justify_content: space-between;
+  align-items: center;
+  width: 100%;
+`;
+
+const SettingRow = styled(View)`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   margin-bottom: 20px;
 `;
+
 const LeftView = styled(View)`
 flex-direction: row;
 justify-content: flex-start;
@@ -23,15 +40,26 @@ const RightView = styled(View)`
 `;
 
 const AppSettingItem: FunctionComponent<SettingProps>  = (props) => {
-  return (
-    <SetingRow>
-      <LeftView>
 
+  return (
+    <SettingRow>
+      <LeftView>
+        <View style={{marginLeft: 2}}> 
+          <BigText textStyles={{
+             color: colors.secondary,
+             textAlign: 'left'
+            }}>
+            {props.title}
+          </BigText>
+          <RegularText textStyles={{
+            color: colors.graydark,
+            textAlign: 'left',
+            }}>
+            {props.subTitle}
+          </RegularText>
+        </View>
       </LeftView>
-      <RightView>
-        
-      </RightView>
-    </SetingRow>
+    </SettingRow>
   )
 };
 

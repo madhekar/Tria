@@ -4,6 +4,7 @@ import React, {FunctionComponent} from 'react';
 import Welcome from './../screens/Welcome';
 import Home from './../screens/Home';
 import Settings from '../screens/Settings';
+import DrawerNav from './DrawerNav';
 
 
 import { DeviceProps } from '../components/Devices/types';
@@ -19,9 +20,10 @@ import Greeting from '../components/Header/Greeting';
 import Profile from '../components/Header/Profile';
 import TriaConnect from '../screens/TriaConnect';
 import Avi from "../assets/avi/avatar.png";
+import GAppSetting from '../screens/GAppSetting';
 
 import { Ionicons } from "@expo/vector-icons";
-import DrawerNavigator from './DrawerNavigator';
+
 
 
 export type RootStackParamList = {
@@ -29,11 +31,10 @@ export type RootStackParamList = {
     Home: undefined;
     Settings: DeviceProps;
     TriaConnect: undefined;
+    DrawerNav: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
-
-
 const RootStack: FunctionComponent = () => {
     return (
     <NavigationContainer>
@@ -45,11 +46,11 @@ const RootStack: FunctionComponent = () => {
                 shadowColor: "transparent",
                 shadowOpacity: 0,
                 elevation: 0,
-                height: 120,
+                height: 100,
             },
             headerTintColor: colors.secondary,
             headerRightContainerStyle: {
-                paddingRight: 25,
+                paddingRight: 20,
             },
             headerLeftContainerStyle:{
                 paddingLeft: 10,
@@ -74,8 +75,8 @@ const RootStack: FunctionComponent = () => {
 
              {/* Home stack screen */}
             <Stack.Screen 
-                name='Home' 
-                component={Home} 
+                name='DrawerNav' 
+                component={DrawerNav} 
                 options={{
                   headerTitle: (props) => (
                     <Greeting
@@ -94,6 +95,7 @@ const RootStack: FunctionComponent = () => {
             options={({route}) => ({
                 headerTitle: route?.params?.alias,
                 headerTitleAlign: 'center',
+                headerTintColor: colors.graylite,
                 headerBackImage: (props) => (
                     <Ionicons
                     {...props}

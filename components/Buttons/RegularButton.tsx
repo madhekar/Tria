@@ -13,16 +13,15 @@ import  RegularText from "./../Texts/RegularText";
 
 const ButtonView = styled(TouchableOpacity)`
    align-items: center;
-   background-color: ${colors.brownlite};
-   
+   justify-content: 'center';
+   background-color: ${colors.yellowdark};
    width: 100%;
-   height: 40px;
+   height: 45px;
    border-radius: 15px;
 
 `;
 // types
 interface ButtonProps{
-
   btnStyles?: StyleProp<ViewStyle>;
   onPress: ((event: GestureResponderEvent) => void) | undefined;
   textStyles?: StyleProp<TextStyle>;
