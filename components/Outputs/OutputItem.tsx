@@ -14,7 +14,7 @@ const OutputContainer = styled(TouchableHighlight)`
    height: 90px;
    width: ${ScreenWidth * 0.27}px;
    padding: 5px;
-   border-radius: 10px;
+   border-radius: 5px;
    justify-content: space-around;
    margin: 0px 10px 10px 0px; 
 `;

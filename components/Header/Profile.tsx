@@ -12,9 +12,9 @@ import { ImageSourcePropType,
 
 const StyledView = styled(TouchableOpacity)`
     flex-direction: column;
-    height: 50px;
-    width: 50px;
-    border-radius: 15px;
+    height: 60px;
+    width: 60px;
+    border-radius: 0px;
 `;
 
 const StyledImage = styled(Image)`

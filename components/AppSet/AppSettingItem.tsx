@@ -60,9 +60,9 @@ const AppSettingItem: FunctionComponent<SettingProps>  = (props) => {
           </RegularText>
           <TextInput
             style={{ margin: 1, borderColor: colors.graydark, fontSize: 12,fontWeight: '300', backgroundColor: colors.accent }}
-            onChangeText={text => {setSubTitle(text); dispatch(updateSetting({id: props.id, title: props.title, subTitle: subTitle}))}}
+            onChangeText={text => {setSubTitle(text); dispatch(updateSetting({id: props.id, title: props.title, subTitle: text}))}}
             multiline={false}
-            onEndEditing={(e) => setSubTitle(e.nativeEvent.text)}
+            //onEndEditing={(e) => setSubTitle(e.nativeEvent.text)}
             onBlur={Keyboard.dismiss}
             value={subTitle}
             placeholder={props.subTitle}

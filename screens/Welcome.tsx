@@ -63,7 +63,7 @@ const Welcome : FunctionComponent<Props> = ({navigation}) => {
                 <SmallText textStyles= {{width: "90%", marginBottom: 30, color: colors.black, fontWeight: 'bold'}}>
                   Best climet control for good night sleep.  
                 </SmallText>
-                <RegularButton textStyles={{ justifyContent: 'space-around', color: colors.black, 
+                <RegularButton textStyles={{ justifyContent: 'center', color: colors.black, 
                 fontWeight:'bold', marginTop: 8}} onPress={() => {navigation.navigate('DrawerNav')}}>
                     Get started
                 </RegularButton>

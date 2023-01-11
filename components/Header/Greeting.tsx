@@ -30,7 +30,7 @@ const Greeting: FunctionComponent<GreetingProps> = (props) => {
   return (
     <StyledView>
         <RegularText
-           textStyles={[ { color: colors.secondary, fontSize: 15,textAlign: 'left'} , props.mainTextStyles ]} >
+           textStyles={[ { color: colors.secondary, fontSize: 16,textAlign: 'left'} , props.mainTextStyles ]} >
            {props.mainText} {sList.find(o => o.id == 1).subTitle}
         </RegularText>
         <SmallText

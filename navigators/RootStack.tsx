@@ -45,24 +45,25 @@ const RootStack: FunctionComponent = () => {
         screenOptions={{
             headerStyle: {
                 backgroundColor: colors.graylite,
+                borderColor: colors.accent,
                 borderBottomWidth: 0,
                 shadowColor: "transparent",
                 shadowOpacity: 0,
                 elevation: 0,
-                height: 100,
+                height: 120,
             },
             headerTintColor: colors.secondary,
             headerRightContainerStyle: {
                 paddingRight: 20,
             },
             headerLeftContainerStyle:{
-                paddingLeft: 10,
+                paddingLeft: 7,
             },
             headerRight: () => (
                <Profile 
                 img= {man}
                 imgContainerStyle={{
-                    backgroundColor: colors.tertiary,
+                    backgroundColor: colors.accent,
                 }} />
             ),
             }}
@@ -86,7 +87,7 @@ const RootStack: FunctionComponent = () => {
                     {...props}
                     />
                    ),
-                headerLeft: () => <></>,
+                headerLeft: ( ) => <></>,
             }}/>
 
             {/* Settings stack screen */}
@@ -101,7 +102,7 @@ const RootStack: FunctionComponent = () => {
                     <Ionicons
                     {...props}
                     name='chevron-back'
-                    size={25}
+                    size={30}
                     color={colors.secondary}
                     />
                 ),

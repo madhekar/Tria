@@ -43,13 +43,13 @@ const {
     return (
      <InputSectionBackground>
         <InputRow style={{marginBottom: 15}}>
-           <RegularText textStyles={{fontSize: 19, color: colors.secondary}}>
+           <RegularText textStyles={{fontSize: 15, color: colors.secondary}}>
                Sensors  {triaData.split(':')[0]}
            </RegularText>
-           <SmallText textStyles={{color: colors.secondary}}>
+           <RegularText textStyles={{color: colors.secondary}}>
                Recent
-               <Ionicons name='caret-down' size={13} color={colors.graydark}/>
-           </SmallText>
+               <Ionicons name='caret-down' size={15} color={colors.graydark}/>
+           </RegularText>
         </InputRow>
         <InputList 
         data={props.data} 

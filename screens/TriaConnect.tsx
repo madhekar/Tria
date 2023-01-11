@@ -120,11 +120,12 @@ const openModal = async () => {
       <TouchableOpacity style={styles.ctaButton}>
         <Switch 
               onValueChange={openModal}
+              onTintColor={colors.black}
               value={connectedDevice ? true : false} 
-              thumbColor={connectedDevice ? colors.teagreen : colors.redlite}
-              trackColor={{true: colors.accent, false: colors.graylite}}
-              ios_backgroundColor={colors.graylite}
-              style={{}}
+              thumbColor={connectedDevice ? colors.accent : colors.graydark}
+              trackColor={{true: colors.gray, false: colors.gray}}
+              ios_backgroundColor={colors.gray}
+              style={{transform:[{ scaleX: .5 }, { scaleY: .5 }] }}
               >
         </Switch>
     </TouchableOpacity>

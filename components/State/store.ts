@@ -12,7 +12,8 @@ import { settingSlice} from './triaSlice/settingsSlice';
 
  /* export const persistConfig = {
   key: 'tria',
-  storage: AsyncStorage
+  storage: AsyncStorage,
+  stateReconciler: auto MergeLevel2
 };
 
 const devicePersistConfig = {

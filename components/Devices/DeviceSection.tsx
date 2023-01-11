@@ -9,8 +9,8 @@ import { DeviceSectionProps } from './types';
 const DeviceList = styled(FlatList)`
 width: 100%;
 flex: 1;
-padding-left: 37px;
-padding-bottom: 37px;
+padding-left: 20px;
+padding-bottom: 10px;
 `;
 
 

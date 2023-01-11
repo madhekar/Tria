@@ -20,18 +20,18 @@ import { DeviceProps } from './types';
 import { useAppSelector } from '../State/hooks';
 
 const DeviceBackground = styled(ImageBackground)`
-  height: 95%;
-  width: ${ScreenWidth* 0.70}px;
+  height: 90%;
+  width: ${ScreenWidth* 0.60}px;
   resize-mode: cover;
   background-color: ${colors.accent};
-  border-radius: 25px;
-  margin-right:25px;
+  border-radius: 5px;
+  margin-right:15px;
   overflow:hidden;
 `;
 
 const DeviceTouchable = styled(TouchableHighlight)`
   height: 100%;
-  border-radius: 20px;
+  border-radius: 5px;
 `;
 
 const TouchableView = styled(View)`

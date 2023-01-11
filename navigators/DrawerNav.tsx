@@ -9,13 +9,22 @@ const DrawerNav = () => {
   const Drawer = createDrawerNavigator();
 
   return (
-        <Drawer.Navigator>
+        <Drawer.Navigator  screenOptions={{
+          drawerActiveTintColor: colors.black,
+          //drawerType: 'front',
+          headerTintColor: colors.black,
+         // drawerInactiveTintColor: colors.blugreen,
+          drawerStyle: {
+            //backgroundColor: colors.accent,
+            borderTopColor: colors.accent
+          
+          } }}>
             <Drawer.Screen  name="Home" component={Home} options={{headerShown: true, headerTitle : '', headerStyle: 
-              {backgroundColor: colors.graylite} }} /> 
+              {backgroundColor: colors.graylite, borderColor: colors.accent} }} /> 
             <Drawer.Screen name="AppSettings" component={GAppSetting} options={{headerShown: true, headerTitle : '', headerStyle: 
               {backgroundColor: colors.graylite}}} />
         </Drawer.Navigator>
-  )
+  ) 
 }
 
 export default DrawerNav;

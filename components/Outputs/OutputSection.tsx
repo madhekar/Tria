@@ -64,7 +64,7 @@ const OutputSection: FunctionComponent<OutputSectionProps> = (props) => {
         data = {props.data}
         contentContainerStyle={{
             alignItems: "flex-start",
-            marginTop: 10 }}
+            marginTop: 5 }}
             horizontal={false}
             showsVerticalScrollIndicator={false}
             numColumns={3}
@@ -82,7 +82,7 @@ const OutputSection: FunctionComponent<OutputSectionProps> = (props) => {
        //animateOnMount={true}
        ref={sheetRef}
        snapPoints={snapPoints}
-       borderRadius={25}
+       borderRadius={5}
        initialSnap={1}
        enabledContentGestureInteraction={true}
        enabledGestureInteraction={false}

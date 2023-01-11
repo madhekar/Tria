@@ -18,6 +18,7 @@ const InputRow = styled(View)`
     align-items: center;
     width: 100%;
     margin-bottom: 20px;
+    margin-top: 10px;
 `;
 
 const LeftView = styled(View)`
