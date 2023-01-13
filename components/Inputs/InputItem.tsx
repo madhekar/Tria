@@ -40,7 +40,7 @@ import { RingBuffer } from '../Custom/RingBuffer';
 import { RootState } from '../State/store';
 import getStorage from 'redux-persist/es/storage/getStorage';
 import { tdataSlice } from '../State/triaSlice/tdataSlice';
-import { isEqualIcon } from 'react-native-paper/lib/typescript/components/Icon';
+
 
 const InputItem:FunctionComponent<InputProps> = (props) => {
 
@@ -51,7 +51,9 @@ const InputItem:FunctionComponent<InputProps> = (props) => {
 /*         const mapStateToProps = (state: { get: (arg0: string) => any; }) => ({
          triaData: state.get('triadata')
        });      
-  const {tv, ts} =  useAppSelector((state: RootState) =>  state.triadata.tdataList.getLast(), isEqualIcon);   */   
+*/ 
+  //const sz =  useAppSelector((state: RootState) =>  state.triadata.tdataList);    
+ // Alert.alert(sz.getFirst().ts);
  
   return (
     <InputRow>
@@ -85,7 +87,7 @@ const InputItem:FunctionComponent<InputProps> = (props) => {
                 textAlign: 'left',
                 marginBottom: 2,
             }}>
-                {triaDeviceData.split(':')[props.id - 1]} {props.unit}
+                {triaDeviceData.split(':')[props.id - 1]} {props.unit} 
             </RegularText>
             <SmallText 
               textStyles={{

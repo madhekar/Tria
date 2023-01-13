@@ -47,7 +47,7 @@ const Home: FunctionComponent = () => {
         {
             id: 1,
             deviceid: "Tria-Temperature",
-            title: "EshaRoom",
+            title: "Bed Rm 2 (T)",
             unit: "F",
             value:  67.89,
             timestamp: dt,
@@ -59,7 +59,7 @@ const Home: FunctionComponent = () => {
         {
             id: 2,
             deviceid: "Tria-Humidity",
-            title: "EshaRoom",
+            title: "Bed Rm 2 (H)",
             unit: "%rh",
             value: 66.98,
             timestamp: dt,
@@ -71,7 +71,7 @@ const Home: FunctionComponent = () => {
         {
             id: 3,
             deviceid: "Tria-AirQuality",
-            title: "EshaRoom",
+            title: "Bed Rm 2 (A)",
             unit: "ppm",
             value:  230,
             timestamp: dt,

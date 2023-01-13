@@ -1,5 +1,5 @@
 import React, {} from 'react';
-import {ActivityIndicator} from 'react-native';
+import {ActivityIndicator, Text} from 'react-native';
 //import {PersistGate} from 'redux-persist/integration/react';
 //custom font
 //import { AppLoading} from "expo-app-loading";
@@ -11,7 +11,8 @@ import RootStack from './navigators/RootStack';
 //import { Provider } from 'react-native-paper';
 
 import { Provider } from 'react-redux';
-import { store } from './components/State/store';
+import { persistor, store } from './components/State/store';
+import { PersistGate } from 'redux-persist/integration/react';
 
 /* export default function App() {
 
@@ -114,14 +115,18 @@ import { store } from './components/State/store';
      } 
     return(
       <Provider store = {store} >
+         <PersistGate loading={<Text>Leoading...</Text>} persistor={persistor}> 
         <RootStack />
+        </PersistGate>
       </Provider>
     );
   }
 }  
-       /* <PersistGate loading={<Text>Leoading...</Text>} persistor={persistor}> 
+  /* 
+     <PersistGate loading={<Text>Leoading...</Text>} persistor={persistor}> 
           <RootStack />
-        </PersistGate> */
+     </PersistGate> 
+  */
 
 /* export default function App() {
   const [IsReady, SetIsReady] = useState(false);

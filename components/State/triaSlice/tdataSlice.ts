@@ -1,13 +1,16 @@
-import {  initialState, Tdata } from "../types";
+import {  initialState, TxData } from "../types";
 import { createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 export const tdataSlice = createSlice({
-    name: 'transData',
+    name: 'TxData',
     initialState,
     
     reducers: {
-        addTdata: (state, action : PayloadAction<Tdata>) => {
-           state.tdataList.add(action.payload);
+        addTdata: (state, action : PayloadAction<TxData>) => {
+           state.tdataList.push({id: state.tdataList[state.tdataList.length - 1].id + 1,
+                                 txValue: action.payload.txValue,
+                                 timeStamp: action.payload.timeStamp
+                                });
         }
     }
 });

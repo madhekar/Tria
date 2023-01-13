@@ -76,13 +76,13 @@ const {
   setTriaDeviceStatus,
 } = useSharedTriaState();
 
-useEffect(() => { setTriaDeviceData(triaData.trim());       }, [triaData]);
+useEffect(() => { setTriaDeviceData(triaData.trim()); /* dispatch(addTdata({tv: triaData.trim(), ts: timestamp.trim()})); */}, [triaData]);
 useEffect(() => { setTriaDeviceTimestamp(timestamp.trim()); }, [timestamp]);
-useEffect(() => { setTriaDeviceStatus(triaStatus.trim());   }, [triaStatus]); 
+useEffect(() => { setTriaDeviceStatus(triaStatus.trim()); /* dispatch(addTstatus({tsv: triaStatus.trim()})) */  }, [triaStatus]); 
 
-/* useEffect(() => { dispatch(addTdata({tv: triaData.trim(), ts: timestamp.trim()}))},[triaData]);
-   useEffect(() => { dispatch(addTstatus({tsv: triaStatus.trim()}))},[triaStatus]); 
-*/
+  // useEffect(() => { dispatch(addTdata({tv: triaData.trim(), ts: timestamp.trim()}))},[triaData]);
+  // useEffect(() => { dispatch(addTstatus({tsv: triaStatus.trim()}))},[triaStatus]); 
+
 useEffect(() => sendStatus(mList), [mList]);
 
 const sendStatus = (mList : Message[]) => {
@@ -122,9 +122,9 @@ const openModal = async () => {
               onValueChange={openModal}
               onTintColor={colors.black}
               value={connectedDevice ? true : false} 
-              thumbColor={connectedDevice ? colors.accent : colors.graydark}
+              thumbColor={connectedDevice ? colors.yellowdark : colors.white}
               trackColor={{true: colors.gray, false: colors.gray}}
-              ios_backgroundColor={colors.gray}
+              ios_backgroundColor={colors.graylite}
               style={{transform:[{ scaleX: .5 }, { scaleY: .5 }] }}
               >
         </Switch>

@@ -7,7 +7,7 @@ export const colors = {
     normal: "#a3c585",
     palespringbug: '#E2FAB5',
     paleyellow: '#FF9C2',
-    yellowdark: '#F8DE7E', //'#FCD12A',//'#FFE5B4',//,
+    yellowdark: '#ffcc36',//'#F8DE7E', //'#FCD12A',//'#FFE5B4',//,
     blugreen: '#CAF1DE',
     gray: "#d1d5db",
     graylite: "#F3F4F6",

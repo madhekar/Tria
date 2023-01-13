@@ -58,13 +58,13 @@ const Welcome : FunctionComponent<Props> = ({navigation}) => {
             </TopSection>
             <BottomSection>
                 <BigText textStyles= {{width: "90%", marginBottom: 20, fontWeight: 'bold', color: colors.black }}>
-                  Tria: Room climate controller
+                  Tria: Space climate controller
                 </BigText>
                 <SmallText textStyles= {{width: "90%", marginBottom: 30, color: colors.black, fontWeight: 'bold'}}>
-                  Best climet control for good night sleep.  
+                  Best tool for space climet control to maintain best quality indoor _environment.  
                 </SmallText>
-                <RegularButton textStyles={{ justifyContent: 'center', color: colors.black, 
-                fontWeight:'bold', marginTop: 8}} onPress={() => {navigation.navigate('DrawerNav')}}>
+                <RegularButton textStyles={{  color: colors.black, 
+                fontWeight:'bold', marginTop: 8}} onPress={() => { navigation.navigate('DrawerNav') }}>
                     Get started
                 </RegularButton>
             </BottomSection>

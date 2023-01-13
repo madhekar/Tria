@@ -23,9 +23,6 @@ import woman from "../assets/avi/woman.png";
 import { Ionicons } from "@expo/vector-icons";
 import { useAppSelector } from '../components/State/hooks';
 import { RootState } from '../components/State/store';
-import { ImageSourcePropType } from 'react-native';
-
-
 
 export type RootStackParamList = {
     Welcome: undefined;
@@ -45,7 +42,7 @@ const RootStack: FunctionComponent = () => {
         screenOptions={{
             headerStyle: {
                 backgroundColor: colors.graylite,
-                borderColor: colors.accent,
+                borderColor: colors.yellowdark,
                 borderBottomWidth: 0,
                 shadowColor: "transparent",
                 shadowOpacity: 0,
@@ -63,23 +60,23 @@ const RootStack: FunctionComponent = () => {
                <Profile 
                 img= {man}
                 imgContainerStyle={{
-                    backgroundColor: colors.accent,
+                    backgroundColor: colors.yellowdark,
                 }} />
             ),
             }}
              initialRouteName='Welcome'>
             {/* inital web=lcome screen    */}
-            <Stack.Screen  
-            name='Welcome'
-            component={Welcome}
-            options={{headerShown: false}}
-            />
+                <Stack.Screen  
+                  name='Welcome'
+                  component={Welcome}
+                  options={{headerShown: false}}
+                />
 
              {/* Home stack screen */}
-            <Stack.Screen 
-                name='DrawerNav' 
-                component={DrawerNav} 
-                options={{
+                <Stack.Screen 
+                  name='DrawerNav' 
+                  component={DrawerNav} 
+                  options={{
                   headerTitle: (props) => (
                     <Greeting
                     mainText='Hey'
@@ -87,30 +84,29 @@ const RootStack: FunctionComponent = () => {
                     {...props}
                     />
                    ),
-                headerLeft: ( ) => <></>,
-            }}/>
+                  headerLeft: ( ) => <></>,
+                }}/>
 
             {/* Settings stack screen */}
-            <Stack.Screen
-            name='Settings'
-            component={Settings}
-            options={({route}) => ({
-                headerTitle: route?.params?.alias,
-                headerTitleAlign: 'center',
-                headerTintColor: colors.graylite,
-                headerBackImage: (props) => (
-                    <Ionicons
-                    {...props}
-                    name='chevron-back'
-                    size={30}
-                    color={colors.secondary}
-                    />
-                ),
-                headerLeftContainerStyle: {
-                    paddingLeft: 0,
-                },
-            })}
-            />
+                <Stack.Screen
+                 name='Settings'
+                 component={Settings}
+                 options={({route}) => ({
+                   headerTitle: route?.params?.alias,
+                   headerTitleAlign: 'center',
+                   headerTintColor: colors.graylite,
+                   headerBackImage: (props) => (
+                      <Ionicons   
+                        {...props}
+                        name='chevron-back'
+                        size={30}
+                        color={colors.secondary}
+                       />
+                   ),
+                   headerLeftContainerStyle: {
+                   paddingLeft: 0,
+                   },
+                })}/>
         </Stack.Navigator>
     </NavigationContainer>
     );

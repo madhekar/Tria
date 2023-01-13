@@ -5,16 +5,16 @@ import { SettingProps as Settings} from '../AppSet/types';
 
 export type Message = { id: number, msg: string, sent: boolean };
 
-export type Tdata = { ts: string, tv: string };
+export type TxData = { id: number, timeStamp: string, txValue: string };
 
-export type Tstatus = { tsv: string };
+export type TxStatus = { id: number, txStatusValue: string };
 
 export type initialStateType = {
     deviceList: Device[],
     messageList: Message[],
     SettingList: Settings[],
-    tstatusList: RingBuffer<Tstatus>,
-    tdataList: RingBuffer<Tdata>,
+    tstatusList: TxStatus[],
+    tdataList: TxData[]
 };
 
 export const messageList : Message[] = 
@@ -42,15 +42,15 @@ export const deviceList : Device[] =
         {id: 3, title: 'City' , subTitle: 'San diego'},
         {id: 4, title: 'State' , subTitle: 'California'},
         {id: 5, title: 'Country' , subTitle: 'United States'},
-        {id: 6, title: 'Operation window start time' , subTitle: '1800'},
-        {id: 7, title: 'Operation window end time' , subTitle: '0800'},
-        {id: 8, title: 'Use ML' , subTitle: 'True'}
+        {id: 6, title: 'Tria On/Off', subTitle: 'On'},  //overrides Operation window settings
+        {id: 7, title: 'Operation window start time' , subTitle: '1800'},
+        {id: 8, title: 'Operation window end time' , subTitle: '0800'},
+        {id: 9, title: 'Use ML' , subTitle: 'True'}
      ];    
 
- const tdataList : RingBuffer<Tdata> =  new RingBuffer<Tdata>(100);
- tdataList.add({tv:"89.9:56.8:304", ts:"ts" });
+ const tdataList : TxData[] =  [];
 
-const tstatusList: RingBuffer<Tstatus> = new RingBuffer<Tstatus>(100);
+const tstatusList: TxStatus[] = [];
  
  export const initialState  = {
      deviceList,
