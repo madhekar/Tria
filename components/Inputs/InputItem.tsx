@@ -4,7 +4,7 @@ import {Alert, View} from 'react-native';
 import { useBetween } from 'use-between';
 import { TriaState } from '../Connection/TriaState';
 import {useAppSelector} from '../State/hooks';
-import { Tdata } from '../State/types';
+import { TxData } from '../State/types';
 
 //colors
 import { colors } from '../colors';

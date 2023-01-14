@@ -31,7 +31,7 @@ const Greeting: FunctionComponent<GreetingProps> = (props) => {
     <StyledView>
         <RegularText
            textStyles={[ { color: colors.secondary, fontSize: 16,textAlign: 'left'} , props.mainTextStyles ]} >
-           {props.mainText} {sList.find(o => o.id == 1).subTitle}
+           {props.mainText} {sList.find((o: { id: number; }) => o.id == 1).subTitle}
         </RegularText>
         <SmallText
             textStyles ={ [{ color: colors.graydark, textAlign: 'left'} ,props.subTextStyles ]} >

@@ -8,7 +8,7 @@ import { TriaState } from '../components/Connection/TriaState';
 
 import { useAppDispatch, useAppSelector  } from '../components/State/hooks';
 import { addMessage, updateMessage } from '../components/State/triaSlice/messageSlice';
-import { Tdata, Tstatus} from '../components/State/types';
+import { TxData, TxStatus} from '../components/State/types';
 
 import {
   Alert,

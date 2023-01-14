@@ -1,21 +1,32 @@
 import AsyncStorage  from  '@react-native-async-storage/async-storage';
 import storage from 'redux-persist/lib/storage';
-import { persistStore, persistReducer, FLUSH } from 'redux-persist';
-import {  combineReducers, configureStore } from '@reduxjs/toolkit';
+import { persistStore, persistReducer, FLUSH ,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER} from 'redux-persist';
+import {   combineReducers, configureStore } from '@reduxjs/toolkit';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 
-import { deviceSlice } from './triaSlice/deviceSlice';
+import { deviceSlice} from './triaSlice/deviceSlice';
 import { messageSlice } from './triaSlice/messageSlice';
 import persistCombineReducers from 'redux-persist/es/persistCombineReducers';
 import { tdataSlice } from './triaSlice/tdataSlice';
 import { tstatusSlice } from './triaSlice/tstatusSlice';
 import { settingSlice} from './triaSlice/settingsSlice';
+import { Device } from 'react-native-ble-plx';
+import { State } from 'react-native-gesture-handler';
+import hardSet from 'redux-persist/lib/stateReconciler/hardSet'
+import type { Reducer } from '@reduxjs/toolkit'
 
- 
  export const persistConfig = {
   key: 'tria',
-  storage: AsyncStorage
+  storage: AsyncStorage,
+  stateReconciles: headSet as (inboundState: CombinedState) => CombinedState
 };
+
+type CombinedState = typeof rootReducer extends Reducer<infer U, any> ? U : never
 
 const devicePersistConfig = {
   key: 'device',
@@ -59,13 +70,24 @@ const rootReducer = combineReducers({
 const persistedReducer = persistReducer<any, any>(persistConfig, rootReducer); 
 
 export const store = configureStore({
-   reducer: persistedReducer
+   reducer: persistedReducer,
+   //reducer   : persistReducer(persistConfig, rootReducer) as typeof rootReducer,
+   middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export const persistor = persistStore(store);
 
+
+function headSet(inboundState: any) {
+  throw new Error('Function not implemented.');
+}
 /*
 export const store = configureStore({
 reducer: {

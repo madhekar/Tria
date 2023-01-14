@@ -35,14 +35,14 @@ export type RootStackParamList = {
 const Stack = createStackNavigator<RootStackParamList>();
 const RootStack: FunctionComponent = () => {
     const sList = useAppSelector((state: RootState) => state.setting.settingList); 
-    const sv = sList.find(o => o.id == 2).subTitle;
+    const sv = sList.find((o: { id: number; }) => o.id == 2).subTitle;
     return (
     <NavigationContainer>
         <Stack.Navigator
         screenOptions={{
             headerStyle: {
                 backgroundColor: colors.graylite,
-                borderColor: colors.yellowdark,
+                borderColor: colors.accent,
                 borderBottomWidth: 0,
                 shadowColor: "transparent",
                 shadowOpacity: 0,
@@ -60,7 +60,7 @@ const RootStack: FunctionComponent = () => {
                <Profile 
                 img= {man}
                 imgContainerStyle={{
-                    backgroundColor: colors.yellowdark,
+                    backgroundColor: colors.accent,
                 }} />
             ),
             }}

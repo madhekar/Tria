@@ -6,7 +6,7 @@ import { View } from 'react-native';
 import {colors} from '../colors';
 
 // icons
-import { Feather } from '@expo/vector-icons';
+import { Feather, FontAwesome5 } from '@expo/vector-icons';
 
 const StyledView = styled(View)`
     height: 45px;
@@ -22,7 +22,7 @@ import { InputAviProps } from './types';
 const InputAvi: FunctionComponent<InputAviProps> = (props) => {
   return (
    <StyledView style={{ backgroundColor: props.background}}>
-        <Feather name={props.icon} size={25} color={colors.graydark}/>
+        <FontAwesome5 name={props.icon} size={30} color={colors.black}/>
    </StyledView>
   );
 };

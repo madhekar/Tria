@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useState } from 'react';
-import { View, TouchableHighlight , ViewPagerAndroidOnPageScrollEventData, Keyboard, TextInput} from 'react-native';
+import { View, TouchableHighlight , ViewPagerAndroidOnPageScrollEventData, Keyboard, ImageBackground} from 'react-native';
+import { Text, TextInput, Provider as PaperProvider, Card, Button, DarkTheme } from 'react-native-paper';
 import styled from 'styled-components';
 import { SettingProps } from './types';
 import { colors } from '../colors';
@@ -7,11 +8,23 @@ import BigText from '../Texts/BigText';
 import RegularText from '../Texts/SmallText';
 import { updateSetting } from '../State/triaSlice/settingsSlice';
 import { useAppDispatch, useAppSelector  } from '../State/hooks';
+import { ScreenWidth } from '../shared';
+import device_bg from  '../../assets/bgs/bg_image1.png';
 
+
+const DeviceBackground = styled(ImageBackground)`
+  height: 85%;
+  width: ${ScreenWidth * 0.850}px;
+  resize-mode: cover;
+  background-color: ${colors.accent};
+  border-radius: 5px;
+  margin-right: 5px;
+  overflow:hidden;
+`;
 
 const SettingTouchable = styled(TouchableHighlight)`
   height: 100%;
-  border-radius: 20px;
+  border-radius: 5px;
 `;  
 
 const TouchableView = styled(View)`
@@ -26,7 +39,7 @@ const SettingRow = styled(View)`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 2px;
 `;
 
 const LeftView = styled(View)`
@@ -52,25 +65,23 @@ const AppSettingItem: FunctionComponent<SettingProps>  = (props) => {
   }
 
   return (
+
     <SettingRow>
-      <LeftView>
-        <View style={{ marginLeft: 2 }}>
-          <RegularText textStyles={{ color: colors.secondary, textAlign: 'left', fontSize: 14 }}>
-            {props.title}
-          </RegularText>
+        <View style={{ marginLeft: 2 ,flexDirection: 'column' ,flex: 4, justifyContent: 'space-between', paddingBottom: 1}}>
           <TextInput
-            style={{ margin: 1, borderColor: colors.graydark, fontSize: 12,fontWeight: '300', backgroundColor: colors.accent }}
+            mode='flat'
+            style={{  borderColor: colors.black, width:'100%', fontSize: 12, backgroundColor: colors.accent , height: 50 }}
             onChangeText={text => {setSubTitle(text); dispatch(updateSetting({id: props.id, title: props.title, subTitle: text}))}}
             multiline={false}
             //onEndEditing={(e) => setSubTitle(e.nativeEvent.text)}
             onBlur={Keyboard.dismiss}
             value={subTitle}
             placeholder={props.subTitle}
-            maxLength={30}
+            maxLength={20}
             autoCapitalize='none'
+            label= {props.title}
             autoFocus />
         </View>
-      </LeftView>
     </SettingRow>
     
   )

@@ -18,24 +18,24 @@ flex: 1;
 `;
 
 const DeviceBackground = styled(ImageBackground)`
-  height: 86%;
+  height: 85%;
   width: ${ScreenWidth * 0.850}px;
   resize-mode: cover;
   background-color: ${colors.accent};
-  border-radius: 25px;
-  margin-right:25px;
+  border-radius: 5px;
+  margin-right: 5px;
   overflow:hidden;
 `;
 
 const DeviceTouchable = styled(TouchableHighlight)`
   height: 100%;
-  border-radius: 20px;
+  border-radius: 5px;
 `;
 
 const TouchableView = styled(View)`
   justify-content: space-between;
   align-items: center;  
-  padding: 30px;
+  padding: 20px;
   flex:1;
 `;
 

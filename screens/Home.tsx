@@ -42,8 +42,10 @@ const Home: FunctionComponent = () => {
    // var data = LoadDefault.prepareDeviceSettings();
    var deviceList = useAppSelector((state) => state.device.deviceList);
 
+   
+
     // deviceData current
-    const inputData =[
+    const inputData = [
         {
             id: 1,
             deviceid: "Tria-Temperature",
@@ -52,7 +54,7 @@ const Home: FunctionComponent = () => {
             value:  67.89,
             timestamp: dt,
             art: {
-                icon: "thermometer",
+                icon: "thermometer-half",
                 background: colors.accent,
             },
         },        
@@ -64,7 +66,7 @@ const Home: FunctionComponent = () => {
             value: 66.98,
             timestamp: dt,
             art: {
-                icon: "droplet",
+                icon: "burn",
                 background: colors.accent,
             },
         },
