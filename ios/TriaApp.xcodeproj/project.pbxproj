@@ -16,6 +16,7 @@
 		6A586AEA48C892AF289752EB /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436A8FB822893B0009EE46C1 /* ExpoModulesProvider.swift */; };
 		7699B88040F8A987B510C191 /* libPods-TriaApp-TriaAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-TriaApp-TriaAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		EFB07E0129737EB10002E6A9 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = EFB07E0029737EB00002E6A9 /* main.jsbundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		89C6BE57DB24E9ADA2F236DE /* Pods-TriaApp-TriaAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TriaApp-TriaAppTests.release.xcconfig"; path = "Target Support Files/Pods-TriaApp-TriaAppTests/Pods-TriaApp-TriaAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		B0F5E46C1925255C23C9A098 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-TriaApp-TriaAppTests/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		EFB07E0029737EB00002E6A9 /* main.jsbundle */ = {isa = PBXFileReference; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				EFB07E0029737EB00002E6A9 /* main.jsbundle */,
 				13B07FAE1A68108700A75B9A /* TriaApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* TriaAppTests */,
@@ -272,6 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFB07E0129737EB10002E6A9 /* main.jsbundle in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
