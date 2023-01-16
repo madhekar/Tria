@@ -16,7 +16,7 @@
 		6A586AEA48C892AF289752EB /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436A8FB822893B0009EE46C1 /* ExpoModulesProvider.swift */; };
 		7699B88040F8A987B510C191 /* libPods-TriaApp-TriaAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-TriaApp-TriaAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		EFB07E0129737EB10002E6A9 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = EFB07E0029737EB00002E6A9 /* main.jsbundle */; };
+		EFEE28A72975D00B0080C27E /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = EFB07E0029737EB00002E6A9 /* main.jsbundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,7 +233,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1410;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
@@ -275,7 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFB07E0129737EB10002E6A9 /* main.jsbundle in Resources */,
+				EFEE28A72975D00B0080C27E /* main.jsbundle in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -531,12 +531,14 @@
 				DEVELOPMENT_TEAM = MUWRSL3822;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = TriaApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Tria;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -561,12 +563,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MUWRSL3822;
 				INFOPLIST_FILE = TriaApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Tria;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
