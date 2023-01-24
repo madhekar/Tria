@@ -6,7 +6,6 @@ import { colors } from '../colors';
 import { ScreenWidth } from '../shared';
 import { useBetween } from 'use-between';
 
-
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import {props as HomeProps} from '../../screens/Home';
 
@@ -54,7 +53,7 @@ const Logo = styled(Image)`
 `;
 
 //type
-import DeviceValueProps from './types';
+import DeviceValueProps, { DeviceLimits } from './types';
 import { Message } from '../State/types';
 // images
 import device_bg from  '../../assets/bgs/bg_image1.png';
@@ -64,13 +63,16 @@ import { updateDevice } from '../State/triaSlice/deviceSlice';
 import { useAppDispatch, useAppSelector  } from '../State/hooks';
 import { addMessage, updateMessage } from '../State/triaSlice/messageSlice';
 import { styles } from 'react-native-floating-label-input/src/styles';
+import { Masks } from 'react-native-mask-input';
 
 const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
     const _highValue = useRef(props.highValue);
     const _lowValue = useRef(props.lowValue);
+    
     // redux dispatch
     const dispatch = useAppDispatch();
     // local state
+
     const [id, setId] = useState(props.id);
     const [deviceNo, setDeviceNo] = useState( props.deviceNo );
     const [alias, setAlias] = useState(props.alias );
@@ -82,12 +84,12 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
     // useEffect(() => {  setDeviceSetting(id, lowValue.trim(), 'L' ) }, [lowValue]);
 
     const  setDeviceSetting = (index: number, v: string, hl: string) =>{
-      if (id == 1 && hl == 'H') { dispatch(updateMessage({id: id, msg: 'S:TH:' + v, sent: false}));
-      } else if (id == 1 && hl == 'L') { dispatch(updateMessage({id: id + 1, msg: 'S:TL:' + v, sent: false}));
-      } else if (id == 2 && hl == 'H'){ dispatch(updateMessage({id: id + 1, msg: 'S:HH:' + v,  sent: false}));
-      } else if (id == 2 && hl == 'L'){ dispatch(updateMessage({id: id + 2, msg: 'S:HL:' + v,  sent: false}));
-      } else if (id == 3 && hl == 'H'){ dispatch(updateMessage({id: id + 2, msg: 'S:AH:' + v, sent: false}));
-      } else if (id == 3 && hl == 'L'){ dispatch(updateMessage({id: id + 3, msg: 'S:AL:' + v, sent: false}));
+      if (id === 1 && hl === 'H'){ dispatch(updateMessage({id: id, msg: 'S:TH:' + v, sent: false})); 
+      } else if (id === 1 && hl === 'L') { dispatch(updateMessage({id: id + 1, msg: 'S:TL:' + v, sent: false}));
+      } else if (id === 2 && hl === 'H'){ dispatch(updateMessage({id: id + 1, msg: 'S:HH:' + v,  sent: false}));
+      } else if (id === 2 && hl === 'L'){ dispatch(updateMessage({id: id + 2, msg: 'S:HL:' + v,  sent: false}));
+      } else if (id === 3 && hl === 'H'){ dispatch(updateMessage({id: id + 2, msg: 'S:AH:' + v, sent: false}));
+      } else if (id === 3 && hl === 'L'){ dispatch(updateMessage({id: id + 3, msg: 'S:AL:' + v, sent: false}));
     }
   }
     // for testing
@@ -95,13 +97,33 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
     //Alert.alert(mList.map(v => Object.values(v).join(':')).join(','));
 
     const handleSubmit = ({}) => {
-      if(highValue != _highValue.current){ setDeviceSetting(id, highValue.trim(), 'H'); };
-      if(lowValue  != _lowValue.current) { setDeviceSetting(id, lowValue.trim(), 'L' ); };
+
+      if (parseFloat(highValue) !== parseFloat(_highValue.current)){
+       if( (parseFloat(highValue) < DeviceLimits[(id-1) * 4 + 0]) && 
+        (parseFloat(highValue) > DeviceLimits[(id-1) * 4 + 1])) 
+        { setDeviceSetting(id, highValue.trim(), 'H'); }
+        else 
+        { 
+          Alert.alert('Range Error: ', 'Low Limit: ' + DeviceLimits[(id-1) * 4 + 0] + ' High Limit: ' + DeviceLimits[(id-1) * 4 + 1]);
+        }
+      };
+
+      if( parseFloat(lowValue) !== parseFloat(_lowValue.current) ){
+       if ((parseFloat(lowValue) < DeviceLimits[(id-1) * 4 + 2]) && 
+        (parseFloat(lowValue) > DeviceLimits[(id-1) * 4 + 3]))  
+        { setDeviceSetting(id, lowValue.trim(), 'L' ); }
+        else  
+        { 
+          Alert.alert('Range Error: ', 'Low Limit: ' + DeviceLimits[(id-1) * 4 + 2] + ' High Limit: ' + DeviceLimits[(id-1) * 4 + 3]);
+        };
+      };
+
 
         dispatch(updateDevice({
           id: id, deviceNo: deviceNo, alias: alias, highValue: highValue, lowValue: lowValue, accuracy: accuracy,
           art: { icon: '', background: '' }
         }));
+
         navigation.goBack();
       };
  
@@ -119,9 +141,9 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
            <View style={{flexDirection: 'column' ,flex: 4, justifyContent: 'space-between', paddingBottom: 15}} >
         <TextInput
                 style={{ margin: 1, borderColor: colors.graydark, fontSize: 12, backgroundColor: colors.accent}}
-                //onChangeText={text => setDeviceNo(text)}
+                onChangeText={text => setDeviceNo(text)}
                 multiline = {false}
-                onEndEditing = {(e) => setDeviceNo(e.nativeEvent.text)}
+                //onEndEditing = {(e) => setDeviceNo(e.nativeEvent.text)}
                 onBlur={Keyboard.dismiss}
                 value={deviceNo}
                 placeholder = {deviceNo}
@@ -134,7 +156,6 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
                 style={{ margin: 1, borderColor: colors.graydark, fontSize: 12, backgroundColor: colors.accent}}
                 label= 'Alias'
                 onChangeText={text => setAlias(text)}
-                //onEndEditing = {(e:any) => setAlias( e.nativeEvent.text)}
                 value={alias}
                 placeholder = {alias}
                 maxLength={9}

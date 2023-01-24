@@ -2,7 +2,6 @@ import React, {FunctionComponent} from 'react';
 
 //screens
 import Welcome from './../screens/Welcome';
-import Home from './../screens/Home';
 import Settings from '../screens/Settings';
 import DrawerNav from './DrawerNav';
 import { DeviceProps } from '../components/Devices/types';

@@ -3,35 +3,25 @@ import styled from 'styled-components';
 import { useBetween } from 'use-between';
 import DeviceModal from  '../components/Connection/DeviceConnectionModel';
 import UseBLE from '../components/Connection/UseBLE';
-import { ScreenWidth, ScreenHeight } from '../components/shared';
+import { ScreenWidth} from '../components/shared';
 import { TriaState } from '../components/Connection/TriaState';
 
 import { useAppDispatch, useAppSelector  } from '../components/State/hooks';
-import { addMessage, updateMessage } from '../components/State/triaSlice/messageSlice';
-import { TxData, TxStatus} from '../components/State/types';
+import { updateMessage } from '../components/State/triaSlice/messageSlice';
 
 import {
-  Alert,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
-  useColorScheme,
   View,
   TouchableOpacity,
-  TextInput,
-  Switch
+  Switch,
+  Alert
 } from 'react-native';
 
 
 import { colors } from '../components/colors';
-import { Value } from 'react-native-reanimated';
 import { RootState } from '../components/State/store';
 import { Message } from '../components/State/types';
-import { addTdata } from '../components/State/triaSlice/tdataSlice';
-import { addTstatus } from '../components/State/triaSlice/tstatusSlice';
-import { transformer } from '../metro.config';
 
 const InputSectionBackground = styled(View)`
    padding-horizontal: 20px;
@@ -87,7 +77,7 @@ useEffect(() => sendStatus(mList), [mList]);
 
 const sendStatus = (mList : Message[]) => {
   if (mList.map(md => Object.values(md).some(d => false))) {
-     //Alert.alert(mList.map(v => Object.values(v).join(':')).join('\n'));
+     Alert.alert(mList.map(v => Object.values(v).join(':')).join('\n'));
      const writeTria = mList.filter((md) => md.sent == false).map(({id,msg,sent}) => ({id, msg,sent}));
      if (writeTria.length > 0){
       writeTria.map((d)=>{

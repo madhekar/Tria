@@ -1,15 +1,12 @@
 import React, { FunctionComponent, useState } from 'react';
-import { View, TouchableHighlight , ViewPagerAndroidOnPageScrollEventData, Keyboard, ImageBackground} from 'react-native';
-import { Text, TextInput, Provider as PaperProvider, Card, Button, DarkTheme } from 'react-native-paper';
+import { View, TouchableHighlight, Keyboard, ImageBackground} from 'react-native';
+import { TextInput } from 'react-native-paper';
 import styled from 'styled-components';
 import { SettingProps } from './types';
 import { colors } from '../colors';
-import BigText from '../Texts/BigText';
-import RegularText from '../Texts/SmallText';
 import { updateSetting } from '../State/triaSlice/settingsSlice';
-import { useAppDispatch, useAppSelector  } from '../State/hooks';
+import { useAppDispatch } from '../State/hooks';
 import { ScreenWidth } from '../shared';
-import device_bg from  '../../assets/bgs/bg_image1.png';
 
 
 const DeviceBackground = styled(ImageBackground)`
@@ -73,7 +70,6 @@ const AppSettingItem: FunctionComponent<SettingProps>  = (props) => {
             style={{  borderColor: colors.black, width:'100%', fontSize: 12, backgroundColor: colors.accent , height: 50 }}
             onChangeText={text => {setSubTitle(text); dispatch(updateSetting({id: props.id, title: props.title, subTitle: text}))}}
             multiline={false}
-            //onEndEditing={(e) => setSubTitle(e.nativeEvent.text)}
             onBlur={Keyboard.dismiss}
             value={subTitle}
             placeholder={props.subTitle}

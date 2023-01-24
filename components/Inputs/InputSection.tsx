@@ -14,7 +14,7 @@ import InputItem from './InputItem';
 import UseBLE from '../Connection/UseBLE';
 
 const InputSectionBackground = styled(View)`
-   padding-horizontal: 25px;
+   padding-horizontal: 5px;
    width: ${ScreenWidth*.99}px;
    flex: 2;
 `;
@@ -27,7 +27,7 @@ const InputRow = styled(View)`
 `;
 
 const InputList = styled(FlatList)`
-    padding-left: 10px;
+    padding-left: 5px;
     width: 100%;
 `;
 
@@ -36,9 +36,9 @@ import { InputSectionProps } from './types';
 
 const InputSection: FunctionComponent<InputSectionProps> = (props) =>{
 
-const {
+     const {
     triaData,
-} = UseBLE();
+      } = UseBLE();
 
     return (
      <InputSectionBackground>

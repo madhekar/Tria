@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react'
 import { ScreenWidth } from '../shared';
-import GAppSetting from '../../screens/GAppSetting';
 import { SettingPropsList } from './types';
 import { colors } from '../colors';
 import styled from 'styled-components';

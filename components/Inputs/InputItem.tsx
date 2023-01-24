@@ -17,7 +17,7 @@ const InputRow = styled(View)`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     margin-top: 10px;
 `;
 
@@ -76,7 +76,7 @@ const InputItem:FunctionComponent<InputProps> = (props) => {
                 textAlign: 'left',
                 color: colors.graydark,
               }}>
-                {props.deviceid}
+                {props.deviceid}:({props.unit})
             </SmallText>
         </View>
     </LeftView>
@@ -87,7 +87,7 @@ const InputItem:FunctionComponent<InputProps> = (props) => {
                 textAlign: 'left',
                 marginBottom: 2,
             }}>
-                {triaDeviceData.split(':')[props.id - 1]} {props.unit} 
+                {triaDeviceData.split(':')[props.id - 1]} 
             </RegularText>
             <SmallText 
               textStyles={{

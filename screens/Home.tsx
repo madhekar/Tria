@@ -23,8 +23,6 @@ const HomeContainer = styled(Container)`
 import { RootStackParamList } from "../navigators/RootStack";
 import { StackScreenProps } from "@react-navigation/stack";
 import TriaConnect from './TriaConnect';
-import LoadDefault from '../components/Custom/LoadDefault';
-import { AppState } from 'react-native';
 export type props = StackScreenProps<RootStackParamList, 'Home'>;
 
 
@@ -42,14 +40,12 @@ const Home: FunctionComponent = () => {
    // var data = LoadDefault.prepareDeviceSettings();
    var deviceList = useAppSelector((state) => state.device.deviceList);
 
-   
-
     // deviceData current
     const inputData = [
         {
             id: 1,
-            deviceid: "Tria-Temperature",
-            title: "Bed Rm 2 (T)",
+            deviceid: "Temp",
+            title: "B2(T)",
             unit: "F",
             value:  67.89,
             timestamp: dt,
@@ -60,8 +56,8 @@ const Home: FunctionComponent = () => {
         },        
         {
             id: 2,
-            deviceid: "Tria-Humidity",
-            title: "Bed Rm 2 (H)",
+            deviceid: "Humid",
+            title: "B2(H)",
             unit: "%rh",
             value: 66.98,
             timestamp: dt,
@@ -72,8 +68,8 @@ const Home: FunctionComponent = () => {
         },
         {
             id: 3,
-            deviceid: "Tria-AirQuality",
-            title: "Bed Rm 2 (A)",
+            deviceid: "AirQ",
+            title: "B2(A)",
             unit: "ppm",
             value:  230,
             timestamp: dt,
