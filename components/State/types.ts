@@ -1,13 +1,12 @@
 import { colors } from "../colors";
 import { DeviceProps as Device } from '../Devices/types';
-import { RingBuffer } from '../Custom/RingBuffer'; 
 import { SettingProps as Settings} from '../AppSet/types';
 
 export type Message = { id: number, msg: string, sent: boolean };
 
-export type TxData = { id: number, timeStamp: string, txValue: string };
+export type TxData = { timeStamp: string, txValue: string };
 
-export type TxStatus = { id: number, txStatusValue: string };
+export type TxStatus = { txStatusValue: string };
 
 export type initialStateType = {
     deviceList: Device[],
@@ -48,7 +47,8 @@ export const deviceList : Device[] =
         {id: 9, title: 'Use ML' , subTitle: 'True'}
      ];    
 
- const tdataList : TxData[] =  [];
+ const tdataList : TxData[] = [ {txValue:'72:42:10', timeStamp:'2023-01-01 12:0:0'}
+                              ];
 
 const tstatusList: TxStatus[] = [];
  

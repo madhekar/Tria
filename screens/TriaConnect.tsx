@@ -8,6 +8,7 @@ import { TriaState } from '../components/Connection/TriaState';
 
 import { useAppDispatch, useAppSelector  } from '../components/State/hooks';
 import { updateMessage } from '../components/State/triaSlice/messageSlice';
+import { addTdata } from '../components/State/triaSlice/tdataSlice';
 
 import {
   StyleSheet,
@@ -66,18 +67,16 @@ const {
   setTriaDeviceStatus,
 } = useSharedTriaState();
 
-useEffect(() => { setTriaDeviceData(triaData.trim()); /* dispatch(addTdata({tv: triaData.trim(), ts: timestamp.trim()})); */}, [triaData]);
+useEffect(() => { setTriaDeviceData(triaData.trim());  dispatch(addTdata({txValue: triaData.trim(), timeStamp: timestamp.trim()})); }, [triaData]);
 useEffect(() => { setTriaDeviceTimestamp(timestamp.trim()); }, [timestamp]);
 useEffect(() => { setTriaDeviceStatus(triaStatus.trim()); /* dispatch(addTstatus({tsv: triaStatus.trim()})) */  }, [triaStatus]); 
 
-  // useEffect(() => { dispatch(addTdata({tv: triaData.trim(), ts: timestamp.trim()}))},[triaData]);
-  // useEffect(() => { dispatch(addTstatus({tsv: triaStatus.trim()}))},[triaStatus]); 
 
 useEffect(() => sendStatus(mList), [mList]);
 
 const sendStatus = (mList : Message[]) => {
   if (mList.map(md => Object.values(md).some(d => false))) {
-     Alert.alert(mList.map(v => Object.values(v).join(':')).join('\n'));
+     //Alert.alert(mList.map(v => Object.values(v).join(':')).join('\n'));
      const writeTria = mList.filter((md) => md.sent == false).map(({id,msg,sent}) => ({id, msg,sent}));
      if (writeTria.length > 0){
       writeTria.map((d)=>{
@@ -123,7 +122,7 @@ const openModal = async () => {
         <TouchableOpacity onPress={openModal}
           style={styles.ctaButton}>
             
-{/*           <Text style={styles.ctaButtonText}>
+{/*         <Text style={styles.ctaButtonText}>
             {connectedDevice ? 'Disconnect' : 'Connect'} 
           </Text> */}
         </TouchableOpacity>

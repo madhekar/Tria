@@ -68,7 +68,7 @@ import { Masks } from 'react-native-mask-input';
 const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
     const _highValue = useRef(props.highValue);
     const _lowValue = useRef(props.lowValue);
-    
+
     // redux dispatch
     const dispatch = useAppDispatch();
     // local state

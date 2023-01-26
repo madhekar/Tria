@@ -11,7 +11,7 @@ import RootStack from './navigators/RootStack';
 //import { Provider } from 'react-native-paper';
 
 import { Provider } from 'react-redux';
-import { persistor, store } from './components/State/store';
+import {  store } from './components/State/store';
 import { PersistGate } from 'redux-persist/integration/react';
 
 /* export default function App() {
@@ -114,11 +114,11 @@ import { PersistGate } from 'redux-persist/integration/react';
        <ActivityIndicator />);
      } 
     return(
-      <Provider store = {store} >
-         <PersistGate loading={<Text>Leoading...</Text>} persistor={persistor}> 
+       <Provider store = {store} >
+        {/*  <PersistGate loading={<Text>Leoading...</Text>} persistor={persistor}>   */}
         <RootStack />
-        </PersistGate>
-      </Provider>
+       {/*  </PersistGate> */}
+      </Provider> 
     );
   }
 }  

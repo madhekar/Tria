@@ -18,5 +18,7 @@ export const colors = {
     teagreen: '#C7F6B6',
     brownlite: '#FFE7C7',
     redlite: '#FF7F7F',
-    greenlite: '#D2D93B'
+    greenlite: '#D2D93B',
+    orangedar: '#e26a00',
+    oragelite: '#ffa726'
 };

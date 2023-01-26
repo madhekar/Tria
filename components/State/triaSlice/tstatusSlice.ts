@@ -7,7 +7,7 @@ export const tstatusSlice = createSlice({
     
     reducers: {
         addTstatus: (state, action: PayloadAction<TxStatus>) => {
-            state.tstatusList.push({ id: state.tstatusList[state.tstatusList.length -1].id + 1, txStatusValue:action.payload.txStatusValue});
+            state.tstatusList.push(action.payload);
         },
     }
 });

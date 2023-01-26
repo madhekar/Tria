@@ -1,10 +1,11 @@
-import React,{FunctionComponent} from 'react'
+import React,{FunctionComponent, useEffect} from 'react'
 import styled from 'styled-components';
-import {Alert, View} from 'react-native';
+import {Alert, Dimensions, View} from 'react-native';
 import { useBetween } from 'use-between';
 import { TriaState } from '../Connection/TriaState';
 import {useAppSelector} from '../State/hooks';
 import { TxData } from '../State/types';
+import { LineChart } from 'react-native-chart-kit';
 
 //colors
 import { colors } from '../colors';
@@ -16,9 +17,9 @@ const InputRow = styled(View)`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    margin-bottom: 50px;
-    margin-top: 10px;
+    width: 90%;
+    margin-bottom: 10px;
+    margin-top: 5px;
 `;
 
 const LeftView = styled(View)`
@@ -30,17 +31,20 @@ const LeftView = styled(View)`
 `;
 
 const RightView = styled(View)`
-    flex: 1;
+    flex: 1.8;
 `;
 
 //types
 import {InputProps} from './types';
 import UseBLE from '../Connection/UseBLE';
 import { RingBuffer } from '../Custom/RingBuffer';
-import { RootState } from '../State/store';
+import { RootState, AppDispatch } from '../State/store';
 import getStorage from 'redux-persist/es/storage/getStorage';
 import { tdataSlice } from '../State/triaSlice/tdataSlice';
+import TextSVG, {Svg, Rect} from 'react-native-svg';
 
+ var labels:string[] = [];
+ var tvals: string[] = [];
 
 const InputItem:FunctionComponent<InputProps> = (props) => {
 
@@ -48,13 +52,15 @@ const InputItem:FunctionComponent<InputProps> = (props) => {
   const useSharedTriaState = () => useBetween(TriaState);  
   const {triaDeviceData, triaDeviceTimestamp } = useSharedTriaState();  
 
-/*         const mapStateToProps = (state: { get: (arg0: string) => any; }) => ({
-         triaData: state.get('triadata')
-       });      
-*/ 
-  //const sz =  useAppSelector((state: RootState) =>  state.triadata.tdataList);    
- // Alert.alert(sz.getFirst().ts);
- 
+ const sdata: Array<TxData> = useAppSelector((state: RootState) => state.triadata.tdataList);
+
+const updateChart = (sdata: TxData[]) =>{
+    labels = sdata.map((l: TxData) => (l.timeStamp.trim()));
+    tvals = sdata.map((l: TxData) => (l.txValue.trim()));
+ }
+
+ useEffect(() => updateChart(sdata), [sdata]);
+
   return (
     <InputRow>
     <LeftView>
@@ -76,26 +82,70 @@ const InputItem:FunctionComponent<InputProps> = (props) => {
                 textAlign: 'left',
                 color: colors.graydark,
               }}>
-                {props.deviceid}:({props.unit})
+                {triaDeviceData.split(':')[props.id - 1] || 50}:{props.unit}
             </SmallText>
-        </View>
-    </LeftView>
-    <RightView>
-            <RegularText
-             textStyles={{
-                color: colors.graydark,
-                textAlign: 'left',
-                marginBottom: 2,
-            }}>
-                {triaDeviceData.split(':')[props.id - 1]} 
-            </RegularText>
             <SmallText 
               textStyles={{
                 textAlign: 'left',
                 color: colors.graydark,
               }}>
-                {triaDeviceTimestamp}
-            </SmallText>      
+                {props.deviceid}
+            </SmallText>
+        </View>
+    </LeftView>
+    <RightView>
+
+            <LineChart
+                data={{
+                  labels:  labels,
+                  datasets: [
+                    {
+                      data: tvals.map(s => parseFloat(s.split(':')[props.id -1])|| 0),  
+                    }
+                  ]
+                }}
+                width={Dimensions.get("window").width * .64} // from react-native
+                height={100}
+                yAxisSuffix={props.unit} 
+                yAxisInterval={1} // optional, defaults to 1
+                chartConfig={{
+                  backgroundColor:colors.yellowdark ,//"#e26a00",
+                  backgroundGradientFrom: colors.yellowdark ,//"#fb8c00",
+                  backgroundGradientTo:  colors.accent ,//"#ffa726",
+                  decimalPlaces: 1, // optional, defaults to 2dp
+                  color: (opacity = 1) => `rgba(100, 10, 40, ${opacity})`,
+                  labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+                  style: {
+                    borderRadius: 1
+                  },
+                  propsForDots: {
+                    r: "2",
+                    strokeWidth: "2",
+                    stroke: colors.palespringbug//"#ffa726"
+                  }
+                }}
+                bezier
+                style={{
+                  marginVertical: 1,
+                  borderRadius: 5
+                }}
+/*                 decorator={() => {
+                  return <View>
+                  <Svg>
+                      <Rect x={80} y={110} width="40" height="30" fill="black" />
+                      <TextSVG
+                          x={100}
+                          y={130}
+                          fill="white"
+                          fontSize="16"
+                          fontWeight="bold"
+                          textAnchor="middle">
+                          0.0
+                      </TextSVG>
+                  </Svg>
+               </View>
+             }} */
+            /> 
     </RightView>
     </InputRow>
   );

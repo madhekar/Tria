@@ -22,7 +22,7 @@ const InputSectionBackground = styled(View)`
 const InputRow = styled(View)`
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
 `;
 
@@ -42,7 +42,7 @@ const InputSection: FunctionComponent<InputSectionProps> = (props) =>{
 
     return (
      <InputSectionBackground>
-        <InputRow style={{marginBottom: 15}}>
+        <InputRow style={{marginBottom: 5}}>
            <RegularText textStyles={{fontSize: 15, color: colors.secondary}}>
                Sensors  {triaData.split(':')[0]}
            </RegularText>
@@ -55,7 +55,7 @@ const InputSection: FunctionComponent<InputSectionProps> = (props) =>{
         data={props.data} 
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{
-            paddingBottom: 25,
+            paddingBottom: 15,
         }}
         keyExtractor={({id}: any) => id.toString()}
         renderItem={({item}: any) => <InputItem {...item}/>}

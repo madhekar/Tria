@@ -13,13 +13,13 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2501CE844B65F7049B163887 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F5E46C1925255C23C9A098 /* ExpoModulesProvider.swift */; };
 		2A33D3B957526B2BA9F3E686 /* libPods-TriaApp-TriaAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1BC672969AD52CAD6016688 /* libPods-TriaApp-TriaAppTests.a */; };
+		366914F0BDB7513A5B417289 /* libPods-TriaApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F29DE08EA9EA62A6FD0D77 /* libPods-TriaApp.a */; };
 		6A586AEA48C892AF289752EB /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436A8FB822893B0009EE46C1 /* ExpoModulesProvider.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		A28A337FB08AF79C4ADB59C3 /* libPods-TriaApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F29DE08EA9EA62A6FD0D77 /* libPods-TriaApp.a */; };
 		EF4DB7BB2979DB2300D1A3F9 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		EF4DB7BC2979DB2300D1A3F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		EF4DB7BD2979DB2300D1A3F9 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436A8FB822893B0009EE46C1 /* ExpoModulesProvider.swift */; };
-		EF4DB7BF2979DB2300D1A3F9 /* libPods-TriaApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F29DE08EA9EA62A6FD0D77 /* libPods-TriaApp.a */; };
 		EF4DB7C12979DB2300D1A3F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		EF4DB7C22979DB2300D1A3F9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		EF4DB7CD2979E2B400D1A3F9 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = EF4DB7CC2979E2B400D1A3F9 /* main.jsbundle */; };
@@ -40,7 +40,6 @@
 		00E356EE1AD99517003FC87E /* TriaAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TriaAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* TriaAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TriaAppTests.m; sourceTree = "<group>"; };
-		0DF1FC8DB72DC124F33E5AB7 /* Pods-TriaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TriaApp.release.xcconfig"; path = "Target Support Files/Pods-TriaApp/Pods-TriaApp.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* TriaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TriaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = TriaApp/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = TriaApp/AppDelegate.mm; sourceTree = "<group>"; };
@@ -48,8 +47,9 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = TriaApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = TriaApp/main.m; sourceTree = "<group>"; };
 		1F21C8B502FC109CC02C0574 /* Pods-TriaApp-TriaAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TriaApp-TriaAppTests.release.xcconfig"; path = "Target Support Files/Pods-TriaApp-TriaAppTests/Pods-TriaApp-TriaAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		399F9BD689DD322AB93C26AF /* Pods-TriaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TriaApp.debug.xcconfig"; path = "Target Support Files/Pods-TriaApp/Pods-TriaApp.debug.xcconfig"; sourceTree = "<group>"; };
 		436A8FB822893B0009EE46C1 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-TriaApp/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		49A3BE9E0C528B5CF54142B8 /* Pods-TriaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TriaApp.release.xcconfig"; path = "Target Support Files/Pods-TriaApp/Pods-TriaApp.release.xcconfig"; sourceTree = "<group>"; };
+		4AADECC633F3C61E626BCA2F /* Pods-TriaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TriaApp.debug.xcconfig"; path = "Target Support Files/Pods-TriaApp/Pods-TriaApp.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = TriaApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0F5E46C1925255C23C9A098 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-TriaApp-TriaAppTests/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		C01759474B2D8DEE135555FC /* Pods-TriaApp-TriaAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TriaApp-TriaAppTests.debug.xcconfig"; path = "Target Support Files/Pods-TriaApp-TriaAppTests/Pods-TriaApp-TriaAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -75,6 +75,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A28A337FB08AF79C4ADB59C3 /* libPods-TriaApp.a in Frameworks */,
+				366914F0BDB7513A5B417289 /* libPods-TriaApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +83,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF4DB7BF2979DB2300D1A3F9 /* libPods-TriaApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,10 +175,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				399F9BD689DD322AB93C26AF /* Pods-TriaApp.debug.xcconfig */,
-				0DF1FC8DB72DC124F33E5AB7 /* Pods-TriaApp.release.xcconfig */,
 				C01759474B2D8DEE135555FC /* Pods-TriaApp-TriaAppTests.debug.xcconfig */,
 				1F21C8B502FC109CC02C0574 /* Pods-TriaApp-TriaAppTests.release.xcconfig */,
+				4AADECC633F3C61E626BCA2F /* Pods-TriaApp.debug.xcconfig */,
+				49A3BE9E0C528B5CF54142B8 /* Pods-TriaApp.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -250,14 +250,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF4DB7C62979DB2300D1A3F9 /* Build configuration list for PBXNativeTarget "TriaApp-Deploy" */;
 			buildPhases = (
-				EF4DB7B82979DB2300D1A3F9 /* [CP] Check Pods Manifest.lock */,
 				EF4DB7B92979DB2300D1A3F9 /* Start Packager */,
 				EF4DB7BA2979DB2300D1A3F9 /* Sources */,
 				EF4DB7BE2979DB2300D1A3F9 /* Frameworks */,
 				EF4DB7C02979DB2300D1A3F9 /* Resources */,
 				EF4DB7C32979DB2300D1A3F9 /* Bundle React Native code and images */,
-				EF4DB7C42979DB2300D1A3F9 /* [CP] Embed Pods Frameworks */,
-				EF4DB7C52979DB2300D1A3F9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -446,28 +443,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TriaApp/Pods-TriaApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EF4DB7B82979DB2300D1A3F9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TriaApp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		EF4DB7B92979DB2300D1A3F9 /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -502,39 +477,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
-		};
-		EF4DB7C42979DB2300D1A3F9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TriaApp/Pods-TriaApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TriaApp/Pods-TriaApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TriaApp/Pods-TriaApp-frameworks.sh\"\n";
-		};
-		EF4DB7C52979DB2300D1A3F9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TriaApp/Pods-TriaApp-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TriaApp/Pods-TriaApp-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TriaApp/Pods-TriaApp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		FA9D50362A04C517B0FD563E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -674,7 +616,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 399F9BD689DD322AB93C26AF /* Pods-TriaApp.debug.xcconfig */;
+			baseConfigurationReference = 4AADECC633F3C61E626BCA2F /* Pods-TriaApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -708,7 +650,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0DF1FC8DB72DC124F33E5AB7 /* Pods-TriaApp.release.xcconfig */;
+			baseConfigurationReference = 49A3BE9E0C528B5CF54142B8 /* Pods-TriaApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -882,7 +824,6 @@
 		};
 		EF4DB7C72979DB2300D1A3F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 399F9BD689DD322AB93C26AF /* Pods-TriaApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -908,7 +849,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -920,7 +861,6 @@
 		};
 		EF4DB7C82979DB2300D1A3F9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0DF1FC8DB72DC124F33E5AB7 /* Pods-TriaApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

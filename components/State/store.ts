@@ -19,7 +19,7 @@ import { Device } from 'react-native-ble-plx';
 import { State } from 'react-native-gesture-handler';
 import hardSet from 'redux-persist/lib/stateReconciler/hardSet'
 import type { Reducer } from '@reduxjs/toolkit'
-
+/*
  export const persistConfig = {
   key: 'tria',
   storage: AsyncStorage,
@@ -88,7 +88,7 @@ export const persistor = persistStore(store);
 function headSet(inboundState: any) {
   throw new Error('Function not implemented.');
 }
-/*
+*/
 export const store = configureStore({
 reducer: {
         // persistedReducer
@@ -104,4 +104,3 @@ middleware: getDefaultMiddleware =>
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-*/

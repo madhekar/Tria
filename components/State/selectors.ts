@@ -13,5 +13,3 @@ export const selectDeviceBYId =(state: RootState, id : number) :Device | undefin
 export const setectMessagesById =(state: RootState, id: number) : Message | undefined =>
      state.message.messageList.find((message: { id: any;}) => message.id === id);
 
-export const selectLastData = (state : RootState) : TxData | undefined =>
-      state.triadata.tdataList.getLast();     
