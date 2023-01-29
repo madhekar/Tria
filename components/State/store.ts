@@ -15,7 +15,6 @@ import persistCombineReducers from 'redux-persist/es/persistCombineReducers';
 import { tdataSlice } from './triaSlice/tdataSlice';
 import { tstatusSlice } from './triaSlice/tstatusSlice';
 import { settingSlice} from './triaSlice/settingsSlice';
-import { Device } from 'react-native-ble-plx';
 import { State } from 'react-native-gesture-handler';
 import hardSet from 'redux-persist/lib/stateReconciler/hardSet'
 import type { Reducer } from '@reduxjs/toolkit'

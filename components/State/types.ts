@@ -29,7 +29,7 @@ export const deviceList : Device[] =
          art: { icon: "thermometer", background: colors.accent } },       
        { id: 2, deviceNo: 'Tria10X01', alias: 'Humidity', highValue: '65', lowValue: '50', accuracy: '0.01',
          art: { icon: "droplet", background: colors.accent } },
-       { id: 3, deviceNo: "Tria9X98", alias: "Air Quality", highValue: '3000',lowValue: '0', accuracy: '0.01',
+       { id: 3, deviceNo: "Tria9X98", alias: "Air Quality", highValue: '300',lowValue: '0', accuracy: '0.01',
          art: { icon: "wind",  background: colors.accent } },
        { id: 4, deviceNo: "Tria10X08", alias: "Hazard Gases", highValue: '300', lowValue: '0', accuracy: '0.01',
          art: { icon: "wind", background: colors.accent } }

@@ -43,7 +43,7 @@ import getStorage from 'redux-persist/es/storage/getStorage';
 import { tdataSlice } from '../State/triaSlice/tdataSlice';
 import TextSVG, {Svg, Rect} from 'react-native-svg';
 
- var labels:string[] = [];
+ var labels: string[] = [];
  var tvals: string[] = [];
 
 const InputItem:FunctionComponent<InputProps> = (props) => {
@@ -77,13 +77,13 @@ const updateChart = (sdata: TxData[]) =>{
              }}>
                 {props.title}
             </RegularText>
-            <SmallText 
+            <RegularText 
               textStyles={{
                 textAlign: 'left',
                 color: colors.graydark,
               }}>
-                {triaDeviceData.split(':')[props.id - 1] || 50}:{props.unit}
-            </SmallText>
+                {triaDeviceData.split(':')[props.id - 1] || 0}:{props.unit}
+            </RegularText>
             <SmallText 
               textStyles={{
                 textAlign: 'left',

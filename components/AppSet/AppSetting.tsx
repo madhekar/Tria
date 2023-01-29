@@ -46,7 +46,7 @@ const AppSetting: FunctionComponent<SettingPropsList> = (props) => {
   
   <SettingPropsBackground>
     <Text style={{ fontWeight: 'bold',  fontSize:16,  color: colors.accent, padding: 5 ,borderRadius: 10, marginTop:10, marginBottom: 10, marginLeft:110}}>
-        Tria Setting
+        App Setting
     </Text>
     <SettingList 
        data={props.data}
