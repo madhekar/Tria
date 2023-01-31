@@ -8,6 +8,7 @@ import { TriaState } from '../components/Connection/TriaState';
 
 import { useAppDispatch, useAppSelector  } from '../components/State/hooks';
 import { updateMessage } from '../components/State/triaSlice/messageSlice';
+import { updateDevice } from '../components/State/triaSlice/deviceSlice';
 import { addTdata } from '../components/State/triaSlice/tdataSlice';
 
 import {
@@ -23,6 +24,7 @@ import {
 import { colors } from '../components/colors';
 import { RootState } from '../components/State/store';
 import { Message } from '../components/State/types';
+import moment from 'moment';
 
 const InputSectionBackground = styled(View)`
    padding-horizontal: 20px;
@@ -48,27 +50,37 @@ const TriaConnect: FunctionComponent = () => {
     writeSettingsToTria,
     triaData,
     triaStatus,
-    timestamp,
+    triaSetting
   } = UseBLE();
 
 const useSharedTriaState = () => useBetween(TriaState);  
 // redux dispatch
 const dispatch = useAppDispatch();
 const mList = useAppSelector((state: RootState) => state.message.messageList);
-//Alert.alert(mList.map(v => Object.values(v).join(':')).join('\n'));
+const dList = useAppSelector((state: RootState) => state.device.deviceList);
+//Alert.alert(dList.map(v => Object.values(v).join(':')).join('\n'));
+//Alert.alert(triaSetting.split(':')[0]);
 //const useSharedTriaSettings = () => useBetween(TriaSettings);
 
 const {
   triaDeviceData,
   setTriaDeviceData,
-  triaDeviceTimestamp,
-  setTriaDeviceTimestamp,
+  triaDeviceSetting,
+  setTriaDeviceSetting,
   triaDeviceStatus,
   setTriaDeviceStatus,
 } = useSharedTriaState();
 
-useEffect(() => { setTriaDeviceData(triaData.trim());  dispatch(addTdata({txValue: triaData.trim(), timeStamp: timestamp.trim()})); }, [triaData]);
-useEffect(() => { setTriaDeviceTimestamp(timestamp.trim()); }, [timestamp]);
+useEffect(() => { setTriaDeviceData(triaData.trim());  dispatch(addTdata({txValue: triaData.trim(), timeStamp: moment().format("MM/DD/YYYY HH:mm:ss")})); }, [triaData]);
+useEffect(() => { setTriaDeviceSetting(triaSetting.trim()); /*Alert.alert(triaSetting.trim(), triaSetting.trim().split(':')[0]);*/ triaSetting ? dispatch(updateDevice({ 
+                                                                                   id: parseInt(triaSetting.trim().split(':')[0]), 
+                                                                                   deviceNo: dList[parseInt(triaSetting.trim().split(':')[0])-1].deviceNo,
+                                                                                   alias:  dList[parseInt(triaSetting.trim().split(':')[0])-1].alias,
+                                                                                   highValue: triaSetting.trim().split(':')[2],
+                                                                                   lowValue: triaSetting.trim().split(':')[3],
+                                                                                   accuracy: dList[parseInt(triaSetting.trim().split(':')[0])-1].accuracy,
+                                                                                   art: { icon: '', background: '' }
+                                                                                   })) : NaN}, [triaSetting]);
 useEffect(() => { setTriaDeviceStatus(triaStatus.trim()); /* dispatch(addTstatus({tsv: triaStatus.trim()})) */  }, [triaStatus]); 
 
 

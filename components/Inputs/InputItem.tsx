@@ -37,7 +37,6 @@ const RightView = styled(View)`
 //types
 import {InputProps} from './types';
 import UseBLE from '../Connection/UseBLE';
-import { RingBuffer } from '../Custom/RingBuffer';
 import { RootState, AppDispatch } from '../State/store';
 import getStorage from 'redux-persist/es/storage/getStorage';
 import { tdataSlice } from '../State/triaSlice/tdataSlice';
@@ -50,7 +49,7 @@ const InputItem:FunctionComponent<InputProps> = (props) => {
 
 
   const useSharedTriaState = () => useBetween(TriaState);  
-  const {triaDeviceData, triaDeviceTimestamp } = useSharedTriaState();  
+  const {triaDeviceData, triaDeviceSetting } = useSharedTriaState();  
 
  const sdata: Array<TxData> = useAppSelector((state: RootState) => state.triadata.tdataList);
 

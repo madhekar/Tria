@@ -2,7 +2,7 @@ import {  initialState, TxData } from "../types";
 import { createSlice, PayloadAction} from '@reduxjs/toolkit';
 import { Alert } from "react-native";
 
-const MAX_DATA = 20;
+const MAX_DATA = 100;
 export const tdataSlice = createSlice({
     name: 'data',
     initialState,
@@ -16,13 +16,6 @@ export const tdataSlice = createSlice({
             state.tdataList = state.tdataList.slice(1);
             state.tdataList.push(action.payload);
            }
-          
-           //state.tdataList.push( action.payload);
-            
-            /* {id: state.tdataList[state.tdataList.length - 1].id + 1,
-                                 txValue: action.payload.txValue,
-                                 timeStamp: action.payload.timeStamp
-                                }); */
         }
     }
 });

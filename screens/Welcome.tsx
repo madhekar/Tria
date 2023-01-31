@@ -45,10 +45,14 @@ import BigText from "../components/Texts/BigText";
 import RegularText from "../components/Texts/RegularText";
 import SmallText from "../components/Texts/SmallText";
 import RegularButton from "../components/Buttons/RegularButton";
-
+import { updateMessage } from "../components/State/triaSlice/messageSlice";
+import { useAppDispatch, useAppSelector  } from '../components/State/hooks';
 
 
 const Welcome : FunctionComponent<Props> = ({navigation}) => {
+
+  const dispatch = useAppDispatch();
+
     return (
         <>
           <StatusBar style="light" /> 
@@ -64,7 +68,7 @@ const Welcome : FunctionComponent<Props> = ({navigation}) => {
                   Best tool for space climet control to maintain best quality indoor _environment.  
                 </SmallText>
                 <RegularButton textStyles={{  color: colors.black, 
-                fontWeight:'bold', marginTop: 8}} onPress={() => { navigation.navigate('DrawerNav') }}>
+                fontWeight:'bold', marginTop: 8}} onPress={() => { dispatch(updateMessage( {id: 7, msg: "G:S", sent: false})); navigation.navigate('DrawerNav') }}>
                     Get started
                 </RegularButton>
             </BottomSection>

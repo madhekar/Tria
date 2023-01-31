@@ -22,7 +22,7 @@ interface BluetoothLowEnergyApi{
     disconnectFromDevice: () => void;
     triaData: String;
     triaStatus: String;
-    timestamp: String;
+    triaSetting: String;
     allDevices: Device[];
     writeSettingsToTria(sd: string): void;
 }
@@ -32,7 +32,7 @@ export default function UseBLE(): BluetoothLowEnergyApi{
     const [connectedDevice, setConnectedDevice] = useState<Device | null>(null);
     const [triaData, setTriaData] = useState<String>("");
     const [triaStatus, setTriaStatus] = useState<String>("");
-    const [timestamp, setTimestamp] = useState<String>("");
+    const [triaSetting, setTriaSetting] = useState<String>("");
 
     const requestPermissions = async (callback: PermissionCallback)=> {
         if(Platform.OS == 'android'){
@@ -109,10 +109,15 @@ export default function UseBLE(): BluetoothLowEnergyApi{
         if (stok[0].startsWith(">")){
             let strOut = 'S: ' + stok[0] + ' A: ' + stok[1] + ' R: ' + stok[2];
             setTriaStatus(strOut);
-        }else {
+        }else if(stok[0].startsWith('R')){ 
+            let idx='1';
+            (stok[1] == 'T') ? idx='1' : (stok[1] == 'H') ? idx='2' : idx='3'
+            let strSet = idx + ':' + stok[1] +':'+ stok[2] +':'+ stok[3];
+           // Alert.alert(strSet);
+            setTriaSetting(strSet);
+        } else{
             let strOut = 'T:' + stok[0] + ' H:' + stok[1] + ' A:' + stok[2];
             setTriaData(rawData);
-            setTimestamp(moment().format("MM/DD/YYYY HH:mm:ss"))
         }
     };
 
@@ -150,6 +155,6 @@ export default function UseBLE(): BluetoothLowEnergyApi{
         writeSettingsToTria,
         triaData,
         triaStatus,
-        timestamp,
+        triaSetting,
     };
 }

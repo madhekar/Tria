@@ -17,12 +17,16 @@ export type initialStateType = {
 };
 
 export const messageList : Message[] = 
+   // messages app to tria device 
    [{ id:   1, msg: '80', sent: true },
     { id:   2, msg: '72', sent: true },
     { id:   3, msg: '60.5', sent: true },
     { id:   4, msg: '50', sent: true },
     { id:   5, msg: '300', sent: true },
-    { id:   6, msg: '0',  sent: true }];
+    { id:   6, msg: '0',  sent: true },
+    // commands app to tria device
+    { id: 7, msg: 'C:G_', sent: true} //requesting settings from Tria need '_' replaced by 'S'
+  ];
  
 export const deviceList : Device[] = 
      [ { id: 1, deviceNo: "Tria9X99", alias: "Temperature", highValue: '80', lowValue: '75', accuracy: '0.01',
