@@ -113,7 +113,6 @@ export default function UseBLE(): BluetoothLowEnergyApi{
             let idx='1';
             (stok[1] == 'T') ? idx='1' : (stok[1] == 'H') ? idx='2' : idx='3'
             let strSet = idx + ':' + stok[1] +':'+ stok[2] +':'+ stok[3];
-           // Alert.alert(strSet);
             setTriaSetting(strSet);
         } else{
             let strOut = 'T:' + stok[0] + ' H:' + stok[1] + ' A:' + stok[2];

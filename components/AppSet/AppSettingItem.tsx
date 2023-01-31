@@ -68,7 +68,7 @@ const AppSettingItem: FunctionComponent<SettingProps>  = (props) => {
           <TextInput
             mode='flat'
             style={{  borderColor: colors.black, width:'100%', fontSize: 12, backgroundColor: colors.accent , height: 50 }}
-            onChangeText={text => {setSubTitle(text); dispatch(updateSetting({id: props.id, title: props.title, subTitle: text}))}}
+            onChangeText={text => {setSubTitle(text); dispatch(updateSetting({id: props.id, title: props.title, subTitle: text, type: props.type}))}}
             multiline={false}
             onBlur={Keyboard.dismiss}
             value={subTitle}
@@ -79,7 +79,6 @@ const AppSettingItem: FunctionComponent<SettingProps>  = (props) => {
             autoFocus />
         </View>
     </SettingRow>
-    
   )
 };
 

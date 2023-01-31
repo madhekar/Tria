@@ -40,15 +40,15 @@ export const deviceList : Device[] =
      ];
 
  const settingList : Settings[] =
-     [  {id: 1, title: 'User Name' , subTitle: 'Bhalchandra'},
-        {id: 2, title: 'Avatar/ Image' , subTitle: null},
-        {id: 3, title: 'City' , subTitle: 'San diego'},
-        {id: 4, title: 'State' , subTitle: 'California'},
-        {id: 5, title: 'Country' , subTitle: 'United States'},
-        {id: 6, title: 'Tria On/Off', subTitle: 'On'},  //overrides Operation window settings
-        {id: 7, title: 'Operation window start time' , subTitle: '1800'},
-        {id: 8, title: 'Operation window end time' , subTitle: '0800'},
-        {id: 9, title: 'Use ML' , subTitle: 'True'}
+     [  {id: 1, title: 'User Name' , subTitle: 'Bhalchandra',type: 'text'},
+        {id: 2, title: 'Avatar/ Image' , subTitle: null, type: 'multiselect'},
+        {id: 3, title: 'City' , subTitle: 'San diego', type: 'text'},
+        {id: 4, title: 'State' , subTitle: 'California', type: 'text'},
+        {id: 5, title: 'Country' , subTitle: 'United States', type: 'text'},
+        {id: 6, title: 'Tria On/Off', subTitle: 'On', type: 'mutiselect'},  //overrides Operation window settings
+        {id: 7, title: 'Operation window start time' , subTitle: '1800', type: 'text'},
+        {id: 8, title: 'Operation window end time' , subTitle: '0800', type: 'text'},
+        {id: 9, title: 'Use ML' , subTitle: 'True', type: 'mutiselect'}
      ];    
 
  const tdataList : TxData[] = [ {txValue:'72:42:10', timeStamp:'2023-01-01 12:0:0'}

@@ -72,7 +72,7 @@ const {
 } = useSharedTriaState();
 
 useEffect(() => { setTriaDeviceData(triaData.trim());  dispatch(addTdata({txValue: triaData.trim(), timeStamp: moment().format("MM/DD/YYYY HH:mm:ss")})); }, [triaData]);
-useEffect(() => { setTriaDeviceSetting(triaSetting.trim()); /*Alert.alert(triaSetting.trim(), triaSetting.trim().split(':')[0]);*/ triaSetting ? dispatch(updateDevice({ 
+useEffect(() => { setTriaDeviceSetting(triaSetting.trim()); /* Alert.alert(triaSetting.trim(), triaSetting.trim().split(':')[0]);*/ triaSetting ? dispatch(updateDevice({ 
                                                                                    id: parseInt(triaSetting.trim().split(':')[0]), 
                                                                                    deviceNo: dList[parseInt(triaSetting.trim().split(':')[0])-1].deviceNo,
                                                                                    alias:  dList[parseInt(triaSetting.trim().split(':')[0])-1].alias,

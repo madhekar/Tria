@@ -4,6 +4,7 @@ export interface SettingProps {
     id: number;
     title: string;
     subTitle: string | undefined;
+    type: string;
 }
 
 export interface SettingPropsList{
