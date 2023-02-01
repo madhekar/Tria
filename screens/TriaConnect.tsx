@@ -76,8 +76,8 @@ useEffect(() => { setTriaDeviceSetting(triaSetting.trim()); /* Alert.alert(triaS
                                                                                    id: parseInt(triaSetting.trim().split(':')[0]), 
                                                                                    deviceNo: dList[parseInt(triaSetting.trim().split(':')[0])-1].deviceNo,
                                                                                    alias:  dList[parseInt(triaSetting.trim().split(':')[0])-1].alias,
-                                                                                   highValue: triaSetting.trim().split(':')[2],
-                                                                                   lowValue: triaSetting.trim().split(':')[3],
+                                                                                   highValue: parseFloat(triaSetting.trim().split(':')[2]).toFixed(1),
+                                                                                   lowValue: parseFloat(triaSetting.trim().split(':')[3]).toFixed(1),
                                                                                    accuracy: dList[parseInt(triaSetting.trim().split(':')[0])-1].accuracy,
                                                                                    art: { icon: '', background: '' }
                                                                                    })) : NaN}, [triaSetting]);
@@ -123,8 +123,8 @@ const openModal = async () => {
               onValueChange={openModal}
               onTintColor={colors.black}
               value={connectedDevice ? true : false} 
-              thumbColor={connectedDevice ? colors.yellowdark : colors.white}
-              trackColor={{true: colors.gray, false: colors.gray}}
+              thumbColor={connectedDevice ? colors.yellowdark : colors.graydark}
+              trackColor={{true: colors.gray, false: colors.graylite}}
               ios_backgroundColor={colors.graylite}
               style={{transform:[{ scaleX: .5 }, { scaleY: .5 }] }}
               >

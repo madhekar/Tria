@@ -6,7 +6,7 @@ export const colors = {
     alert: "#FF0000",
     normal: "#a3c585",
     palespringbug: '#E2FAB5',
-    paleyellow: '#FF9C2',
+    paleyellow: '#FFFACA',
     yellowdark: '#ffcc36',//'#F8DE7E', //'#FCD12A',//'#FFE5B4',//,
     blugreen: '#CAF1DE',
     gray: "#d1d5db",
@@ -20,5 +20,12 @@ export const colors = {
     redlite: '#FF7F7F',
     greenlite: '#D2D93B',
     orangedar: '#e26a00',
-    oragelite: '#ffa726'
+    oragelite: '#ffa726',
+    hazelnut: '#BDA55D',
+    hazelwood: '#C9BB8E',
+    oat: '#DFC98A',
+    biscotti: '#E3C565',
+    fawn: '#C8A951',
+    granola: '#D6B85A'
+
 };

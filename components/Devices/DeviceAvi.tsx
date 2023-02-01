@@ -6,12 +6,12 @@ import { View } from 'react-native';
 import {colors} from '../colors';
 
 // icons
-import { Feather } from '@expo/vector-icons';
+import { Entypo, Feather } from '@expo/vector-icons';
 
 const StyledView = styled(View)`
     height: 45px;
     width: 45px;
-    border-radius: 10px;
+    border-radius: 2px;
     justify-content: center;
     align-items: center;
 `;
@@ -21,8 +21,8 @@ import { DeviceAviProps } from './types';
 
 const DeviceAvi: FunctionComponent<DeviceAviProps> = (props) => {
   return (
-   <StyledView style={{ backgroundColor: props.background}}>
-        <Feather name={props.icon} size={25} color={colors.graydark}/>
+   <StyledView style={{ backgroundColor: props.background }}>
+        <Entypo name={props.icon} size={25} color={colors.black}/>
    </StyledView>
   );
 };

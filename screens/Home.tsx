@@ -44,37 +44,37 @@ const Home: FunctionComponent = () => {
     const inputData = [
         {
             id: 1,
-            deviceid: "Temp",
-            title: "B2(T)",
-            unit: "F",
+            deviceid: "Thermometer",
+            title: "TRIA#1",
+            unit: " F",
             value:  67.89,
             timestamp: dt,
             art: {
-                icon: "thermometer-half",
+                icon: "thermometer",
                 background: colors.accent,
             },
         },        
         {
             id: 2,
-            deviceid: "Humid",
-            title: "B2(H)",
-            unit: "%rh",
+            deviceid: "Humidiy",
+            title: "TRIA#1",
+            unit: " %rh",
             value: 66.98,
             timestamp: dt,
             art: {
-                icon: "burn",
+                icon: "drop",
                 background: colors.accent,
             },
         },
         {
             id: 3,
-            deviceid: "AirQ",
-            title: "B2(A)",
-            unit: "ppm",
+            deviceid: "AirQuality",
+            title: "TRIA#1",
+            unit: " ppm",
             value:  230,
             timestamp: dt,
             art: {
-                icon: "wind",
+                icon: "air",
                 background: colors.accent,
             },
         },
@@ -116,11 +116,21 @@ const Home: FunctionComponent = () => {
        id: 4,
        name: 'Fan',
        unit: 'boolean',
-       value: 'on',
+       value: 'off',
        art: {
         icon: "fan",
         background: colors.accent,
         },
+      },
+      {
+        id: 5,
+        name: 'de-humidifier',
+        unit: 'boolean',
+        value: 'off',
+        art: {
+            icon: 'air-humidifier-off',
+            background: colors.accent
+        }
       }
     ];
 

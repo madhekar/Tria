@@ -162,22 +162,24 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
                 autoCapitalize='none'
                  />
 <View style={{ margin: 1 ,padding: 10, backgroundColor: colors.accent }}>
-  <Text style={{ color: colors.graydark, fontSize: 12}}>High Value</Text>
+<Text style={{ color: colors.graydark, fontSize: 12}}>High Value</Text>
     <MaskInput style={{padding: 8}}
        placeholder={highValue}
        value={highValue}
-       mask={[/\d/,/\d/,/\d/,".",/\d/]}
+       mask={[/\d/,/\d/,".",/\d/]}
        onChangeText={txt => setHighValue(txt)}
+       keyboardType= 'numeric'
        //onEndEditing={txt => setHighValue(txt.nativeEvent.text)}
-    /> 
+    />
 </View>
 <View style={{ margin: 1, padding: 10, backgroundColor: colors.accent}}>
-  <Text style={{ color: colors.graydark, borderColor: colors.graydark, fontSize: 12}}>Low Value</Text>
+  <Text style={{ color: colors.graydark, borderColor: colors.gray, fontSize: 12}}>Low Value</Text>
     <MaskInput style={{padding: 8}}
        placeholder={lowValue}
        value={lowValue}
-       mask={[/\d/,/\d/,/\d/,".",/\d/]}
+       mask={[/\d/,/\d/,".",/\d/]}
        onChangeText={txt => setLowValue(txt)}
+       keyboardType= 'numeric'
        //onEndEditing={txt => setLowValue(txt.nativeEvent.text)}
     /> 
 </View>
@@ -189,6 +191,7 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
        value={accuracy}
        mask={[/\d/,".",/\d/,/\d/]}
        onChangeText={txt => setAccuracy(txt)}
+       keyboardType= 'numeric'
        //onEndEditing={txt => setAccuracy(txt.nativeEvent.text)}
     /> 
 </View>      

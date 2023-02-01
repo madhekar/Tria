@@ -2,7 +2,7 @@ import {  initialState, TxData } from "../types";
 import { createSlice, PayloadAction} from '@reduxjs/toolkit';
 import { Alert } from "react-native";
 
-const MAX_DATA = 100;
+const MAX_DATA = 20;
 export const tdataSlice = createSlice({
     name: 'data',
     initialState,

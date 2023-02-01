@@ -36,7 +36,7 @@ const OutputItem: FunctionComponent<OutputProps> = (props) => {
    const tactivationCd = triaDeviceStatus.split(':')[3];  
    var entry = activationApplianceMap[parseInt(tactivationCd, 10)];
    const value = entry?.charAt(props.id - 1) === '1' ? 'off' : 'on';
-   let colorVal = value === 'on' ? colors.redlite : colors.gray;
+   let colorVal = value === 'on' ? colors.redlite : colors.accent;
 
   return (
     <OutputContainer

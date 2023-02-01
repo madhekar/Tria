@@ -6,12 +6,12 @@ import styled from 'styled-components';
 import {colors} from '../colors';
 
 // icons
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 
 const StyledView = styled(View)`
     height: 45px;
     width: 45px;
-    border-radius: 5px;
+    border-radius: 2px;
     justify-content: center;
     align-items: center;
 `;

@@ -81,7 +81,7 @@ const updateChart = (sdata: TxData[]) =>{
                 textAlign: 'left',
                 color: colors.graydark,
               }}>
-                {triaDeviceData.split(':')[props.id - 1] || 0}:{props.unit}
+                {triaDeviceData.split(':')[props.id - 1] || 0}{props.unit}
             </RegularText>
             <SmallText 
               textStyles={{
@@ -108,8 +108,8 @@ const updateChart = (sdata: TxData[]) =>{
                 yAxisSuffix={props.unit} 
                 yAxisInterval={1} // optional, defaults to 1
                 chartConfig={{
-                  backgroundColor:colors.yellowdark ,//"#e26a00",
-                  backgroundGradientFrom: colors.yellowdark ,//"#fb8c00",
+                  backgroundColor:colors.fawn ,//"#e26a00",
+                  backgroundGradientFrom: colors.biscotti,//"#fb8c00",
                   backgroundGradientTo:  colors.accent ,//"#ffa726",
                   decimalPlaces: 1, // optional, defaults to 2dp
                   color: (opacity = 1) => `rgba(100, 10, 40, ${opacity})`,
@@ -120,7 +120,7 @@ const updateChart = (sdata: TxData[]) =>{
                   propsForDots: {
                     r: "2",
                     strokeWidth: "2",
-                    stroke: colors.palespringbug//"#ffa726"
+                    stroke: colors.palespringbug,//"#ffa726"
                   }
                 }}
                 bezier
