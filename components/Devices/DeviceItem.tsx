@@ -17,7 +17,8 @@ import device_bg from  '../../assets/bgs/bg_image1.png';
 
 // types
 import { DeviceProps } from './types';
-import { useAppSelector } from '../State/hooks';
+import { useAppDispatch, useAppSelector } from '../State/hooks';
+import { updateMessage } from '../State/triaSlice/messageSlice';
 
 const DeviceBackground = styled(ImageBackground)`
   height: 90%;
@@ -58,12 +59,14 @@ const Logo = styled(Image)`
 const DeviceItem: FunctionComponent<DeviceProps> = (props) => {
 
   const navigation = useNavigation<HomeProps['navigation']>();
-
+  const dispatch = useAppDispatch();
+  
    // move to device setting page
    const handleImgPress = () =>{
     navigation.navigate("Settings",
       props,    
-    );
+    );             
+       
    };
 
   return (

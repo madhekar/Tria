@@ -68,7 +68,10 @@ const Welcome : FunctionComponent<Props> = ({navigation}) => {
                   Best tool for space climet control to maintain best quality indoor _environment.  
                 </SmallText>
                 <RegularButton textStyles={{  color: colors.black, 
-                fontWeight:'bold', marginTop: 8}} onPress={() => { dispatch(updateMessage( {id: 7, msg: "G:S", sent: false})); navigation.navigate('DrawerNav') }}>
+                fontWeight:'bold', marginTop: 8}} onPress={() => { navigation.navigate('DrawerNav');     
+                setTimeout(function(){
+                  dispatch(updateMessage( {id: 7, msg: "C:GS:0", sent: false}));  
+                }, 10000); }}>
                     Get started
                 </RegularButton>
             </BottomSection>

@@ -58,9 +58,7 @@ const useSharedTriaState = () => useBetween(TriaState);
 const dispatch = useAppDispatch();
 const mList = useAppSelector((state: RootState) => state.message.messageList);
 const dList = useAppSelector((state: RootState) => state.device.deviceList);
-//Alert.alert(dList.map(v => Object.values(v).join(':')).join('\n'));
-//Alert.alert(triaSetting.split(':')[0]);
-//const useSharedTriaSettings = () => useBetween(TriaSettings);
+
 
 const {
   triaDeviceData,
@@ -71,7 +69,9 @@ const {
   setTriaDeviceStatus,
 } = useSharedTriaState();
 
-useEffect(() => { setTriaDeviceData(triaData.trim());  dispatch(addTdata({txValue: triaData.trim(), timeStamp: moment().format("MM/DD/YYYY HH:mm:ss")})); }, [triaData]);
+useEffect(() => { setTriaDeviceData(triaData.trim());  
+                  dispatch(addTdata({txValue: triaData.trim(), timeStamp: moment().format("MM/DD/YYYY HH:mm:ss")}));
+                  }, [triaData]);
 useEffect(() => { setTriaDeviceSetting(triaSetting.trim()); /* Alert.alert(triaSetting.trim(), triaSetting.trim().split(':')[0]);*/ triaSetting ? dispatch(updateDevice({ 
                                                                                    id: parseInt(triaSetting.trim().split(':')[0]), 
                                                                                    deviceNo: dList[parseInt(triaSetting.trim().split(':')[0])-1].deviceNo,
@@ -92,6 +92,7 @@ const sendStatus = (mList : Message[]) => {
      const writeTria = mList.filter((md) => md.sent == false).map(({id,msg,sent}) => ({id, msg,sent}));
      if (writeTria.length > 0){
       writeTria.map((d)=>{
+        //Alert.alert(d.msg);
           writeSettingsToTria(d.msg);
           dispatch(updateMessage( {id: d.id , msg: d.msg, sent: true}))
          });
@@ -131,13 +132,13 @@ const openModal = async () => {
         </Switch>
     </TouchableOpacity>
 
-        <TouchableOpacity onPress={openModal}
+{/*         <TouchableOpacity onPress={openModal}
           style={styles.ctaButton}>
             
-{/*         <Text style={styles.ctaButtonText}>
+        <Text style={styles.ctaButtonText}>
             {connectedDevice ? 'Disconnect' : 'Connect'} 
-          </Text> */}
-        </TouchableOpacity>
+          </Text> 
+        </TouchableOpacity> */}
         <DeviceModal
           closeModal={hideModal}
           visible={isModalVisible}

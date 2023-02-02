@@ -104,7 +104,7 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
         { setDeviceSetting(id, highValue.trim(), 'H'); }
         else 
         { 
-          Alert.alert('Range Error: ', 'Low Limit: ' + DeviceLimits[(id-1) * 4 + 0] + ' High Limit: ' + DeviceLimits[(id-1) * 4 + 1]);
+          Alert.alert('Range Error: ', 'High Limit: ' + DeviceLimits[(id-1) * 4 + 0] + ' Low Limit: ' + DeviceLimits[(id-1) * 4 + 1]);
         }
       };
 
@@ -114,7 +114,7 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
         { setDeviceSetting(id, lowValue.trim(), 'L' ); }
         else  
         { 
-          Alert.alert('Range Error: ', 'Low Limit: ' + DeviceLimits[(id-1) * 4 + 2] + ' High Limit: ' + DeviceLimits[(id-1) * 4 + 3]);
+          Alert.alert('Range Error: ', 'High Limit: ' + DeviceLimits[(id-1) * 4 + 2] + ' Log Limit: ' + DeviceLimits[(id-1) * 4 + 3]);
         };
       };
 
@@ -143,7 +143,6 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
                 style={{ margin: 1, borderColor: colors.graydark, fontSize: 12, backgroundColor: colors.accent}}
                 onChangeText={text => setDeviceNo(text)}
                 multiline = {false}
-                //onEndEditing = {(e) => setDeviceNo(e.nativeEvent.text)}
                 onBlur={Keyboard.dismiss}
                 value={deviceNo}
                 placeholder = {deviceNo}
@@ -160,6 +159,7 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
                 placeholder = {alias}
                 maxLength={9}
                 autoCapitalize='none'
+                onBlur={Keyboard.dismiss}
                  />
 <View style={{ margin: 1 ,padding: 10, backgroundColor: colors.accent }}>
 <Text style={{ color: colors.graydark, fontSize: 12}}>High Value</Text>
@@ -169,7 +169,7 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
        mask={[/\d/,/\d/,".",/\d/]}
        onChangeText={txt => setHighValue(txt)}
        keyboardType= 'numeric'
-       //onEndEditing={txt => setHighValue(txt.nativeEvent.text)}
+       onBlur={Keyboard.dismiss}
     />
 </View>
 <View style={{ margin: 1, padding: 10, backgroundColor: colors.accent}}>
@@ -180,7 +180,7 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
        mask={[/\d/,/\d/,".",/\d/]}
        onChangeText={txt => setLowValue(txt)}
        keyboardType= 'numeric'
-       //onEndEditing={txt => setLowValue(txt.nativeEvent.text)}
+       onBlur={Keyboard.dismiss}
     /> 
 </View>
 
@@ -192,7 +192,7 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
        mask={[/\d/,".",/\d/,/\d/]}
        onChangeText={txt => setAccuracy(txt)}
        keyboardType= 'numeric'
-       //onEndEditing={txt => setAccuracy(txt.nativeEvent.text)}
+       onBlur={Keyboard.dismiss}
     /> 
 </View>      
   </View>

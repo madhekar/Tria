@@ -25,7 +25,7 @@ export const messageList : Message[] =
     { id:   5, msg: '300', sent: true },
     { id:   6, msg: '0',  sent: true },
     // commands app to tria device
-    { id: 7, msg: 'C:G_', sent: true} //requesting settings from Tria need '_' replaced by 'S'
+    { id: 7, msg: 'C:GS:0', sent: true} //requesting settings from Tria need '_' replaced by 'S'
   ];
  
 export const deviceList : Device[] = 

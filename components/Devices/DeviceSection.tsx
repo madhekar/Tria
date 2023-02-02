@@ -17,6 +17,7 @@ padding-bottom: 10px;
 
 const DeviceSection: FunctionComponent<DeviceSectionProps> = (props) => {
   return (
+    
     <DeviceList
        data={props.data}
        horizontal={true}
