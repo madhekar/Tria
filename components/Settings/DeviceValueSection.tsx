@@ -167,7 +167,7 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
            <MaskInput style={{padding: 8}}
             placeholder={highValue}
             value={highValue}
-            mask={parseFloat(highValue) > 100 ? [/\d/,/\d/,/\d/,".",/\d/] : [/\d/,/\d/,".",/\d/] }
+            mask={parseFloat(_highValue.current) > 100 ? [/\d/,/\d/,/\d/,".",/\d/] : [/\d/,/\d/,".",/\d/] }
             onChangeText={txt => setHighValue(txt)}
             keyboardType= 'numeric'
             onBlur={Keyboard.dismiss} 
@@ -178,7 +178,7 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
            <MaskInput style={{padding: 8}}
             placeholder={lowValue}
             value={lowValue}
-            mask={parseFloat(lowValue) > 100 ? [/\d/,/\d/,/\d/,".",/\d/] : [/\d/,/\d/,".",/\d/]}
+            mask={parseFloat(_lowValue.current) > 100 ? [/\d/,/\d/,/\d/,".",/\d/] : [/\d/,/\d/,".",/\d/]}
             onChangeText={txt => setLowValue(txt)}
             keyboardType= 'numeric'
             onBlur={Keyboard.dismiss}
