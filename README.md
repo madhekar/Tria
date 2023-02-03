@@ -1,3 +1,3 @@
-# Tria - Reenforcement Learning product / platform.
+# Tria - Reinforcement Learning (RL) product / platform.
 
 
