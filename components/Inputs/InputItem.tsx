@@ -31,7 +31,7 @@ const LeftView = styled(View)`
 `;
 
 const RightView = styled(View)`
-    flex: 1.8;
+    flex: 2.4;
 `;
 
 //types
@@ -68,28 +68,37 @@ const updateChart = (sdata: TxData[]) =>{
         icon={props.art.icon}
         />
         <View style={{ marginLeft: 2}}>
-            <RegularText
+{/*             <RegularText
              textStyles={{
                 color: colors.secondary,
                 textAlign: 'left',
                 marginBottom: 2,
              }}>
                 {props.title}
+            </RegularText> */}
+            <RegularText 
+              textStyles={{
+                textAlign: 'left',
+                color: colors.graydark,
+                fontSize: 15,
+              }}>
+                {triaDeviceData.split(':')[props.id - 1] || 0}
             </RegularText>
             <RegularText 
               textStyles={{
                 textAlign: 'left',
                 color: colors.graydark,
               }}>
-                {triaDeviceData.split(':')[props.id - 1] || 0}{props.unit}
+              {props.unit}
             </RegularText>
-            <SmallText 
+
+{/*             <SmallText 
               textStyles={{
                 textAlign: 'left',
                 color: colors.graydark,
               }}>
                 {props.deviceid}
-            </SmallText>
+            </SmallText> */}
         </View>
     </LeftView>
     <RightView>
@@ -103,24 +112,24 @@ const updateChart = (sdata: TxData[]) =>{
                     }
                   ]
                 }}
-                width={Dimensions.get("window").width * .64} // from react-native
+                width={Dimensions.get("window").width * .8} // from react-native
                 height={100}
-                yAxisSuffix={props.unit} 
+                /* yAxisSuffix={props.unit}  */
                 yAxisInterval={1} // optional, defaults to 1
                 chartConfig={{
                   backgroundColor:colors.fawn ,//"#e26a00",
-                  backgroundGradientFrom: colors.biscotti,//"#fb8c00",
-                  backgroundGradientTo:  colors.accent ,//"#ffa726",
+                  backgroundGradientFrom: colors.accent,//"#fb8c00",
+                  backgroundGradientTo:  colors.paleyellow ,//"#ffa726",
                   decimalPlaces: 1, // optional, defaults to 2dp
-                  color: (opacity = 1) => `rgba(100, 10, 40, ${opacity})`,
+                  color: (opacity = 1) => `rgba(128, 60, 10, ${opacity})`,  
                   labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
                   style: {
                     borderRadius: 1
                   },
                   propsForDots: {
                     r: "2",
-                    strokeWidth: "2",
-                    stroke: colors.palespringbug,//"#ffa726"
+                    strokeWidth: "1",
+                    stroke: colors.blugreen,//"#ffa726"
                   }
                 }}
                 bezier

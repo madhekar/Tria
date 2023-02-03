@@ -2,7 +2,7 @@ import React, {FunctionComponent} from 'react';
 import { View, FlatList } from 'react-native';
 
 import styled from 'styled-components'
-import { Ionicons } from '@expo/vector-icons';
+import { Entypo, FontAwesome, FontAwesome5, Ionicons } from '@expo/vector-icons';
 import { ScreenWidth } from '../shared';
 
 //colors
@@ -23,7 +23,7 @@ const InputRow = styled(View)`
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    width: 100%;
+    width: 41%;
 `;
 
 const InputList = styled(FlatList)`
@@ -42,13 +42,14 @@ const InputSection: FunctionComponent<InputSectionProps> = (props) =>{
 
     return (
      <InputSectionBackground>
-        <InputRow style={{marginBottom: 5}}>
-           <RegularText textStyles={{fontSize: 15, color: colors.secondary}}>
-               Sensors  {triaData.split(':')[0]}
-           </RegularText>
-           <RegularText textStyles={{color: colors.secondary}}>
-               Recent
-               <Ionicons name='caret-down' size={15} color={colors.graydark}/>
+        <InputRow style={{marginBottom: 5, marginLeft: 5}}>
+             <RegularText textStyles={{fontSize: 15, color: colors.secondary}}>
+               Signals  {triaData.split(':')[0]}  
+                <Ionicons name='radio-sharp' size={15} color={colors.graydark}/> 
+             </RegularText> 
+            <RegularText textStyles={{fontSize: 15, color: colors.secondary}}>
+                Trends {triaData.split(':')[0]}
+                <FontAwesome name='line-chart' size={15} color={colors.graydark}/>
            </RegularText>
         </InputRow>
         <InputList 

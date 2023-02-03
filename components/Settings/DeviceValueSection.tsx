@@ -117,10 +117,8 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
           Alert.alert('Range Error: ', 'High Limit: ' + DeviceLimits[(id-1) * 4 + 2] + ' Log Limit: ' + DeviceLimits[(id-1) * 4 + 3]);
         };
       };
-
-
         dispatch(updateDevice({
-          id: id, deviceNo: deviceNo, alias: alias, highValue: highValue, lowValue: lowValue, accuracy: accuracy,
+          id: id, deviceNo: deviceNo, alias: alias, highValue: highValue, lowValue:lowValue, accuracy: accuracy,
           art: { icon: '', background: '' }
         }));
 
@@ -138,7 +136,8 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
                   Device ID:  {props.id}
               </Text>
         <DeviceRow> 
-           <View style={{flexDirection: 'column' ,flex: 4, justifyContent: 'space-between', paddingBottom: 15}} >
+
+        <View style={{flexDirection: 'column' ,flex: 4, justifyContent: 'space-between', paddingBottom: 15}} >
         <TextInput
                 style={{ margin: 1, borderColor: colors.graydark, fontSize: 12, backgroundColor: colors.accent}}
                 onChangeText={text => setDeviceNo(text)}
@@ -149,6 +148,7 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
                 maxLength={9}
                 autoCapitalize='none'
                 label= 'Device Number' 
+                autoComplete={'off'}
                 autoFocus
                  />
         <TextInput
@@ -159,44 +159,45 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
                 placeholder = {alias}
                 maxLength={9}
                 autoCapitalize='none'
+                autoComplete={'off'}
                 onBlur={Keyboard.dismiss}
                  />
-<View style={{ margin: 1 ,padding: 10, backgroundColor: colors.accent }}>
-<Text style={{ color: colors.graydark, fontSize: 12}}>High Value</Text>
-    <MaskInput style={{padding: 8}}
-       placeholder={highValue}
-       value={highValue}
-       mask={[/\d/,/\d/,".",/\d/]}
-       onChangeText={txt => setHighValue(txt)}
-       keyboardType= 'numeric'
-       onBlur={Keyboard.dismiss}
-    />
-</View>
-<View style={{ margin: 1, padding: 10, backgroundColor: colors.accent}}>
-  <Text style={{ color: colors.graydark, borderColor: colors.gray, fontSize: 12}}>Low Value</Text>
-    <MaskInput style={{padding: 8}}
-       placeholder={lowValue}
-       value={lowValue}
-       mask={[/\d/,/\d/,".",/\d/]}
-       onChangeText={txt => setLowValue(txt)}
-       keyboardType= 'numeric'
-       onBlur={Keyboard.dismiss}
-    /> 
-</View>
+        <View style={{ margin: 1 ,padding: 10, backgroundColor: colors.accent }}>
+        <Text style={{ color: colors.graydark, fontSize: 12}}>High Value</Text>
+           <MaskInput style={{padding: 8}}
+            placeholder={highValue}
+            value={highValue}
+            mask={parseFloat(highValue) > 100 ? [/\d/,/\d/,/\d/,".",/\d/] : [/\d/,/\d/,".",/\d/] }
+            onChangeText={txt => setHighValue(txt)}
+            keyboardType= 'numeric'
+            onBlur={Keyboard.dismiss} 
+          />
+        </View>
+        <View style={{ margin: 1, padding: 10, backgroundColor: colors.accent}}>
+         <Text style={{ color: colors.graydark, borderColor: colors.gray, fontSize: 12}}>Low Value</Text>
+           <MaskInput style={{padding: 8}}
+            placeholder={lowValue}
+            value={lowValue}
+            mask={parseFloat(lowValue) > 100 ? [/\d/,/\d/,/\d/,".",/\d/] : [/\d/,/\d/,".",/\d/]}
+            onChangeText={txt => setLowValue(txt)}
+            keyboardType= 'numeric'
+            onBlur={Keyboard.dismiss}
+         /> 
+        </View>
+        <View style={{ margin: 1, padding: 10, backgroundColor: colors.accent }}>
+          <Text style={{ color: colors.graydark, borderColor: colors.graydark, fontSize: 12}}>Accuracy</Text>
+           <MaskInput style={{padding: 8, shadowColor: colors.accent}}
+            placeholder={accuracy}
+            value={accuracy}
+            mask={[/\d/,".",/\d/,/\d/]}
+            onChangeText={txt => setAccuracy(txt)}
+            keyboardType= 'numeric'
+            onBlur={Keyboard.dismiss}
+          /> 
+       </View>      
+       </View>
 
-<View style={{ margin: 1, padding: 10, backgroundColor: colors.accent }}>
-  <Text style={{ color: colors.graydark, borderColor: colors.graydark, fontSize: 12}}>Accuracy</Text>
-    <MaskInput style={{padding: 8, shadowColor: colors.accent}}
-       placeholder={accuracy}
-       value={accuracy}
-       mask={[/\d/,".",/\d/,/\d/]}
-       onChangeText={txt => setAccuracy(txt)}
-       keyboardType= 'numeric'
-       onBlur={Keyboard.dismiss}
-    /> 
-</View>      
-  </View>
-</DeviceRow>  
+     </DeviceRow>  
      <DeviceRow> 
       <Button onPress={()=> handleSubmit({})} style={{backgroundColor: colors.graydark}} mode='contained' uppercase={false}>Save</Button>     
       <Button onPress={() => navigation.goBack()} style={{backgroundColor: colors.graydark}} mode='contained' uppercase={false}>Cancel</Button>   

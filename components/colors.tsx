@@ -26,6 +26,8 @@ export const colors = {
     oat: '#DFC98A',
     biscotti: '#E3C565',
     fawn: '#C8A951',
-    granola: '#D6B85A'
+    granola: '#D6B85A',
+    amber: '#FFBF00',
+    citrine: '#E4D00A'
 
 };

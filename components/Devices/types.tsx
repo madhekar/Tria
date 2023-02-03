@@ -1,3 +1,4 @@
+import { Float } from "react-native/Libraries/Types/CodegenTypes";
 
 export interface DeviceProps {
     id: number;

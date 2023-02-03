@@ -11,12 +11,12 @@ import { ScreenWidth } from '../shared';
 
 
 const OutputContainer = styled(TouchableHighlight)`
-   height: 90px;
-   width: ${ScreenWidth * 0.27}px;
-   padding: 5px;
-   border-radius: 5px;
+   height: 85px;
+   width: ${ScreenWidth * 0.28}px;
+   padding: 10px;
+   border-radius: 2px;
    justify-content: space-around;
-   margin: 0px 10px 10px 0px; 
+   margin: 0px 7px 7px 0px; 
 `;
 
 //type
@@ -27,7 +27,9 @@ import { useScrollViewOffset } from 'react-native-reanimated';
 
 const OutputItem: FunctionComponent<OutputProps> = (props) => {
 
-   let activationApplianceMap = ['1111', '0111' , '1011' , '0011', '1110', '1101', '1100', '1000', '0001', '1010', '1001', '0101'];
+   let activationApplianceMap = ['1111', '0111' , '1011' , '0011', '1110', 
+                                 '1101', '1100', '1000', '0001', '1010', 
+                                 '1001', '0101'];
 
    const useSharedTriaState = () => useBetween(TriaState);  
    const {triaDeviceStatus, 

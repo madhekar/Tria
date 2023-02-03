@@ -13,7 +13,7 @@ import SmallText from '../Texts/SmallText';
 import OutputItem from './OutputItem';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Icon } from 'react-native-paper/lib/typescript/components/Avatar/Avatar';
-import { Ionicons, EvilIcons } from '@expo/vector-icons';
+import { Ionicons, EvilIcons, AntDesign, Entypo } from '@expo/vector-icons';
 
 
 const OutputSectionBackground = styled(View)`
@@ -45,7 +45,7 @@ const OutputSection: FunctionComponent<OutputSectionProps> = (props) => {
    
    const sheetRef = useRef<BottomSheet>(null);
 
-   const snapPoints = useMemo(() => ['25%', '6%'], []);
+   const snapPoints = useMemo(() => ['26%', '6%'], []);
 
 
    const renderContent = () =>{
@@ -54,17 +54,17 @@ const OutputSection: FunctionComponent<OutputSectionProps> = (props) => {
     <OutputSectionBackground style={{backgroundColor: colors.white}}>
 
        <OutputRow style={{marginBottom: 10}}>
-            <Ionicons name='caret-up' size={20} color={colors.graydark} onPress={() => sheetRef.current?.snapTo(0)}/>
-              <EvilIcons name='gear' size={20} color={colors.graydark}/>
+            <Entypo name='arrow-with-circle-up' size={20} color={colors.graydark} onPress={() => sheetRef.current?.snapTo(0)}/>
+              <Entypo name='gauge' size={20} color={colors.graydark}/>
             {/*   <RegularText textStyles={{fontSize: 15, color: colors.secondary}}>Appliances</RegularText>  */}
-            <Ionicons name='caret-down' size={20} color={colors.graydark} onPress={() => sheetRef.current?.snapTo(1)}/>
+            <Entypo name='arrow-with-circle-down' size={20} color={colors.graydark} onPress={() => sheetRef.current?.snapTo(1)}/>
       </OutputRow>
 
       <OutputList 
         data = {props.data}
         contentContainerStyle={{
             alignItems: "flex-start",
-            marginTop: 5 }}
+            marginTop: 6 }}
             horizontal={false}
             showsVerticalScrollIndicator={false}
             numColumns={3}
