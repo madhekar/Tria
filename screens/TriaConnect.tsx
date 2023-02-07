@@ -109,6 +109,7 @@ const openModal = async () => {
     if(isGranted) {
       scanForDevices();
       setIsModalVisible(true);
+      dispatch(updateMessage( {id: 7, msg: "C:GS:0", sent: false})); 
     }
   })
 }
