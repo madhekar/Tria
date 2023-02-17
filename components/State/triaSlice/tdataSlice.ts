@@ -10,6 +10,7 @@ export const tdataSlice = createSlice({
     reducers: {
         addTdata: (state, action : PayloadAction<TxData>) => {
            //Alert.alert(action.payload.txValue); 
+          if(action.payload.txValue != null && parseFloat(action.payload.txValue.split(':')[0]) > 0.0 ){
            if (state.tdataList.length <= MAX_DATA){
              state.tdataList.push( action.payload);
            }else{
@@ -17,6 +18,7 @@ export const tdataSlice = createSlice({
             state.tdataList.push(action.payload);
            }
         }
+      }
     }
 });
 
