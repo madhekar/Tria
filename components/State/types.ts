@@ -51,8 +51,17 @@ export const deviceList : Device[] =
         {id: 9, title: 'Use ML' , subTitle: 'True', type: 'mutiselect'}
      ];    
 
- const tdataList : TxData[] = [ {txValue:'72:42:10', timeStamp:'2023-01-01 12:0:0'}
-                              ];
+ const tdataList : TxData[] = [{txValue:'72:42:10', timeStamp:'2023-01-01 12:0:0'},
+                               {txValue:'72:42:10', timeStamp:'2023-01-01 12:0:0'},
+                               {txValue:'72:42:10', timeStamp:'2023-01-01 12:0:0'},
+                               {txValue:'72:42:10', timeStamp:'2023-01-01 12:0:0'},
+                               {txValue:'72:42:10', timeStamp:'2023-01-01 12:0:0'},
+                               {txValue:'72:42:10', timeStamp:'2023-01-01 12:0:0'},
+                               {txValue:'72:42:10', timeStamp:'2023-01-01 12:0:0'},
+                               {txValue:'72:42:10', timeStamp:'2023-01-01 12:0:0'},
+                               {txValue:'72:42:10', timeStamp:'2023-01-01 12:0:0'},
+                               {txValue:'72:42:10', timeStamp:'2023-01-01 12:0:0'},
+                               {txValue:'72:42:10', timeStamp:'2023-01-01 12:0:0'}];
 
 const tstatusList: TxStatus[] = [];
  

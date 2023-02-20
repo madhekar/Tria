@@ -69,9 +69,7 @@ const Welcome : FunctionComponent<Props> = ({navigation}) => {
                 </SmallText>
                 <RegularButton textStyles={{  color: colors.black, 
                 fontWeight:'bold', marginTop: 8}} onPress={() => { navigation.navigate('DrawerNav');     
-                setTimeout(function(){
-                  dispatch(updateMessage( {id: 7, msg: "C:GS:0", sent: false}));  
-                }, 10000); }}>
+                setTimeout(() => dispatch(updateMessage({id: 7, msg: "C:GS:0", sent: false})) , 10000)}}>
                     Get started
                 </RegularButton>
             </BottomSection>

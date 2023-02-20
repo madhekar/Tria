@@ -56,6 +56,8 @@ const InputItem:FunctionComponent<InputProps> = (props) => {
 const updateChart = (sdata: TxData[]) =>{
     labels = sdata.map((l: TxData) => (l.timeStamp.trim()));
     tvals = sdata.map((l: TxData) => (l.txValue.trim()));
+    console.log(labels[0] ,tvals[0])
+    //Alert.alert(labels[0] ,tvals[0])
  }
 
  useEffect(() => updateChart(sdata), [sdata]);
@@ -82,7 +84,7 @@ const updateChart = (sdata: TxData[]) =>{
                 color: colors.graydark,
                 fontSize: 15,
               }}>
-                {triaDeviceData.split(':')[props.id - 1] || 0}
+                {triaDeviceData.trim().split(':')[props.id - 1] || 0}
             </RegularText>
             <RegularText 
               textStyles={{
@@ -108,14 +110,17 @@ const updateChart = (sdata: TxData[]) =>{
                   labels:  labels,
                   datasets: [
                     {
-                      data: tvals.map(s => parseFloat(s.split(':')[props.id -1])|| 0),  
+                      data: tvals.map(s => parseFloat(s.trim().split(':')[props.id -1]) || 0),
                     }
                   ]
                 }}
-                width={Dimensions.get("window").width * .8} // from react-native
+                width={Dimensions.get("window").width * .80} // from react-native
                 height={100}
                 /* yAxisSuffix={props.unit}  */
                 yAxisInterval={1} // optional, defaults to 1
+                verticalLabelRotation={30}
+                withHorizontalLines={false}
+                withVerticalLines={false}
                 chartConfig={{
                   backgroundColor:colors.fawn ,//"#e26a00",
                   backgroundGradientFrom: colors.accent,//"#fb8c00",
