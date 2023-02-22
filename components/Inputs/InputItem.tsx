@@ -119,8 +119,8 @@ const updateChart = (sdata: TxData[]) =>{
                 /* yAxisSuffix={props.unit}  */
                 yAxisInterval={1} // optional, defaults to 1
                 verticalLabelRotation={30}
-                withHorizontalLines={false}
-                withVerticalLines={false}
+                //withHorizontalLines={false}
+                //withVerticalLines={false}
                 chartConfig={{
                   backgroundColor:colors.fawn ,//"#e26a00",
                   backgroundGradientFrom: colors.accent,//"#fb8c00",
