@@ -99,6 +99,7 @@ const sendStatus = (mList : Message[]) => {
      if (writeTria.length > 0){
       writeTria.map((d)=>{
         //Alert.alert(d.msg);
+          console.log(d.msg);
           writeSettingsToTria(d.msg);
           dispatch(updateMessage( {id: d.id , msg: d.msg, sent: true}))
          });
@@ -115,7 +116,8 @@ const openModal = async () => {
     if(isGranted) {
       scanForDevices();
       setIsModalVisible(true);
-      send ? true : setTimeout(() => dispatch(updateMessage({id: 7, msg: "C:GS:0", sent: false})) , 5000);
+      useTimeout(send, 10000)
+      send ? console.log("waiting..") : dispatch(updateMessage({id: 7, msg: "C:GS:0", sent: false}));
       /*dispatch(updateMessage( {id: 7, msg: "C:GS:0", sent: false})); */
     }
   })

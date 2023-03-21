@@ -1,7 +1,7 @@
 import React,{FunctionComponent, useEffect,useState} from 'react'
 import {useTimeout} from 'usehooks-ts';
 import styled from 'styled-components';
-import {Alert, Dimensions, View} from 'react-native';
+import {Alert, Dimensions, Text, View} from 'react-native';
 import { useBetween } from 'use-between';
 import { TriaState } from '../Connection/TriaState';
 import {useAppSelector} from '../State/hooks';
@@ -62,7 +62,7 @@ const updateChart = (sdata: TxData[]) => {
     labels = sdata.map((l: TxData) => (l.timeStamp.trim()));
     tvals = sdata.map((l: TxData) => (l.txValue.trim()));
     
-    console.log(labels[0] ,tvals[0])
+    //console.log(labels[0] ,tvals[0])
     //Alert.alert(labels[0] ,tvals[0])
  }
 
@@ -112,10 +112,10 @@ const updateChart = (sdata: TxData[]) => {
     <RightView>
        <LineChart
                 data={{
-                  labels:  labels,
+                  labels: labels,
                   datasets: [
                     {
-                      data: tvals.map(s => parseFloat(s.trim().split(':')[props.id -1]) || 0),
+                      data: tvals.map(s => parseFloat(s.trim().split(':')[props.id -1]) || 10),
                     }
                   ]
                 }}
