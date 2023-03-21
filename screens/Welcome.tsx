@@ -1,4 +1,5 @@
-import React, { FunctionComponent} from "react";
+import React, { FunctionComponent, useState} from "react";
+import {useTimeout} from 'usehooks-ts';
 import { View, Image } from 'react-native';
 import { StatusBar } from "expo-status-bar";
 import styled from 'styled-components';
@@ -51,6 +52,10 @@ import { useAppDispatch, useAppSelector  } from '../components/State/hooks';
 
 const Welcome : FunctionComponent<Props> = ({navigation}) => {
 
+  const [sendDisp, setSendDisp] = useState(true);
+  const send = () => setSendDisp(false)
+  useTimeout(send, 10000)
+
   const dispatch = useAppDispatch();
 
     return (
@@ -68,8 +73,9 @@ const Welcome : FunctionComponent<Props> = ({navigation}) => {
                   Best tool for space climet control to maintain best quality indoor _environment.  
                 </SmallText>
                 <RegularButton textStyles={{  color: colors.black, 
-                fontWeight:'bold', marginTop: 8}} onPress={() => { navigation.navigate('DrawerNav');     
-                setTimeout(() => dispatch(updateMessage({id: 7, msg: "C:GS:0", sent: false})) , 10000)}}>
+                fontWeight:'bold', marginTop: 8}} onPress={() => { 
+                  navigation.navigate('DrawerNav');     
+                  send ? true : setTimeout(() => dispatch(updateMessage({id: 7, msg: "C:GS:0", sent: false})) , 10000)}}>
                     Get started
                 </RegularButton>
             </BottomSection>

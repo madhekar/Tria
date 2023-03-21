@@ -1,4 +1,5 @@
-import React,{FunctionComponent, useEffect} from 'react'
+import React,{FunctionComponent, useEffect,useState} from 'react'
+import {useTimeout} from 'usehooks-ts';
 import styled from 'styled-components';
 import {Alert, Dimensions, View} from 'react-native';
 import { useBetween } from 'use-between';
@@ -47,15 +48,20 @@ import TextSVG, {Svg, Rect} from 'react-native-svg';
 
 const InputItem:FunctionComponent<InputProps> = (props) => {
 
+  const [sendDisp, setSendDisp] = useState(true);
+  const send = () => setSendDisp(false)
+  useTimeout(send, 10000)
 
   const useSharedTriaState = () => useBetween(TriaState);  
   const {triaDeviceData, triaDeviceSetting } = useSharedTriaState();  
 
  const sdata: Array<TxData> = useAppSelector((state: RootState) => state.triadata.tdataList);
 
-const updateChart = (sdata: TxData[]) =>{
+const updateChart = (sdata: TxData[]) => {
+ 
     labels = sdata.map((l: TxData) => (l.timeStamp.trim()));
     tvals = sdata.map((l: TxData) => (l.txValue.trim()));
+    
     console.log(labels[0] ,tvals[0])
     //Alert.alert(labels[0] ,tvals[0])
  }
@@ -104,8 +110,7 @@ const updateChart = (sdata: TxData[]) =>{
         </View>
     </LeftView>
     <RightView>
-
-            <LineChart
+       <LineChart
                 data={{
                   labels:  labels,
                   datasets: [
@@ -158,7 +163,7 @@ const updateChart = (sdata: TxData[]) =>{
                   </Svg>
                </View>
              }} */
-            /> 
+            />
     </RightView>
     </InputRow>
   );

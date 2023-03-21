@@ -1,6 +1,7 @@
 import React, { FunctionComponent , type PropsWithChildren, useState, useEffect, createContext, useImperativeHandle, Ref, RefObject, forwardRef} from 'react'
 import styled from 'styled-components';
 import { useBetween } from 'use-between';
+import {useTimeout} from 'usehooks-ts';
 import DeviceModal from  '../components/Connection/DeviceConnectionModel';
 import UseBLE from '../components/Connection/UseBLE';
 import { ScreenWidth} from '../components/shared';
@@ -86,6 +87,11 @@ useEffect(() => { setTriaDeviceStatus(triaStatus.trim()); /* dispatch(addTstatus
 
 useEffect(() => sendStatus(mList), [mList]);
 
+// time delay after bluetooth is active
+const [sendDisp, setSendDisp] = useState(true);
+const send = () => setSendDisp(false)
+useTimeout(send, 10000)
+
 const sendStatus = (mList : Message[]) => {
   if (mList.map(md => Object.values(md).some(d => false))) {
      //Alert.alert(mList.map(v => Object.values(v).join(':')).join('\n'));
@@ -109,7 +115,8 @@ const openModal = async () => {
     if(isGranted) {
       scanForDevices();
       setIsModalVisible(true);
-      dispatch(updateMessage( {id: 7, msg: "C:GS:0", sent: false})); 
+      send ? true : setTimeout(() => dispatch(updateMessage({id: 7, msg: "C:GS:0", sent: false})) , 5000);
+      /*dispatch(updateMessage( {id: 7, msg: "C:GS:0", sent: false})); */
     }
   })
 }
