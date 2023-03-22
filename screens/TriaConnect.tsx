@@ -89,8 +89,8 @@ useEffect(() => sendStatus(mList), [mList]);
 
 // time delay after bluetooth is active
 const [sendDisp, setSendDisp] = useState(true);
-const send = () => setSendDisp(false)
-useTimeout(send, 10000)
+const send = () => setSendDisp(false);
+useTimeout(send, 10000);
 
 const sendStatus = (mList : Message[]) => {
   if (mList.map(md => Object.values(md).some(d => false))) {
@@ -116,12 +116,13 @@ const openModal = async () => {
     if(isGranted) {
       scanForDevices();
       setIsModalVisible(true);
-      useTimeout(send, 10000)
-      send ? console.log("waiting..") : dispatch(updateMessage({id: 7, msg: "C:GS:0", sent: false}));
-      /*dispatch(updateMessage( {id: 7, msg: "C:GS:0", sent: false})); */
-    }
-  })
-}
+      setTimeout(() => {
+         dispatch(updateMessage({id: 7, msg: "C:GS:0", sent: false}))
+        }, 10000);
+    };
+    })
+  };
+
 
   const processSettingsData = (sData: string) =>{
     writeSettingsToTria(sData.toString());

@@ -43,32 +43,30 @@ import getStorage from 'redux-persist/es/storage/getStorage';
 import { tdataSlice } from '../State/triaSlice/tdataSlice';
 import TextSVG, {Svg, Rect} from 'react-native-svg';
 
- var labels: string[] = [];
- var tvals: string[] = [];
+
+var labels: string[] = [];
+var tvals: string[] = [];
+var loading : boolean = true;
 
 const InputItem:FunctionComponent<InputProps> = (props) => {
-
-  const [sendDisp, setSendDisp] = useState(true);
-  const send = () => setSendDisp(false)
-  useTimeout(send, 10000)
-
+   
   const useSharedTriaState = () => useBetween(TriaState);  
   const {triaDeviceData, triaDeviceSetting } = useSharedTriaState();  
+  //var loading : boolean = true;
 
  const sdata: Array<TxData> = useAppSelector((state: RootState) => state.triadata.tdataList);
 
 const updateChart = (sdata: TxData[]) => {
- 
+    console.log(sdata);
+    setTimeout(() => {loading = false}, 20000);
     labels = sdata.map((l: TxData) => (l.timeStamp.trim()));
-    tvals = sdata.map((l: TxData) => (l.txValue.trim()));
-    
-    //console.log(labels[0] ,tvals[0])
-    //Alert.alert(labels[0] ,tvals[0])
+    tvals =  sdata.map((l: TxData) => (l.txValue.trim()));
  }
 
  useEffect(() => updateChart(sdata), [sdata]);
 
   return (
+  
     <InputRow>
     <LeftView>
         <InputAvi
@@ -90,7 +88,7 @@ const updateChart = (sdata: TxData[]) => {
                 color: colors.graydark,
                 fontSize: 15,
               }}>
-                {triaDeviceData.trim().split(':')[props.id - 1] || 0}
+                {triaDeviceData.trim().split(':')[props.id - 1]}
             </RegularText>
             <RegularText 
               textStyles={{
@@ -115,7 +113,7 @@ const updateChart = (sdata: TxData[]) => {
                   labels: labels,
                   datasets: [
                     {
-                      data: tvals.map(s => parseFloat(s.trim().split(':')[props.id -1]) || 10),
+                      data: loading ? [0,0,0,0,0] : tvals.map(s => parseFloat(s.trim().split(':')[props.id - 1]) || 0.0)
                     }
                   ]
                 }}
@@ -126,6 +124,7 @@ const updateChart = (sdata: TxData[]) => {
                 verticalLabelRotation={30}
                 //withHorizontalLines={false}
                 //withVerticalLines={false}
+                //yAxisLabel={">"}
                 chartConfig={{
                   backgroundColor:colors.fawn ,//"#e26a00",
                   backgroundGradientFrom: colors.accent,//"#fb8c00",
@@ -163,7 +162,7 @@ const updateChart = (sdata: TxData[]) => {
                   </Svg>
                </View>
              }} */
-            />
+            /> 
     </RightView>
     </InputRow>
   );

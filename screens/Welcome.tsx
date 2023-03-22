@@ -52,10 +52,6 @@ import { useAppDispatch, useAppSelector  } from '../components/State/hooks';
 
 const Welcome : FunctionComponent<Props> = ({navigation}) => {
 
-  const [sendDisp, setSendDisp] = useState(true);
-  const send = () => setSendDisp(false);
-  useTimeout(send, 5000);
-
   const dispatch = useAppDispatch();
 
     return (
@@ -74,9 +70,12 @@ const Welcome : FunctionComponent<Props> = ({navigation}) => {
                 </SmallText>
                 <RegularButton textStyles={{  color: colors.black, 
                 fontWeight:'bold', marginTop: 8}} onPress={() => { 
-                  navigation.navigate('DrawerNav');     
-                  send ? console.log('waiting..') : dispatch(updateMessage({id: 7, msg: "C:GS:0", sent: false}))}}>
-                    Get started
+                  navigation.navigate('DrawerNav');   
+                  setTimeout(() => { 
+                    dispatch(updateMessage({id: 7, msg: "C:GS:0", sent: false}));
+                  }, 10000); 
+                 }}>
+                    Get started..
                 </RegularButton>
             </BottomSection>
           </WelcomeContainer>

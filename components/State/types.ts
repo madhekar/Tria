@@ -4,7 +4,7 @@ import { SettingProps as Settings} from '../AppSet/types';
 
 export type Message = { id: number, msg: string, sent: boolean };
 
-export type TxData = { timeStamp: string, txValue: string };
+export type TxData = { timeStamp: string, txValue: string};
 
 export type TxStatus = { txStatusValue: string };
 
@@ -51,7 +51,7 @@ export const deviceList : Device[] =
         {id: 9, title: 'Use ML' , subTitle: 'True', type: 'mutiselect'}
      ];    
 
- const tdataList : TxData[] = [{txValue:'72:42:10', timeStamp:'0'}];
+ const tdataList : TxData[] = [];
 
 const tstatusList: TxStatus[] = [];
  
