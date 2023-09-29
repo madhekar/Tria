@@ -59,6 +59,7 @@ const useSharedTriaState = () => useBetween(TriaState);
 const dispatch = useAppDispatch();
 const mList = useAppSelector((state: RootState) => state.message.messageList);
 const dList = useAppSelector((state: RootState) => state.device.deviceList);
+const sList = useAppSelector((state: RootState) => state.setting.settingList);  //to be used new
 
 
 const {

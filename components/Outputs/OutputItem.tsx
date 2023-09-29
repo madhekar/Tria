@@ -27,9 +27,10 @@ import { useScrollViewOffset } from 'react-native-reanimated';
 
 const OutputItem: FunctionComponent<OutputProps> = (props) => {
 
-   let activationApplianceMap = ['1111', '0111' , '1011' , '0011', '1110', 
-                                 '1101', '1100', '1000', '0001', '1010', 
-                                 '1001', '0101'];
+   let activationApplianceMap = ['11111', '01111' , '10111' , '00111', '11101', 
+                                 '11011', '11001', '10001', '00011', '10101', 
+                                 '10011', '01011','01110','11110','11100',
+                                 '11010','01010','11000'];
 
    const useSharedTriaState = () => useBetween(TriaState);  
    const {triaDeviceStatus, 
@@ -46,7 +47,7 @@ const OutputItem: FunctionComponent<OutputProps> = (props) => {
     style={{ backgroundColor: colors.accent, alignItems: 'center'}}
     
     onPress={() =>{
-        Alert.alert("Appliance Status :" + triaDeviceStatus );
+        Alert.alert("Appliance Id: (" +props.id+ ") status: " + triaDeviceStatus);
     }}>
    <>     
       <OutputAvi
