@@ -18,14 +18,16 @@ export type initialStateType = {
 
 export const messageList : Message[] = 
    // messages app to tria device 
-   [{ id:   1, msg: '80', sent: true },
-    { id:   2, msg: '72', sent: true },
-    { id:   3, msg: '60.5', sent: true },
-    { id:   4, msg: '50', sent: true },
-    { id:   5, msg: '300', sent: true },
-    { id:   6, msg: '0',  sent: true },
+   [{ id:   1, msg: 'S:TH:80', sent: true },
+    { id:   2, msg: 'S:TL:72', sent: true },
+    { id:   3, msg: 'S:HH:60.5', sent: true },
+    { id:   4, msg: 'S:HL:50', sent: true },
+    { id:   5, msg: 'S:AH:300', sent: true },
+    { id:   6, msg: 'S:AL:0',  sent: true },
     // commands app to tria device
-    { id: 7, msg: 'C:GS:0', sent: true} //requesting settings from Tria need '_' replaced by 'S'
+    { id: 7, msg: 'C:GS:0', sent: true}, //requesting settings from Tria need '_' replaced by 'S'
+     { id: 8, msg: 'C:OP:0', sent: true},
+    { id: 9, msg: 'C:AI:1', sent: true}  
   ];
  
 export const deviceList : Device[] = 
@@ -40,15 +42,11 @@ export const deviceList : Device[] =
      ];
 
  const settingList : Settings[] =
-     [  {id: 1, title: 'User Name' , subTitle: 'Bhalchandra',type: 'text'},
-        {id: 2, title: 'Avatar/ Image' , subTitle: null, type: 'multiselect'},
-        {id: 3, title: 'City' , subTitle: 'San diego', type: 'text'},
-        {id: 4, title: 'State' , subTitle: 'California', type: 'text'},
-        {id: 5, title: 'Country' , subTitle: 'United States', type: 'text'},
-        {id: 6, title: 'Tria On/Off', subTitle: 'On', type: 'mutiselect'},  //overrides Operation window settings
-        {id: 7, title: 'Operation window start time' , subTitle: '1800', type: 'text'},
-        {id: 8, title: 'Operation window end time' , subTitle: '0800', type: 'text'},
-        {id: 9, title: 'Use ML' , subTitle: 'True', type: 'mutiselect'}
+     [  {id: 1, title: 'User' , subTitle: 'Bhalchandra',type: 'text'},
+        {id: 2, title: 'Lattitude' , subTitle: '32.968700', type: 'text'},
+        {id: 3, title: 'Longitude' , subTitle: '-117.184200', type: 'text'},
+        {id: 4, title: 'Control Operation Pause - on/off', subTitle: 'on', type: 'text'},  //overrides Operation window settings
+        {id: 5, title: 'Use Artificial Intelligence - on/off' , subTitle: 'on', type: 'text'}
      ];    
 
  const tdataList : TxData[] = [];

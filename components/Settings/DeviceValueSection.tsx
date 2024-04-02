@@ -114,14 +114,13 @@ const DeviceValueSection: FunctionComponent<DeviceValueProps> = (props) => {
         { setDeviceSetting(id, lowValue.trim(), 'L' ); }
         else  
         { 
-          Alert.alert('Range Error: ', 'High Limit: ' + DeviceLimits[(id-1) * 4 + 2] + ' Log Limit: ' + DeviceLimits[(id-1) * 4 + 3]);
+          Alert.alert('Range Error: ', 'High Limit: ' + DeviceLimits[(id-1) * 4 + 2] + ' Low Limit: ' + DeviceLimits[(id-1) * 4 + 3]);
         };
       };
         dispatch(updateDevice({
           id: id, deviceNo: deviceNo, alias: alias, highValue: highValue, lowValue:lowValue, accuracy: accuracy,
           art: { icon: '', background: '' }
         }));
-
         navigation.goBack();
       };
  

@@ -5,7 +5,7 @@ import { createSlice, PayloadAction} from '@reduxjs/toolkit';
 let lastId = 0;
 
 export const settingSlice = createSlice({
-    name: 'setting',
+    name: 'settings',
     initialState,
     
     reducers: {

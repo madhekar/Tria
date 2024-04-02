@@ -7,6 +7,7 @@ import { colors } from '../colors';
 import { updateSetting } from '../State/triaSlice/settingsSlice';
 import { useAppDispatch } from '../State/hooks';
 import { ScreenWidth } from '../shared';
+import { updateMessage } from '../State/triaSlice/messageSlice';
 
 
 const DeviceBackground = styled(ImageBackground)`
@@ -68,7 +69,16 @@ const AppSettingItem: FunctionComponent<SettingProps>  = (props) => {
           <TextInput
             mode='flat'
             style={{  borderColor: colors.black, width:'100%', fontSize: 12, backgroundColor: colors.accent , height: 50 }}
-            onChangeText={text => {setSubTitle(text); dispatch(updateSetting({id: props.id, title: props.title, subTitle: text, type: props.type}))}}
+            onChangeText={text => {setSubTitle(text); 
+                                   dispatch(updateSetting({id: props.id, title: props.title, subTitle: text, type: props.type}));
+                                   if(props.id === 4){
+                                    (subTitle === "on") ? dispatch(updateMessage({id: props.id, msg: 'C:OP:1', sent: false})) :
+                                    dispatch(updateMessage({id: props.id, msg: 'C:OP:0', sent: false}))
+                                   } else if(props.id === 5){
+                                    (subTitle === "on") ? dispatch(updateMessage({id: props.id, msg: 'C:AI:1', sent: false})) :
+                                    dispatch(updateMessage({id: props.id, msg: 'C:AI:0', sent: false}))
+                                   }
+                                  }}
             multiline={false}
             onBlur={Keyboard.dismiss}
             value={subTitle}
