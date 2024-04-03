@@ -48,11 +48,11 @@ target 'TriaApp' do
       installer,
       # Set `mac_catalyst_enabled` to `true` in order to apply patches
       # necessary for Mac Catalyst builds
+      config[:reactNativePath],
       :mac_catalyst_enabled => false
     )
     if installer.respond_to?(:__apply_Xcode_12_5_M1_post_install_workaround)
       installer.__apply_Xcode_12_5_M1_post_install_workaround
     end
-    #__apply_Xcode_12_5_M1_post_install_workaround(installer)
   end
 end
