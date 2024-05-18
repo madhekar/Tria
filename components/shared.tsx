@@ -1,5 +1,5 @@
 import { Dimensions, View } from "react-native";
-import { color } from "react-native-reanimated";
+//import { color } from "react-native-reanimated";
 import styled from "styled-components";
 import { colors } from "./colors";
 

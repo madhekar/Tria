@@ -23,7 +23,7 @@ const OutputContainer = styled(TouchableHighlight)`
 import { OutputProps } from './types';
 import Profile from '../Header/Profile';
 import OutputAvi from './OutputAvi';
-import { useScrollViewOffset } from 'react-native-reanimated';
+//import { useScrollViewOffset } from 'react-native-reanimated';
 
 const OutputItem: FunctionComponent<OutputProps> = (props) => {
 

@@ -13,9 +13,11 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2501CE844B65F7049B163887 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F5E46C1925255C23C9A098 /* ExpoModulesProvider.swift */; };
 		2A33D3B957526B2BA9F3E686 /* libPods-TriaApp-TriaAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1BC672969AD52CAD6016688 /* libPods-TriaApp-TriaAppTests.a */; };
+		2A70F90EB07C7DB47246BFCE /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 445A8E9D6553723C98A6C8AF /* PrivacyInfo.xcprivacy */; };
 		6A586AEA48C892AF289752EB /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436A8FB822893B0009EE46C1 /* ExpoModulesProvider.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		A28A337FB08AF79C4ADB59C3 /* libPods-TriaApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F29DE08EA9EA62A6FD0D77 /* libPods-TriaApp.a */; };
+		D59EEDB618D2B8F995395C1C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = B8D55CCC038B722E8F8451BC /* PrivacyInfo.xcprivacy */; };
 		EF4DB7BB2979DB2300D1A3F9 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		EF4DB7BC2979DB2300D1A3F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		EF4DB7BD2979DB2300D1A3F9 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436A8FB822893B0009EE46C1 /* ExpoModulesProvider.swift */; };
@@ -47,10 +49,12 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = TriaApp/main.m; sourceTree = "<group>"; };
 		1F21C8B502FC109CC02C0574 /* Pods-TriaApp-TriaAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TriaApp-TriaAppTests.release.xcconfig"; path = "Target Support Files/Pods-TriaApp-TriaAppTests/Pods-TriaApp-TriaAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		436A8FB822893B0009EE46C1 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-TriaApp/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		445A8E9D6553723C98A6C8AF /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = TriaApp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		49A3BE9E0C528B5CF54142B8 /* Pods-TriaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TriaApp.release.xcconfig"; path = "Target Support Files/Pods-TriaApp/Pods-TriaApp.release.xcconfig"; sourceTree = "<group>"; };
 		4AADECC633F3C61E626BCA2F /* Pods-TriaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TriaApp.debug.xcconfig"; path = "Target Support Files/Pods-TriaApp/Pods-TriaApp.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = TriaApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0F5E46C1925255C23C9A098 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-TriaApp-TriaAppTests/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		B8D55CCC038B722E8F8451BC /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = TriaApp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		C01759474B2D8DEE135555FC /* Pods-TriaApp-TriaAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TriaApp-TriaAppTests.debug.xcconfig"; path = "Target Support Files/Pods-TriaApp-TriaAppTests/Pods-TriaApp-TriaAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C1BC672969AD52CAD6016688 /* libPods-TriaApp-TriaAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TriaApp-TriaAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3F29DE08EA9EA62A6FD0D77 /* libPods-TriaApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TriaApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +117,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				B8D55CCC038B722E8F8451BC /* PrivacyInfo.xcprivacy */,
 			);
 			name = TriaApp;
 			sourceTree = "<group>";
@@ -146,6 +151,7 @@
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
 				E48582CFA794824D8EFB1804 /* ExpoModulesProviders */,
 				EF4DB7CA2979DB2400D1A3F9 /* TriaApp copy-Info.plist */,
+				445A8E9D6553723C98A6C8AF /* PrivacyInfo.xcprivacy */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -210,7 +216,6 @@
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				2242C4522874DC99DC8E23D4 /* [CP] Embed Pods Frameworks */,
 				D484F125B32E97E3D991B88A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -234,7 +239,6 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				FA9D50362A04C517B0FD563E /* [CP] Embed Pods Frameworks */,
 				D5DD5D2437AA9409C1D1EAA7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -271,7 +275,8 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1420;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
@@ -316,6 +321,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				D59EEDB618D2B8F995395C1C /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +332,7 @@
 				EF4DB7CD2979E2B400D1A3F9 /* main.jsbundle in Resources */,
 				EF4DB7C12979DB2300D1A3F9 /* LaunchScreen.storyboard in Resources */,
 				EF4DB7C22979DB2300D1A3F9 /* Images.xcassets in Resources */,
+				2A70F90EB07C7DB47246BFCE /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,23 +392,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-TriaApp-TriaAppTests/expo-configure-project.sh\"\n";
-		};
-		2242C4522874DC99DC8E23D4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TriaApp-TriaAppTests/Pods-TriaApp-TriaAppTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TriaApp-TriaAppTests/Pods-TriaApp-TriaAppTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TriaApp-TriaAppTests/Pods-TriaApp-TriaAppTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		715269B262C9976C37866CA3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -515,22 +505,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
-		};
-		FA9D50362A04C517B0FD563E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TriaApp/Pods-TriaApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TriaApp/Pods-TriaApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TriaApp/Pods-TriaApp-frameworks.sh\"\n";
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -731,6 +705,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CC = "";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -759,9 +734,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				CXX = "";
 				DEVELOPMENT_TEAM = MUWRSL3822;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -780,6 +757,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD = "";
+				LDPLUSPLUS = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -811,6 +790,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CC = "";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -839,9 +819,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
+				CXX = "";
 				DEVELOPMENT_TEAM = MUWRSL3822;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -853,6 +835,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD = "";
+				LDPLUSPLUS = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",

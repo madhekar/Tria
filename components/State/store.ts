@@ -1,4 +1,4 @@
-import AsyncStorage  from  '@react-native-async-storage/async-storage';
+//import AsyncStorage  from  '@react-native-async-storage/async-storage';
 import storage from 'redux-persist/lib/storage';
 import { persistStore, persistReducer, FLUSH ,
   REHYDRATE,
@@ -7,17 +7,17 @@ import { persistStore, persistReducer, FLUSH ,
   PURGE,
   REGISTER} from 'redux-persist';
 import {   combineReducers, configureStore } from '@reduxjs/toolkit';
-import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
+//import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 
 import { deviceSlice} from './triaSlice/deviceSlice';
 import { messageSlice } from './triaSlice/messageSlice';
-import persistCombineReducers from 'redux-persist/es/persistCombineReducers';
+//import persistCombineReducers from 'redux-persist/es/persistCombineReducers';
 import { tdataSlice } from './triaSlice/tdataSlice';
 import { tstatusSlice } from './triaSlice/tstatusSlice';
 import { settingSlice} from './triaSlice/settingsSlice';
-import { State } from 'react-native-gesture-handler';
-import hardSet from 'redux-persist/lib/stateReconciler/hardSet'
-import type { Reducer } from '@reduxjs/toolkit'
+//import { State } from 'react-native-gesture-handler';
+//import hardSet from 'redux-persist/lib/stateReconciler/hardSet'
+//import type { Reducer } from '@reduxjs/toolkit'
 /*
  export const persistConfig = {
   key: 'tria',

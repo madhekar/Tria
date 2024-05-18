@@ -21,7 +21,7 @@ module.exports = {
 
 /*config.resolver.assetExts.push("ttf")*/
 
-const { getDefaultConfig } = require('expo/metro-config');
+/* const { getDefaultConfig } = require('expo/metro-config');
 
 const config = getDefaultConfig(__dirname);
 
@@ -38,4 +38,16 @@ config.resolver = {
     sourceExts: [...resolver.sourceExts, "svg"],
   };
 
-module.exports = config;
+module.exports = config; */
+
+const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
+
+/**
+ * Metro configuration
+ * https://reactnative.dev/docs/metro
+ *
+ * @type {import('metro-config').MetroConfig}
+ */
+const config = {};
+
+module.exports = mergeConfig(getDefaultConfig(__dirname), config);
