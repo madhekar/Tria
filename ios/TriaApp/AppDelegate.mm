@@ -1,8 +1,9 @@
 #import "AppDelegate.h"
 
 
-#import <React/RCTBridge.h>
+// #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
+/*
 #import <React/RCTRootView.h>
 
 #import <RCTAppSetupUtils.h>
@@ -27,11 +28,12 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 }
 @end
 #endif
-
+*/
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  /*
   RCTAppSetupPrepareApp(application);
 
   RCTBridge *bridge = [self.reactDelegate createBridgeWithDelegate:self launchOptions:launchOptions];
@@ -43,7 +45,13 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
   _bridgeAdapter = [[RCTSurfacePresenterBridgeAdapter alloc] initWithBridge:bridge contextContainer:_contextContainer];
   bridge.surfacePresenter = _bridgeAdapter.surfacePresenter;
 #endif
+*/
+  self.moduleName = @"TriaApp";
+  // You can add your custom initial props in the dictionary below.
+  // They will be passed down to the ViewController used by React Native.
+  self.initialProps = @{};
 
+/*
   NSDictionary *initProps = [self prepareInitialProps];
   UIView *rootView = [self.reactDelegate createRootViewWithBridge:bridge moduleName:@"TriaApp" initialProperties:initProps];
 
@@ -71,20 +79,23 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 {
   // Switch this bool to turn on and off the concurrent root
   return true;
+  */
+    return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
-- (NSDictionary *)prepareInitialProps
+- (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
 {
-  NSMutableDictionary *initProps = [NSMutableDictionary new];
+ /*  NSMutableDictionary *initProps = [NSMutableDictionary new];
 
 #ifdef RCT_NEW_ARCH_ENABLED
   initProps[kRNConcurrentRoot] = @([self concurrentRootEnabled]);
 #endif
 
-  return initProps;
+  return initProps; */
+  return [self bundleURL];
 }
 
-- (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
+- (NSURL *)bundleURL
 {
 #if DEBUG
   return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"];
@@ -93,7 +104,7 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 #endif
 }
 
-#if RCT_NEW_ARCH_ENABLED
+/* #if RCT_NEW_ARCH_ENABLED
 
 #pragma mark - RCTCxxBridgeDelegate
 
@@ -130,6 +141,6 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
   return RCTAppSetupDefaultModuleFromClass(moduleClass);
 }
 
-#endif
+#endif */
 
 @end

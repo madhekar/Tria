@@ -1,9 +1,25 @@
 require File.join(File.dirname(`node --print "require.resolve('expo/package.json')"`), "scripts/autolinking")
-require_relative '../node_modules/react-native/scripts/react_native_pods'
-require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+# require_relative '../node_modules/react-native/scripts/react_native_pods'
+# require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-platform :ios, '15.0'
-install! 'cocoapods', :deterministic_uuids => false
+# Resolve react_native_pods.rb with node to allow for hoisting
+require Pod::Executable.execute_command('node', ['-p',
+  'require.resolve(
+    "react-native/scripts/react_native_pods.rb",
+    {paths: [process.argv[1]]},
+  )', __dir__]).strip
+
+platform :ios, min_ios_version_supported
+# install! 'cocoapods', :deterministic_uuids => false
+prepare_react_native_project!
+ 
+linkage = ENV['USE_FRAMEWORKS']
+if linkage != nil
+  Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
+  use_frameworks! :linkage => linkage.to_sym
+end
+
+
 
 target 'TriaApp' do
   use_expo_modules!
@@ -51,8 +67,5 @@ target 'TriaApp' do
       config[:reactNativePath],
       :mac_catalyst_enabled => false
     )
-    if installer.respond_to?(:__apply_Xcode_12_5_M1_post_install_workaround)
-      installer.__apply_Xcode_12_5_M1_post_install_workaround
-    end
   end
 end
