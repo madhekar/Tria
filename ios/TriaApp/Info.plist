@@ -35,11 +35,13 @@
 			</dict>
 		</dict> -->
 
-	<!-- Do not change NSAllowsArbitraryLoads to true, or you will risk app rejection! -->
-	<key>NSAllowsArbitraryLoads</key>
-	<false/>
-	<key>NSAllowsLocalNetworking</key>
-	<true/>	
+	   <!-- Do not change NSAllowsArbitraryLoads to true, or you will risk app rejection! -->
+	   <key>NSAllowsArbitraryLoads</key>
+	   <true/>
+	   <key>NSAllowsArbitraryLoadsInWebContent</key>
+       <true/>
+	   <key>NSAllowsLocalNetworking</key>
+	   <true/>	
 	</dict>
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>App would like to use Bluetooth to support room climate monitor and control.</string>
