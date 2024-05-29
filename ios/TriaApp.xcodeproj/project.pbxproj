@@ -14,6 +14,7 @@
 		2501CE844B65F7049B163887 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F5E46C1925255C23C9A098 /* ExpoModulesProvider.swift */; };
 		2A33D3B957526B2BA9F3E686 /* libPods-TriaApp-TriaAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1BC672969AD52CAD6016688 /* libPods-TriaApp-TriaAppTests.a */; };
 		2A70F90EB07C7DB47246BFCE /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 445A8E9D6553723C98A6C8AF /* PrivacyInfo.xcprivacy */; };
+		648FBAD62C06A379008EEE80 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 648FBAD52C06A379008EEE80 /* main.jsbundle */; };
 		6A586AEA48C892AF289752EB /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436A8FB822893B0009EE46C1 /* ExpoModulesProvider.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		A28A337FB08AF79C4ADB59C3 /* libPods-TriaApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F29DE08EA9EA62A6FD0D77 /* libPods-TriaApp.a */; };
@@ -23,8 +24,6 @@
 		EF4DB7BD2979DB2300D1A3F9 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436A8FB822893B0009EE46C1 /* ExpoModulesProvider.swift */; };
 		EF4DB7C12979DB2300D1A3F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		EF4DB7C22979DB2300D1A3F9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		EF4DB7CD2979E2B400D1A3F9 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = EF4DB7CC2979E2B400D1A3F9 /* main.jsbundle */; };
-		EF4DB7CF297A221000D1A3F9 /* main.jsbundle in Sources */ = {isa = PBXBuildFile; fileRef = EF4DB7CC2979E2B400D1A3F9 /* main.jsbundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +51,7 @@
 		445A8E9D6553723C98A6C8AF /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = TriaApp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		49A3BE9E0C528B5CF54142B8 /* Pods-TriaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TriaApp.release.xcconfig"; path = "Target Support Files/Pods-TriaApp/Pods-TriaApp.release.xcconfig"; sourceTree = "<group>"; };
 		4AADECC633F3C61E626BCA2F /* Pods-TriaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TriaApp.debug.xcconfig"; path = "Target Support Files/Pods-TriaApp/Pods-TriaApp.debug.xcconfig"; sourceTree = "<group>"; };
+		648FBAD52C06A379008EEE80 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = TriaApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0F5E46C1925255C23C9A098 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-TriaApp-TriaAppTests/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		B8D55CCC038B722E8F8451BC /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = TriaApp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -61,7 +61,6 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		EF4DB7C92979DB2300D1A3F9 /* TriaApp-Deploy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TriaApp-Deploy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF4DB7CA2979DB2400D1A3F9 /* TriaApp copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "TriaApp copy-Info.plist"; path = "/Users/emadhekar/work/test/TriaApp/ios/TriaApp copy-Info.plist"; sourceTree = "<absolute>"; };
-		EF4DB7CC2979E2B400D1A3F9 /* main.jsbundle */ = {isa = PBXFileReference; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +141,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				EF4DB7CC2979E2B400D1A3F9 /* main.jsbundle */,
+				648FBAD52C06A379008EEE80 /* main.jsbundle */,
 				13B07FAE1A68108700A75B9A /* TriaApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* TriaAppTests */,
@@ -322,6 +321,7 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				D59EEDB618D2B8F995395C1C /* PrivacyInfo.xcprivacy in Resources */,
+				648FBAD62C06A379008EEE80 /* main.jsbundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,7 +329,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF4DB7CD2979E2B400D1A3F9 /* main.jsbundle in Resources */,
 				EF4DB7C12979DB2300D1A3F9 /* LaunchScreen.storyboard in Resources */,
 				EF4DB7C22979DB2300D1A3F9 /* Images.xcassets in Resources */,
 				2A70F90EB07C7DB47246BFCE /* PrivacyInfo.xcprivacy in Resources */,
@@ -353,7 +352,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
+			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
 		08BD9A38C4EA52AF8A6DBC1B /* [Expo] Configure project */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -551,7 +550,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF4DB7CF297A221000D1A3F9 /* main.jsbundle in Sources */,
 				EF4DB7BB2979DB2300D1A3F9 /* AppDelegate.mm in Sources */,
 				EF4DB7BC2979DB2300D1A3F9 /* main.m in Sources */,
 				EF4DB7BD2979DB2300D1A3F9 /* ExpoModulesProvider.swift in Sources */,
@@ -581,7 +579,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = TriaAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -608,7 +606,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = MUWRSL3822;
 				INFOPLIST_FILE = TriaAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -640,7 +638,7 @@
 				INFOPLIST_FILE = TriaApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Tria;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -678,7 +676,7 @@
 				INFOPLIST_FILE = TriaApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Tria;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -758,7 +756,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD = "";
 				LDPLUSPLUS = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -779,7 +777,10 @@
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -836,7 +837,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD = "";
 				LDPLUSPLUS = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -856,7 +857,10 @@
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -882,7 +886,7 @@
 				INFOPLIST_FILE = "TriaApp copy-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Tria;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -915,7 +919,7 @@
 				INFOPLIST_FILE = "TriaApp copy-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Tria;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

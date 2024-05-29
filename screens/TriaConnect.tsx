@@ -28,15 +28,15 @@ import { Message } from '../components/State/types';
 import moment from 'moment';
 
 const InputSectionBackground = styled(View)`
-   padding-horizontal: 20px;
+   padding-left: 20px; //horizontal
    width: ${ScreenWidth*.99}px;
    flex: .1;
 `;
 
 const ButtonWeapper = styled(View)`
-padding-horizontal: .5px,
-width: ${ScreenWidth*.1}px;
-flex: .4;
+ padding-left: .5px;  //horizontal
+ width: ${ScreenWidth*.1}px;
+ flex: .4;
 `;
 
 const TriaConnect: FunctionComponent = () => {

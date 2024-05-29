@@ -18,10 +18,10 @@ const StyledView = styled(TouchableOpacity)`
 `;
 
 const StyledImage = styled(Image)`
-resize-mode: cover;
+resize: cover;  //resize-mode
 height: 100%;
 width: 100%;
-boder-radius: 5px;
+border-radius: 5px;
 `;
 
 interface ProfileProps {

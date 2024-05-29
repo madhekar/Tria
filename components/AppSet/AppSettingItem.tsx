@@ -13,7 +13,7 @@ import { updateMessage } from '../State/triaSlice/messageSlice';
 const DeviceBackground = styled(ImageBackground)`
   height: 85%;
   width: ${ScreenWidth * 0.850}px;
-  resize-mode: cover;
+  resize: cover; // resize-mode
   background-color: ${colors.accent};
   border-radius: 5px;
   margin-right: 5px;
@@ -27,7 +27,7 @@ const SettingTouchable = styled(TouchableHighlight)`
 
 const TouchableView = styled(View)`
   flex-direction: row;
-  justify_content: space-between;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
 `;

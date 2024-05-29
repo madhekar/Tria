@@ -30,8 +30,8 @@ const BottomSection = styled(View)`
 const TopImage =  styled(Image)`
 width: 100%;
 height: 100%;
-resize-mode: cover;
-borderBottomRightRadius: 75px;
+resize: cover;
+border-bottom-right-radius: 75px
 `;
 // image 
 import background from "./../assets/bgs/stream-stones-trees.png";

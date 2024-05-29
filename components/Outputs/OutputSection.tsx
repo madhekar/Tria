@@ -27,7 +27,7 @@ const OutputRow = styled(View)`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding-horizontal: 25px;
+  padding-block: 25px; //horizontal
 `;
 
 const OutputList = styled(FlatList)`

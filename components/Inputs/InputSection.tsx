@@ -14,7 +14,7 @@ import InputItem from './InputItem';
 import UseBLE from '../Connection/UseBLE';
 
 const InputSectionBackground = styled(View)`
-   padding-horizontal: 5px;
+   padding-block: 5px; //horizontal
    width: ${ScreenWidth*.99}px;
    flex: 2;
 `;

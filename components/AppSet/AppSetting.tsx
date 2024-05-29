@@ -10,7 +10,7 @@ import device_bg from  '../../assets/bgs/bg_image1.png';
 const DeviceBackground = styled(ImageBackground)`
   height: 90%;
   width: ${ScreenWidth * 0.850}px;
-  resize-mode: cover;
+  resize: cover;  // resize-mode
   background-color: ${colors.accent};
   border-radius: 5px;
   margin-left: 20px;
@@ -26,7 +26,7 @@ const TouchableView = styled(View)`
 `;
 
 const SettingPropsBackground = styled(View)`
-  padding-horizontal: 5px;
+  padding-left: 5px;  //padding-horizontal
   width: ${ScreenWidth* .80}px;
   flex: 1;
 

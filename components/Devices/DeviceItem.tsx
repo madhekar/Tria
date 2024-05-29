@@ -1,6 +1,6 @@
 import React, { createContext, FunctionComponent , useState} from 'react'
 import styled from 'styled-components';
-import {View, ImageBackground, TouchableHighlight, Image, Alert, ViewPagerAndroidOnPageScrollEventData} from 'react-native';
+import {View, ImageBackground, TouchableHighlight, Image, Alert} from 'react-native';
 
 //components
 import { ScreenWidth } from '../shared';
@@ -23,7 +23,7 @@ import { updateMessage } from '../State/triaSlice/messageSlice';
 const DeviceBackground = styled(ImageBackground)`
   height: 90%;
   width: ${ScreenWidth* 0.60}px;
-  resize-mode: cover;
+  resize: cover;  //resize-mode
   background-color: ${colors.accent};
   border-radius: 5px;
   margin-right:15px;
@@ -52,7 +52,7 @@ const DeviceRow = styled(View)`
 const Logo = styled(Image)`
   width: 100%;
   height:100%;
-  resize-mode: contain;
+  resize: contain; //resize-mode
   flex: 1;
 `;
 
