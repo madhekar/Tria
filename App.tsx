@@ -1,5 +1,5 @@
 import React, {} from 'react';
-import {ActivityIndicator, Text} from 'react-native';
+import {ActivityIndicator, Text, Alert} from 'react-native';
 //import {PersistGate} from 'redux-persist/integration/react';
 //custom font
 //import { AppLoading} from "expo-app-loading";
@@ -12,7 +12,7 @@ import RootStack from './navigators/RootStack';
 
 import { Provider } from 'react-redux';
 import {  store } from './components/State/store';
-import { PersistGate } from 'redux-persist/integration/react';
+//import { PersistGate } from 'redux-persist/integration/react';
 
 /* export default function App() {
 
@@ -95,27 +95,29 @@ import { PersistGate } from 'redux-persist/integration/react';
     };
     
    componentDidMount(){
-    //Alert.alert("Starting App...")
+    Alert.alert("Starting App...")
     this.loadAssetsAsync()
    }
 
    async loadAssetsAsync() {
     await Font.loadAsync({
       'Lato-Bold': require("./assets/fonts/Lato-Bold.ttf"),
-      'Lato-Regular': require('./assets/fonts/Lato-Regular.ttf')
-    })
-    this.setState({ fontLoaded: true })
+      'Lato-Regular': require("./assets/fonts/Lato-Regular.ttf"),
+    });
+    this.setState({ fontLoaded: true });
     //this.defaultFonts();
   }
 
   render(){
-     if (!this.state.fontLoaded){
+      if (!this.state.fontLoaded){
+       Alert.alert("font not loaded!") 
        return (
        <ActivityIndicator />);
-     } 
+     }  
     return(
        <Provider store = {store} >
         {/*  <PersistGate loading={<Text>Leoading...</Text>} persistor={persistor}>   */}
+        Alert.alert("font loaded...")
         <RootStack />
        {/*  </PersistGate> */}
       </Provider> 

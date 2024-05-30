@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState} from "react";
-import {useTimeout} from 'usehooks-ts';
+// import {useTimeout} from 'usehooks-ts';
 import { View, Image } from 'react-native';
 import { StatusBar } from "expo-status-bar";
 import styled from 'styled-components';

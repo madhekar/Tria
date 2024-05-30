@@ -1,4 +1,7 @@
 {
   "name": "TriaApp",
-  "displayName": "TriaApp"
+  "displayName": "TriaApp",
+  "plugins": [
+    "expo-font"
+  ]
 }
