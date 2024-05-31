@@ -1,4 +1,4 @@
-import React, {} from 'react';
+import React, {useState} from 'react';
 import {ActivityIndicator, Text, Alert} from 'react-native';
 //import {PersistGate} from 'redux-persist/integration/react';
 //custom font
@@ -87,19 +87,27 @@ import {  store } from './components/State/store';
   }
   return  <RootStack />;
 }  */
+/*--------*/
 
  class App extends React.Component{
 
-    state = {
+constructor(props: {}){
+  super(props);
+
+  this.loadAssetsAsync();
+}
+     state = {
       fontLoaded: false,
-    };
-    
+     }
+   /* 
    componentDidMount(){
     Alert.alert("Starting App...")
-    this.loadAssetsAsync()
-   }
+    this.loadAssetsAsync();
+    Alert.alert("Starting App2...")
+   } */
 
    async loadAssetsAsync() {
+    Alert.alert("trying to load fonts...")
     await Font.loadAsync({
       'Lato-Bold': require("./assets/fonts/Lato-Bold.ttf"),
       'Lato-Regular': require("./assets/fonts/Lato-Regular.ttf"),
@@ -108,27 +116,24 @@ import {  store } from './components/State/store';
     //this.defaultFonts();
   }
 
-  render(){
-      if (!this.state.fontLoaded){
-       Alert.alert("font not loaded!") 
-       return (
-       <ActivityIndicator />);
-     }  
+  render(){  
     return(
        <Provider store = {store} >
-        {/*  <PersistGate loading={<Text>Leoading...</Text>} persistor={persistor}>   */}
         Alert.alert("font loaded...")
         <RootStack />
-       {/*  </PersistGate> */}
       </Provider> 
     );
   }
 }  
+
+
   /* 
      <PersistGate loading={<Text>Leoading...</Text>} persistor={persistor}> 
           <RootStack />
      </PersistGate> 
   */
+
+/*--------*/
 
 /* export default function App() {
   const [IsReady, SetIsReady] = useState(false);

@@ -1,6 +1,7 @@
 {
   "name": "TriaApp",
   "displayName": "TriaApp",
+  "jsEngine": "jsc",
   "plugins": [
     "expo-font"
   ]
