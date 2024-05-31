@@ -89,42 +89,41 @@ import {  store } from './components/State/store';
 }  */
 /*--------*/
 
- class App extends React.Component{
+class App extends React.Component{
+  state = {
+    fontLoaded: false,
+  };
+  
+ componentDidMount(){
+  Alert.alert("Starting App...")
+  this.loadAssetsAsync()
+ }
 
-constructor(props: {}){
-  super(props);
-
-  this.loadAssetsAsync();
+ async loadAssetsAsync() {
+  Alert.alert('trying to load font...')
+  await Font.loadAsync({
+    'Lato-Bold': require("./assets/fonts/Lato-Bold.ttf"),
+    'Lato-Regular': require("./assets/fonts/Lato-Regular.ttf"),
+  });
+  this.setState({ fontLoaded: true });
+  //this.defaultFonts();
 }
-     state = {
-      fontLoaded: false,
-     }
-   /* 
-   componentDidMount(){
-    Alert.alert("Starting App...")
-    this.loadAssetsAsync();
-    Alert.alert("Starting App2...")
-   } */
 
-   async loadAssetsAsync() {
-    Alert.alert("trying to load fonts...")
-    await Font.loadAsync({
-      'Lato-Bold': require("./assets/fonts/Lato-Bold.ttf"),
-      'Lato-Regular': require("./assets/fonts/Lato-Regular.ttf"),
-    });
-    this.setState({ fontLoaded: true });
-    //this.defaultFonts();
-  }
+render(){
+    if (!this.state.fontLoaded){
+     Alert.alert("font not loaded!") 
+     return (
+     <ActivityIndicator />);
+   }  
+  return(
+     <Provider store = {store} >
+      Alert.alert("font loaded...")
+      <RootStack />
+    </Provider> 
+  );
+}
+} 
 
-  render(){  
-    return(
-       <Provider store = {store} >
-        Alert.alert("font loaded...")
-        <RootStack />
-      </Provider> 
-    );
-  }
-}  
 
 
   /* 
