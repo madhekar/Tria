@@ -117,7 +117,6 @@ render(){
    }  
   return(
      <Provider store = {store} >
-      Alert.alert("font loaded...")
       <RootStack />
     </Provider> 
   );
